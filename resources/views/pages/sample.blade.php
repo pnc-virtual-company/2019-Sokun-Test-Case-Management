@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
 
 </head>
+@extends('layouts.app')
+    @section('content')
+        
 <body>
     <div class="container-fluid">
         <table id="example" class="table table-striped" style="width:100%">
@@ -53,6 +56,7 @@
             </tfoot>
         </table>
     </div>
+    @endsection
     <script src="{{asset('js/jquery-1.12.4.min.js')}} "></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}} "></script>
     <script src="{{asset('js/dataTables.bootstrap.min.js')}} "></script>

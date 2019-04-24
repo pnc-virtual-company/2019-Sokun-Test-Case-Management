@@ -220,7 +220,22 @@
                     </div>
                 </div>
             </div>
- 
+
+            <div class="breadcome-area">
+                <div class="container-fluid mt-4">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list">
+                                <div class="row">
+                                    @yield('content')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
