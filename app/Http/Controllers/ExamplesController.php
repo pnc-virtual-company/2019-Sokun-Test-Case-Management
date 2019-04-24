@@ -346,5 +346,8 @@ class ExamplesController extends Controller
             'Content-Type' => 'application/pdf',
             'Content-Disposition' =>  'attachment; filename="' . $filename . '"'
         ));
-	}
+    }
+    function view() {
+        return view('pages.sample');
+    }
 }
