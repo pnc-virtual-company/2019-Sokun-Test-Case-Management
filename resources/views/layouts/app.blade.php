@@ -125,7 +125,13 @@
 								   <span class="mini-click-non">Test Case</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Compaign</span></a></li>
+                                    <li class="nav-item dropdown res-dis-nn">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Campaign<span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
+                                            <div role="menu" class="dropdown-menu animated zoomIn">
+                                            <a href="{{url('manage')}}" class="dropdown-item">Mangae Campaign</a>
+                                                
+                                            </div>
+                                    </li>
                                 <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Calendar</span></a></li>
                                 <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard</span></a></li>
                             </ul>
@@ -220,7 +226,19 @@
                     </div>
                 </div>
             </div>
- 
+            <div class="breadcome-area">
+                    <div class="container-fluid mt-4">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="breadcome-list">
+                                    <div class="row">
+                                        @yield('content')
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">

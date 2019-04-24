@@ -35,6 +35,7 @@ class ExamplesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         return view('examples.index', ['currentExample' => 'List of examples']);
@@ -350,4 +351,5 @@ class ExamplesController extends Controller
     function view() {
         return view('pages.sample');
     }
+    
 }
