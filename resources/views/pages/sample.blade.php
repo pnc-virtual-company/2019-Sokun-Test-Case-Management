@@ -7,7 +7,6 @@
 @extends('layouts.app')
     @section('content')
         
-    
 <body>
     <div class="container-fluid">
         <table id="example" class="table table-striped" style="width:100%">
