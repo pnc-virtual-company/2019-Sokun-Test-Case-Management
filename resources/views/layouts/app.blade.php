@@ -38,9 +38,14 @@
     <link rel="stylesheet" href="{{asset('css/responsive.css')}} ">
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}} ">
 
+    {{-- dashboard link --}}
+    <link rel="stylesheet" href="{{asset('css/dashboard.css')}} ">
+
+    <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
+
     
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts and Icons -->
     <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
@@ -67,7 +72,8 @@
                                 <li><a title="Test case" href="{{route('testCase.index')}} "><span class="mini-sub-pro">Test Case</span></a></li>
                             <li><a title="Campaign" href="{{route('campaign.index')}}"><span class="mini-sub-pro">Campaign</span></a></li>
                             <li><a title="Full Calendar" href="{{route('calendar.index')}}"><span class="mini-sub-pro">Calendar</span></a></li>
-                                <li><a title="Dash board" href="index.html"><span class="mini-sub-pro">Dashboard</span></a></li>
+                                <li><a title="Dash board" href="{{route('dashboard.index')}} "><span class="mini-sub-pro">Dashboard</span></a></li>
+                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Compaign</span></a></li>
                             </ul>
                         </li>
                         <li class="active">
@@ -176,6 +182,10 @@
             </div>
 
 
+        
+        <main>
+                @yield('content')
+            </main>
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
@@ -219,5 +229,9 @@
     {{-- <script src="{{ asset('js/tawk-chat.js') }}"></script> --}}
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{asset('js/gijgo.min.js')}} "></script>
+   
+    
+
 </body>
+
 </html>
