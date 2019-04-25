@@ -74,9 +74,6 @@
                             <li><a title="Full Calendar" href="{{route('calendar.index')}}"><span class="mini-sub-pro">Calendar</span></a></li>
                                 <li><a title="Dash board" href="{{route('dashboard.index')}} "><span class="mini-sub-pro">Dashboard</span></a></li>
                                 <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Compaign</span></a></li>
-                                
-                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Calendar</span></a></li>
-                                <li><a title="Dashboard v.1" href="{{url('dashboard')}}"><span class="mini-sub-pro">Dashboard</span></a></li>
                             </ul>
                         </li>
                         <li class="active">
