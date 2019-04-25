@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="{{asset('css/metisMenu-vertical.css')}} ">
     <link rel="stylesheet" href="{{asset('css/style.css')}} ">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}} ">
-    
+    <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}} ">
 
     
     <!-- Scripts -->
@@ -130,9 +130,13 @@
 								   <span class="mini-click-non">Test Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                            <li><a title="Campaign" href="{{route('campaign.index')}}"><span class="mini-sub-pro">Campaign</span></a></li>
                                 <li><a title="Test case" href="{{route('testCase.index')}} "><span class="mini-sub-pro">Test Case</span></a></li>
+<<<<<<< HEAD
+                            <li><a title="Campaign" href="{{route('campaign.index')}}"><span class="mini-sub-pro">Campaign</span></a></li>
+                                <li><a title="Full Calendar" href="index.html"><span class="mini-sub-pro">Calendar</span></a></li>
+=======
                             <li><a title="Full Calendar" href="{{route('calendar.index')}}"><span class="mini-sub-pro">Calendar</span></a></li>
+>>>>>>> 62582113fbe9c841f302ff5f421309f12167a194
                                 <li><a title="Dash board" href="index.html"><span class="mini-sub-pro">Dashboard</span></a></li>
                             </ul>
                         </li>
@@ -284,6 +288,6 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/tawk-chat.js') }}"></script>
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
-    
+    <script src="{{asset('js/gijgo.min.js')}} "></script>
 </body>
 </html>
