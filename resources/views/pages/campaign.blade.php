@@ -58,9 +58,55 @@
                 </tr>
             </tfoot>
         </table>
-        <button class="btn btn-sm" style="background:#006df0; color:white;"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Campaign</button>
+        <button class="btn btn-sm" style="background:#006df0; color:white;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Campaign</button>
     </div>
     @endsection
+     <!-- Modal -->
+     <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Create New Campagin</h5>
+                </div>
+                <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
+                                <div class="col-sm-9">
+                                <input type="password" class="form-control" autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Start Date</label>
+                                    <div class="col-sm-9">
+                                            <input id="datepicker" width="200px" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">End Date</label>
+                                        <div class="col-sm-9">
+                                                <input id="datepicker2" width="200px" autofocus>
+                                        </div>
+                                    </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
+                                <div class="col-sm-9">
+                                <input type="password" class="form-control">
+                                </div>
+                            </div>
+                        </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-sm btn-primary">Create</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+      <!-- Modal -->
 
           <!-- Modal -->
           <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -89,6 +135,12 @@
             $('#example').DataTable({
                 colReorder: true
             });
+            $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap'
+        });
+            $('#datepicker2').datepicker({
+            uiLibrary: 'bootstrap'
+        });
         });
     </script>
 </body>
