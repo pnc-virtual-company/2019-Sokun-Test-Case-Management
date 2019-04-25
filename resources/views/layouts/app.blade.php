@@ -216,7 +216,7 @@
     <script src="{{ asset('js/sparkline-active.js') }}"></script>
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    <script src="{{ asset('js/tawk-chat.js') }}"></script>
+    {{-- <script src="{{ asset('js/tawk-chat.js') }}"></script> --}}
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{asset('js/gijgo.min.js')}} "></script>
 </body>
