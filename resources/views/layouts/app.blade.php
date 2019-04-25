@@ -47,72 +47,6 @@
 
 </head>
 <body>
-    {{-- <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('examples') }}">{{ __('Examples') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('users')}}"><i class="mdi mdi-lock"></i> {{ __('Users') }}</a>
-                        </li>
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                @endif
-                            </li> -->
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{url('users/profile')}}">
-                                         {{ __('Profile') }}
-                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main>
-            @yield('content')
-        </main>
-    </div> --}}
-
-
 
     <!-- Start Left menu area -->
     <div class="left-sidebar-pro">
@@ -131,12 +65,9 @@
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li><a title="Test case" href="{{route('testCase.index')}} "><span class="mini-sub-pro">Test Case</span></a></li>
-<<<<<<< HEAD
                             <li><a title="Campaign" href="{{route('campaign.index')}}"><span class="mini-sub-pro">Campaign</span></a></li>
                                 <li><a title="Full Calendar" href="index.html"><span class="mini-sub-pro">Calendar</span></a></li>
-=======
                             <li><a title="Full Calendar" href="{{route('calendar.index')}}"><span class="mini-sub-pro">Calendar</span></a></li>
->>>>>>> 62582113fbe9c841f302ff5f421309f12167a194
                                 <li><a title="Dash board" href="index.html"><span class="mini-sub-pro">Dashboard</span></a></li>
                             </ul>
                         </li>
