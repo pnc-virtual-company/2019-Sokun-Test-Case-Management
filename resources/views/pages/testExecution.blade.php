@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
-
+   
 @extends('layouts.app')
     @section('content')
         
@@ -29,7 +29,9 @@
                     <td>Logo</td>
                     <td>Check the size of the logo</td>
                     <td>Logo should fit header</td>
-                    <td></td>
+                    <td>
+                        <input id="datepicker" width="200px"/>
+                    </td>
                     <td>
                         <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
                             <option selected>Choose...</option>
@@ -47,7 +49,7 @@
                     <td>Header Title</td>
                     <td>Check the content of header</td>
                     <td>The title in header is "xxxx"</td>
-                    <td></td>
+                    <td><input id="datepicker2"/></td>
                     <td>
                             <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
                                 <option selected>Choose...</option>
@@ -85,11 +87,18 @@
     <script src="{{asset('js/jquery.dataTables.min.js')}} "></script>
     <script src="{{asset('js/dataTables.bootstrap.min.js')}} "></script>
     <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>
+   
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
                 colReorder: true
             });
+            $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap'
+        });
+            $('#datepicker2').datepicker({
+            uiLibrary: 'bootstrap'
+        });
         });
     </script>
 </body>

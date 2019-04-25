@@ -23,8 +23,7 @@
                         <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <a href="{{route('testExecution.index')}} "><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
-                        <a href=""><i class="mdi mdi-play-backward text-info"  aria-hidden="true"></i></a>
-                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-align-left"  aria-hidden="true"></i></a> 
+                        <a href=""><i class="mdi  mdi-step-backward text-info"  aria-hidden="true"></i></a>
                         <span>1</span>
                     </td>
                     <td>Header</td>
@@ -36,8 +35,7 @@
                         <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <a href=""><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
-                        <a href=""><i class="mdi mdi-play-backward text-info"  aria-hidden="true"></i></a>
-                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-align-left"  aria-hidden="true"></i></a> 
+                        <a href=""><i class="mdi mdi-step-backward text-info"  aria-hidden="true"></i></a>
                         <span>2</span>
                     </td>
                     <td>Screen 1 Form</td>
