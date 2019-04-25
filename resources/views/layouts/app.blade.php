@@ -31,11 +31,15 @@
     <link rel="stylesheet" href="{{asset('css/metisMenu-vertical.css')}} ">
     <link rel="stylesheet" href="{{asset('css/style.css')}} ">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}} ">
+
+    {{-- dashboard link --}}
+    <link rel="stylesheet" href="{{asset('css/dashboard.css')}} ">
+
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
 
     
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts and Icons -->
     <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
@@ -126,8 +130,9 @@
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Compaign</span></a></li>
+                                
                                 <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Calendar</span></a></li>
-                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard</span></a></li>
+                                <li><a title="Dashboard v.1" href="{{url('dashboard')}}"><span class="mini-sub-pro">Dashboard</span></a></li>
                             </ul>
                         </li>
                         <li class="active">
@@ -220,7 +225,10 @@
                     </div>
                 </div>
             </div>
- 
+        
+        <main>
+                @yield('content')
+            </main>
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
@@ -260,5 +268,9 @@
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/tawk-chat.js') }}"></script>
+   
+    
+
 </body>
+
 </html>

@@ -62,3 +62,4 @@ Route::get('examples', 'ExamplesController@index')->name('examples');
 /*
 =============================================================================*/
 Route::get('/sample','ExamplesController@view');
+Route::get('/dashboard','DashboardController@view');
