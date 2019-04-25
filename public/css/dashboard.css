@@ -1,0 +1,39 @@
+.rowPie{
+    border:2px solid grey;
+    margin-left: 100px;
+    width: 910px;
+    
+}
+.piechart{
+    width: 430px;
+    height:350px;
+    margin-left: 10px;
+    float: left;
+    
+}
+.barchart{
+   
+    width: 400px;
+    height:400px;
+}
+#bar-chart{
+    background-color:white;
+    margin-left:50px;
+}
+.rowBar{
+ margin-left: 100px;
+    background-color: white;
+    width: 508px;
+    height:400px;
+}
+.textrow{
+    margin-top:16px;
+}
+.option{
+    width: 220px;
+    margin-top: 152px;
+    margin-left: 146px;
+    height: 50px;
+     border:1px solid grey;
+}
+

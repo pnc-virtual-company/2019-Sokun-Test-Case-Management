@@ -66,3 +66,4 @@ Route::resource('testCase', "TestCaseController");
 Route::resource('testStepList', "TestStepListController");
 Route::resource('testExecution','CompaignExecutionController');
 Route::resource('calendar','fullcalenderController');
+Route::resource('dashboard','DashboardController');

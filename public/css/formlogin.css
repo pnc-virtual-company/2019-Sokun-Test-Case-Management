@@ -1,0 +1,16 @@
+.card{
+    width:430px;
+    height: 430px;
+   /* text-align: center; */
+    /* background-color: green; */
+}
+.card-header{
+    text-align: center;
+    background-color:#2a3382;
+}
+.card-header h2{
+    color:white;
+}
+input{
+    w
+}
