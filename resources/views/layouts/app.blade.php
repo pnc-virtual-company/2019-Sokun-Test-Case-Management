@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="{{ asset('images/logosn.png') }}">
+    <link rel="icon" href="{{ asset('images/logo.png') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- CSRF Token -->
@@ -15,7 +15,12 @@
     
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+
+    
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
+
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}} ">
     <link rel="stylesheet" href="{{asset('css/owl.theme.css')}} ">
@@ -31,7 +36,7 @@
     <link rel="stylesheet" href="{{asset('css/metisMenu-vertical.css')}} ">
     <link rel="stylesheet" href="{{asset('css/style.css')}} ">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}} ">
-    <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
+    
 
     
     <!-- Scripts -->
@@ -122,18 +127,13 @@
                         <li class="active">
                             <a class="has-arrow" href="index.html">
 								   <span class="educate-icon educate-home icon-wrap"></span>
-								   <span class="mini-click-non">Test Case</span>
+								   <span class="mini-click-non">Test Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                    <li class="nav-item dropdown res-dis-nn">
-                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Campaign<span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
-                                            <div role="menu" class="dropdown-menu animated zoomIn">
-                                            <a href="{{url('manage')}}" class="dropdown-item">Mangae Campaign</a>
-                                                
-                                            </div>
-                                    </li>
-                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Calendar</span></a></li>
-                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard</span></a></li>
+                            <li><a title="Campaign" href="{{route('campaign.index')}}"><span class="mini-sub-pro">Campaign</span></a></li>
+                                <li><a title="Test case" href="{{route('testCase.index')}} "><span class="mini-sub-pro">Test Case</span></a></li>
+                                <li><a title="Full Calendar" href="index.html"><span class="mini-sub-pro">Calendar</span></a></li>
+                                <li><a title="Dash board" href="index.html"><span class="mini-sub-pro">Dashboard</span></a></li>
                             </ul>
                         </li>
                         <li class="active">
@@ -226,19 +226,22 @@
                     </div>
                 </div>
             </div>
+
             <div class="breadcome-area">
-                    <div class="container-fluid mt-4">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="breadcome-list">
-                                    <div class="row">
-                                        @yield('content')
-                                    </div>
+                <div class="container-fluid mt-4">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list">
+                                <div class="row">
+                                    @yield('content')
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
@@ -254,7 +257,9 @@
     </div>
 
     @stack('scripts')
-    <script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
+
+
+
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
     <script src="{{ asset('js/jquery-price-slider.js') }}"></script>
@@ -278,5 +283,7 @@
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/tawk-chat.js') }}"></script>
+    <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
+    
 </body>
 </html>

@@ -62,4 +62,8 @@ Route::get('examples', 'ExamplesController@index')->name('examples');
 /*
 =============================================================================*/
 Route::get('/sample','ExamplesController@view');
-Route::resource('/manage','ManageController');
+Route::resource('campaign', "CampaignController");
+Route::resource('campaignListTest', "CampaignListTestController");
+Route::resource('testCase', "TestCaseController");
+Route::resource('testStepList', "TestStepListController");
+Route::resource('testExecution','CompaignExecutionController');
