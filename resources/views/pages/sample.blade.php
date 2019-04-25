@@ -1,9 +1,7 @@
-<head>
+
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
-
-</head>
 @extends('layouts.app')
     @section('content')
         
@@ -57,7 +55,7 @@
         </table>
     </div>
     @endsection
-    <script src="{{asset('js/jquery-1.12.4.min.js')}} "></script>
+    <script src="{{asset('js/jquery-3.3.1.min.js')}} "></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}} "></script>
     <script src="{{asset('js/dataTables.bootstrap.min.js')}} "></script>
     <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>

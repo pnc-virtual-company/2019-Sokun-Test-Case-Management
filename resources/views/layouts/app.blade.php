@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="{{ asset('images/logosn.png') }}">
+    <link rel="icon" href="{{ asset('images/logo.png') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- CSRF Token -->
@@ -15,7 +15,12 @@
     
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+
+    
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
+
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}} ">
     <link rel="stylesheet" href="{{asset('css/owl.theme.css')}} ">
@@ -31,7 +36,7 @@
     <link rel="stylesheet" href="{{asset('css/metisMenu-vertical.css')}} ">
     <link rel="stylesheet" href="{{asset('css/style.css')}} ">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}} ">
-    <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
+    
 
     
     <!-- Scripts -->
@@ -251,7 +256,9 @@
     </div>
 
     @stack('scripts')
-    <script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
+
+
+
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
     <script src="{{ asset('js/jquery-price-slider.js') }}"></script>
@@ -275,5 +282,7 @@
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/tawk-chat.js') }}"></script>
+    <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
+    
 </body>
 </html>
