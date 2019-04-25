@@ -59,11 +59,3 @@ Route::get('examples/pdf/downloadPDF', 'ExamplesController@downloadPDF');
 
 //Landing page for the examples:
 Route::get('examples', 'ExamplesController@index')->name('examples');
-/*
-=============================================================================*/
-Route::get('/sample','ExamplesController@view');
-Route::resource('campaign', "CampaignController");
-Route::resource('campaignListTest', "CampaignListTestController");
-Route::resource('testCase', "TestCaseController");
-Route::resource('testStepList', "TestStepListController");
-Route::resource('testExecution','CompaignExecutionController');

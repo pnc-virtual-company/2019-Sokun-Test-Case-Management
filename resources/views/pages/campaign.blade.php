@@ -61,7 +61,7 @@
         <button class="btn btn-sm" style="background:#006df0; color:white;"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Campaign</button>
     </div>
     @endsection
-    
+
           <!-- Modal -->
           <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
