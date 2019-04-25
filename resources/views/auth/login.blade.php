@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -68,4 +68,88 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transparent HTML Login Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="{{asset('css/loginform.css')}}">
+  <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url({{asset('images/mountain.png')}}) no-repeat center center fixed;
+            background-size: cover;
+        }
+        .modal-content {
+            background-color: #434e5a;
+            opacity: .8;
+            padding: 0 18px;
+            border-radius: 10px;
+        }
+
+        </style>
+
+</head>
+<body>
+
+  <div class="modal-dialog text-center">
+    <div class="col-sm-9 main-section">
+      <div class="modal-content">
+
+        <div class="col-12 user-img">
+        <img src="{{asset('images/face.png')}}">
+        </div>
+
+        <div class="col-12 form-input">
+          <form method="POST" action="{{ route('login') }}">
+                @csrf
+            <div class="form-group">
+                    <input id="email" placeholder="Email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+            </div>
+            <div class="form-group">
+                    <input id="password" placeholder="Password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+            </div>
+            <button type="submit" class="btn btn-success">Login</button>
+          </form>
+        </div>
+
+        <div class="col-12 forgot">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                <a class="form-check-label" for="remember">
+                    {{ __('Remember Me') }}
+                </label>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
+
