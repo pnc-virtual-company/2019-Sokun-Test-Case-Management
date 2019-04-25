@@ -73,20 +73,34 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
-                                <input type="password" class="form-control" autofocus>
+                                <input type="text" class="form-control" autofocus>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Start Date</label>
-                                    <div class="col-sm-9">
-                                            <input id="datepicker" width="200px" autofocus>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                        <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">End Date</label>
-                                        <div class="col-sm-9">
-                                                <input id="datepicker2" width="200px" autofocus>
+                                    
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                
+                                                <label for="inputPassword" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
+                                            </div>
+                                            <div class="col-md-7">
+                                            <input id="datepicker" width="170px" autofocus  >
                                         </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
+                                            </div>
+                                            <div class="col-md-7">
+                                            <input id="datepicker2" width="170px" autofocus  >
+                                        </div>
+                                        </div>
+                                    </div>
+                                   
+                                    
                                     </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
