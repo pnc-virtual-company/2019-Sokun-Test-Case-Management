@@ -66,7 +66,6 @@
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li><a title="Test case" href="{{route('testCase.index')}} "><span class="mini-sub-pro">Test Case</span></a></li>
                             <li><a title="Campaign" href="{{route('campaign.index')}}"><span class="mini-sub-pro">Campaign</span></a></li>
-                                <li><a title="Full Calendar" href="index.html"><span class="mini-sub-pro">Calendar</span></a></li>
                             <li><a title="Full Calendar" href="{{route('calendar.index')}}"><span class="mini-sub-pro">Calendar</span></a></li>
                                 <li><a title="Dash board" href="index.html"><span class="mini-sub-pro">Dashboard</span></a></li>
                             </ul>
