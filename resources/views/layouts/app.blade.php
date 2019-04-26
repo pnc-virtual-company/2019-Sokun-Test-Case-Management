@@ -45,7 +45,7 @@
 
     
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
     <!-- Fonts and Icons -->
     <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
@@ -65,7 +65,7 @@
                     <ul class="metismenu" id="menu1">
                         <li class="active">
                             <a class="has-arrow" href="index.html">
-								   <span class="educate-icon educate-home icon-wrap"></span>
+								   <span class="educate-icon icon-wrap"></span>
 								   <span class="mini-click-non">Test Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
@@ -73,12 +73,12 @@
                             <li><a title="Campaign" href="{{route('campaign.index')}}"><span class="mini-sub-pro">Campaign</span></a></li>
                             <li><a title="Full Calendar" href="{{route('calendar.index')}}"><span class="mini-sub-pro">Calendar</span></a></li>
                                 <li><a title="Dash board" href="{{route('dashboard.index')}} "><span class="mini-sub-pro">Dashboard</span></a></li>
-                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Compaign</span></a></li>
+
                             </ul>
                         </li>
                         <li class="active">
                             <a class="has-arrow" href="index.html">
-								   <span class="educate-icon educate-home icon-wrap"></span>
+								   <span class="educate-icon educate-user icon-wrap"></span>
 								   <span class="mini-click-non">User Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
@@ -170,11 +170,6 @@
                 </div>
             </div>
 
-
-        
-        <main>
-                @yield('content')
-            </main>
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
@@ -190,8 +185,6 @@
     </div>
 
     @stack('scripts')
-
-
 
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
@@ -215,7 +208,6 @@
     <script src="{{ asset('js/sparkline-active.js') }}"></script>
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    {{-- <script src="{{ asset('js/tawk-chat.js') }}"></script> --}}
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{asset('js/gijgo.min.js')}} "></script>
    
