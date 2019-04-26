@@ -1,4 +1,4 @@
-
+<script src="{{ asset('js/app.js') }}"></script>
 @extends('layouts.app')
 
 @section('content')
