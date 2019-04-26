@@ -8,6 +8,7 @@
 <body>
     <div class="container-fluid">
         <h2>List of test in Campaign </h2>
+        <p>CAMPAIGN XX</p>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -20,7 +21,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <a href="{{route('testExecution.index')}} "><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
                         <a href=""><i class="mdi  mdi-step-backward text-info"  aria-hidden="true"></i></a>
@@ -32,7 +33,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <a href=""><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
                         <a href=""><i class="mdi mdi-step-backward text-info"  aria-hidden="true"></i></a>
@@ -73,6 +74,48 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Update List Of Test In Campaign</h5>
+            </div>
+            <div class="modal-body">
+                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Preference</label>
+                <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-sm btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Remove Test</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure that you want to remove the test case?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-sm btn-primary">Yes</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
           <!-- Modal -->
