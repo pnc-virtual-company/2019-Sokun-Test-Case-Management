@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="{{ asset('images/logo.png') }}">
+    <link rel="icon" href="{{ asset('images/logosn.png') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- CSRF Token -->
@@ -57,15 +57,15 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="{{asset('images/logo.png')}} " alt="" /></a>
-                <strong><a href="index.html"><img src="{{asset('images/logosn.png')}}" alt="" /></a></strong>
+                <a href="{{route('testCase.index')}}"><img class="main-logo" src="{{asset('images/logo.png')}} " alt="" /></a>
+                <strong><a href="{{route('testCase.index')}} "><img src="{{asset('images/logosn.png')}}" alt="" style="width:53px; height:50px;" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                         <li class="active">
                             <a class="has-arrow" href="index.html">
-								   <span class="educate-icon icon-wrap"></span>
+								   <span class="educate-icon educate-home icon-wrap"></span>
 								   <span class="mini-click-non">Test Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
@@ -129,8 +129,8 @@
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															<img src="{{asset('images/logo.png')}} " alt="" />
-															<span class="admin-name">Prof.Anderson</span>
+															<img src="{{asset('images/logosn.png')}} " alt="" />
+															<span class="admin-name">Manager</span>
 															<i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
