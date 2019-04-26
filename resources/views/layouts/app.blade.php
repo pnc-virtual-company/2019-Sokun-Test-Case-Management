@@ -86,6 +86,7 @@
         </nav>
     </div>
     <!-- End Left menu area -->
+
     <!-- Start Welcome area -->
     <div class="all-content-wrapper">
         <div class="container-fluid">
@@ -111,22 +112,10 @@
 												</button>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                         <div class="header-top-menu tabl-d-n">
-                                            <ul class="nav navbar-nav mai-top-nav">
-                                                <li class="nav-item"><a href="{{url('sample')}} " class="nav-link">SampleTable</a>
-                                                </li>
-                                                <li class="nav-item"><a href="#" class="nav-link">Pie Chart</a>
-                                                </li>
-                                                <li class="nav-item"><a href="#" class="nav-link">Request</a>
-                                                </li>
-                                                <li class="nav-item dropdown res-dis-nn">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Test Case <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
-                                                    <div role="menu" class="dropdown-menu animated zoomIn">
-                                                        <a href="#" class="dropdown-item">Test Case1</a>
-                                                        <a href="#" class="dropdown-item">Test Case2</a>
-                                                    </div>
-                                            </ul>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
