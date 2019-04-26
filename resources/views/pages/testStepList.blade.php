@@ -21,7 +21,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <span>1</span>
                     </td>
@@ -31,7 +31,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <span>2</span>
                     </td>
@@ -50,7 +50,7 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Create Test Step</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Create Test Case Steps</h5>
                     </div>
                     <div class="modal-body">
                             <form>
@@ -105,6 +105,71 @@
               </div>
             </div>
           </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Update List Of Test Case Steps</h5>
+                </div>
+                <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">ID:</label>
+                                <div class="col-sm-9">
+                                <input type="password" class="form-control" autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
+                                <div class="col-sm-9">
+                                <input type="password" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Action:</label>
+                                <div class="col-sm-9">
+                                <input type="password" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Expected Result:</label>
+                                <div class="col-sm-9">
+                                <input type="password" class="form-control">
+                                </div>
+                            </div>
+                        </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-sm btn-primary">Update</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <!-- Modal -->
+          <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Remove Test</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure that you want to remove the test case?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-sm btn-primary">Yes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
     <script src="{{asset('js/jquery-3.3.1.min.js')}} "></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}} "></script>
