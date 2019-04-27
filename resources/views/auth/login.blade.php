@@ -92,7 +92,10 @@
             background-size: cover;
         }
         .modal-content {
-            background-color: #434e5a;
+            right: -18%;
+            margin-top: 140px;
+            box-shadow: 3px 3px 5px white;
+            background-color:rgba(255,255,255,0.6);;
             opacity: .8;
             padding: 0 18px;
             border-radius: 10px;
@@ -108,7 +111,7 @@
       <div class="modal-content">
 
         <div class="col-12 user-img">
-        <img src="{{asset('images/face.png')}}">
+        <img src="{{asset('images/logoo.png')}}">
         </div>
 
         <div class="col-12 form-input">

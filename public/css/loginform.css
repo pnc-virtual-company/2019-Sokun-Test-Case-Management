@@ -1,11 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
-.modal-content {
-	background-color: #434e5a;
-	opacity: .8;
-	padding: 0 18px;
-	border-radius: 10px;
-}
 .user-img img {
 	height: 120px;
 	width: 120px;
