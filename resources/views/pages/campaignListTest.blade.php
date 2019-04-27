@@ -8,6 +8,7 @@
 <body>
     <div class="container-fluid">
         <h2>List of test in Campaign Version1</h2>
+        <button class="btn" style="background:#006df0; color:white;margin-bottom:20px;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Add Test Case</button>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -44,7 +45,7 @@
                 </tr>
             </tfoot>
         </table>
-        <button class="btn btn-sm" style="background:#006df0; color:white;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Add Test Case</button>
+        
     </div>
     @endsection
 
