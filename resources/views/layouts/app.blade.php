@@ -81,7 +81,7 @@
 								   <span class="mini-click-non">User Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Users</span></a></li>
+                                <li><a title="Dashboard v.1" href="{{route('users.index')}} "><span class="mini-sub-pro">Users</span></a></li>
                             </ul>
                         </li>
                        
