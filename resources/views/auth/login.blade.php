@@ -135,7 +135,7 @@
                         </span>
                     @endif
             </div>
-            <button type="submit" class="btn btn-success">Login</button>
+            <a href="{{route('campaign.index')}} " type="submit" class="btn btn-success">Login</a>
           </form>
         </div>
 

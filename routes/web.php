@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('skeleton', function () {
     return view('examples.index', ['currentExample' => 'List of examples']);
 });
 
+Route::get('/', function(){
+    return view('auth.login');
+});
 Auth::routes();
 
 Route::get('users/profile','UserController@profile');
