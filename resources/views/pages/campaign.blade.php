@@ -58,7 +58,7 @@
                 </tr>
             </tfoot>
         </table>
-        <button class="btn btn-sm" style="background:#006df0; color:white;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Campaign</button>
+        <button class="btn" style="background:#006df0; color:white;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Campaign</button>
     </div>
     @endsection
      <!-- create Modal -->
@@ -82,10 +82,10 @@
                                         <div class="row">
                                             <div class="col-md-5">
                                                 
-                                                <label for="inputPassword" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
+                                                <label for="#" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
                                             </div>
                                             <div class="col-md-7">
-                                            <input id="datepicker" width="170px" autofocus  >
+                                            <input type="text" id="datepicker" width="170px">
                                         </div>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@
                                                 <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
                                             </div>
                                             <div class="col-md-7">
-                                            <input id="datepicker2" width="170px" autofocus  >
+                                            <input type="text" id="datepicker2" width="170px">
                                         </div>
                                         </div>
                                     </div>

@@ -10,7 +10,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Test Case Management Application') }}</title>
+    <title>Sokun</title>
 
     
     <!-- Styles -->
@@ -57,8 +57,8 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="{{route('testCase.index')}}"><img class="main-logo" src="{{asset('images/logo.png')}} " alt="" /></a>
-                <strong><a href="{{route('testCase.index')}} "><img src="{{asset('images/logosn.png')}}" alt="" style="width:53px; height:50px;" /></a></strong>
+                <a href=""><img class="main-logo" src="{{asset('images/logo.png')}} " alt="" /></a>
+                <strong><a href=""><img src="{{asset('images/logosn.png')}}" alt="" style="width:53px; height:50px;" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -69,7 +69,6 @@
 								   <span class="mini-click-non">Test Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="Test case" href="{{route('testCase.index')}} "><span class="mini-sub-pro">Test Case</span></a></li>
                             <li><a title="Campaign" href="{{route('campaign.index')}}"><span class="mini-sub-pro">Campaign</span></a></li>
                             <li><a title="Full Calendar" href="{{route('calendar.index')}}"><span class="mini-sub-pro">Calendar</span></a></li>
                                 <li><a title="Dash board" href="{{route('dashboard.index')}} "><span class="mini-sub-pro">Dashboard</span></a></li>
@@ -78,7 +77,7 @@
                         </li>
                         <li class="active">
                             <a class="has-arrow" href="index.html">
-								   <span class="educate-icon educate-user icon-wrap"></span>
+								   <span class="educate-icon educate-home icon-wrap"></span>
 								   <span class="mini-click-non">User Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
@@ -211,7 +210,7 @@
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{asset('js/gijgo.min.js')}} "></script>
    
-    
+
 
 </body>
 
