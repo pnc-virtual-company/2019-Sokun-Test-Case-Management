@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
 @extends('layouts.app')
     @section('content')
-        
 <body>
     <div class="container-fluid">
         <h2>List of Campaign </h2>
@@ -17,7 +16,6 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Short Description</th>
-                    
                 </tr>
             </thead>
             <tbody>
