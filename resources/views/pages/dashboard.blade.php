@@ -1,4 +1,4 @@
-
+<script src="{{ asset('js/app.js') }}"></script>
 @extends('layouts.app')
 
 @section('content')
@@ -6,12 +6,11 @@
     <div class="container-fluid ">
       
         <div class="textrow row">
-               <br>
-               <br>
-               <br>
+
         </div>
         <div class="rowPie row">
                 <div class="piechart form-group"><br>
+            <div class="piechart form-group">
                     <h3>Campaign status</h3>
                     <select class="option form-control " id="sel1">
                         <option>Version 1</option>
@@ -28,6 +27,7 @@
         </div>
         <div class="rowBar row">
                 <div class="barchart col-lg-12"><br>
+                <div class="barchart col-lg-12"> <br>
                         <h3> The result that pass</h3>           
                         <canvas id="bar-chart" width="400px" height="300px"></canvas>
                     </div>

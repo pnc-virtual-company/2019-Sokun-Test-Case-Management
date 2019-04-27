@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="{{ asset('images/logo.png') }}">
+    <link rel="icon" href="{{ asset('images/logosn.png') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Test Case Management Application') }}</title>
+    <title>Sokun</title>
 
     
     <!-- Styles -->
@@ -45,7 +45,7 @@
 
     
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
     <!-- Fonts and Icons -->
     <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
@@ -57,8 +57,8 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="{{asset('images/logo.png')}} " alt="" /></a>
-                <strong><a href="index.html"><img src="{{asset('images/logosn.png')}}" alt="" /></a></strong>
+                <a href=""><img class="main-logo" src="{{asset('images/logo.png')}} " alt="" /></a>
+                <strong><a href=""><img src="{{asset('images/logosn.png')}}" alt="" style="width:53px; height:50px;" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -69,11 +69,10 @@
 								   <span class="mini-click-non">Test Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="Test case" href="{{route('testCase.index')}} "><span class="mini-sub-pro">Test Case</span></a></li>
                             <li><a title="Campaign" href="{{route('campaign.index')}}"><span class="mini-sub-pro">Campaign</span></a></li>
                             <li><a title="Full Calendar" href="{{route('calendar.index')}}"><span class="mini-sub-pro">Calendar</span></a></li>
                                 <li><a title="Dash board" href="{{route('dashboard.index')}} "><span class="mini-sub-pro">Dashboard</span></a></li>
-                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Compaign</span></a></li>
+
                             </ul>
                         </li>
                         <li class="active">
@@ -92,6 +91,7 @@
         </nav>
     </div>
     <!-- End Left menu area -->
+
     <!-- Start Welcome area -->
     <div class="all-content-wrapper">
         <div class="container-fluid">
@@ -117,22 +117,10 @@
 												</button>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                         <div class="header-top-menu tabl-d-n">
-                                            <ul class="nav navbar-nav mai-top-nav">
-                                                <li class="nav-item"><a href="{{url('sample')}} " class="nav-link">SampleTable</a>
-                                                </li>
-                                                <li class="nav-item"><a href="#" class="nav-link">Pie Chart</a>
-                                                </li>
-                                                <li class="nav-item"><a href="#" class="nav-link">Request</a>
-                                                </li>
-                                                <li class="nav-item dropdown res-dis-nn">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Test Case <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
-                                                    <div role="menu" class="dropdown-menu animated zoomIn">
-                                                        <a href="#" class="dropdown-item">Test Case1</a>
-                                                        <a href="#" class="dropdown-item">Test Case2</a>
-                                                    </div>
-                                            </ul>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -140,8 +128,8 @@
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															<img src="{{asset('images/logo.png')}} " alt="" />
-															<span class="admin-name">Prof.Anderson</span>
+															<img src="{{asset('images/logosn.png')}} " alt="" />
+															<span class="admin-name">Manager</span>
 															<i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
@@ -185,7 +173,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer-copy-right">
-                            <p>Copyright © 2018. All rights reserved. Template by Colorlib</a></p>
+                            <p>Copyright © 2019. All rights reserved. Sokun Test Case Management</a></p>
                         </div>
                     </div>
                 </div>
@@ -195,8 +183,6 @@
     </div>
 
     @stack('scripts')
-
-
 
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
@@ -220,11 +206,10 @@
     <script src="{{ asset('js/sparkline-active.js') }}"></script>
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    {{-- <script src="{{ asset('js/tawk-chat.js') }}"></script> --}}
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{asset('js/gijgo.min.js')}} "></script>
    
-    
+
 
 </body>
 

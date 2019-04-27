@@ -7,7 +7,7 @@
         
 <body>
     <div class="container-fluid">
-        <h2>List of test in Campaign </h2>
+        <h2>List of test in Campaign Version1</h2>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -20,7 +20,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <a href="{{route('testExecution.index')}} "><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
                         <a href=""><i class="mdi  mdi-step-backward text-info"  aria-hidden="true"></i></a>
@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <a href=""><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
                         <a href=""><i class="mdi mdi-step-backward text-info"  aria-hidden="true"></i></a>
@@ -44,35 +44,113 @@
                 </tr>
             </tfoot>
         </table>
-        <button class="btn btn-sm" style="background:#006df0; color:white;" data-toggle="modal" data-target="#exampleModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Add Test Case</button>
+        <button class="btn btn-sm" style="background:#006df0; color:white;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Add Test Case</button>
     </div>
     @endsection
 
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- Modal -->
+      <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add Test Case</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Create Test Case</h5>
             </div>
             <div class="modal-body">
-                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Preference</label>
-                <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
+                            <div class="col-sm-9">
+                            <input type="password" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">User:</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Jonh Bill</option>
+                                    <option value="2">Bona</option>
+                                    <option value="3">Smita</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Description:</label>
+                            <div class="col-sm-9">
+                            <input type="password" class="form-control">
+                            </div>
+                        </div>
+                    </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-sm btn-primary">Add</button>
+              <button type="button" class="btn btn-sm btn-primary">Create</button>
             </div>
           </div>
         </div>
       </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Test Case</h5>
+        </div>
+        <div class="modal-body">
+                <form>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
+                        <div class="col-sm-9">
+                        <input type="password" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">User:</label>
+                        <div class="col-sm-9">
+                            <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
+                                <option selected>Choose...</option>
+                                <option value="1">Jonh Bill</option>
+                                <option value="2">Bona</option>
+                                <option value="3">Smita</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Description:</label>
+                        <div class="col-sm-9">
+                        <input type="password" class="form-control">
+                        </div>
+                    </div>
+                </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-sm btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Remove Test</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure that you want to remove the test case?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-sm btn-primary">Yes</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
           <!-- Modal -->

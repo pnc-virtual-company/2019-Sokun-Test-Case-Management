@@ -22,7 +22,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted"  aria-hidden="true"></i></a> 
                         <span>1</span>
@@ -34,7 +34,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted"  aria-hidden="true"></i></a> 
                         <span>2</span>
@@ -46,7 +46,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href=""><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
                         <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted"  aria-hidden="true"></i></a> 
                         <span>3</span>
@@ -58,10 +58,10 @@
                 </tr>
             </tfoot>
         </table>
-        <button class="btn btn-sm" style="background:#006df0; color:white;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Campaign</button>
+        <button class="btn" style="background:#006df0; color:white;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Campaign</button>
     </div>
     @endsection
-     <!-- Modal -->
+     <!-- create Modal -->
      <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -73,20 +73,34 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
-                                <input type="password" class="form-control" autofocus>
+                                <input type="text" class="form-control" autofocus>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Start Date</label>
-                                    <div class="col-sm-9">
-                                            <input id="datepicker" width="200px" autofocus>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                        <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">End Date</label>
-                                        <div class="col-sm-9">
-                                                <input id="datepicker2" width="200px" autofocus>
+                                    
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                
+                                                <label for="#" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
+                                            </div>
+                                            <div class="col-md-7">
+                                            <input type="text" id="datepicker" width="170px">
                                         </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
+                                            </div>
+                                            <div class="col-md-7">
+                                            <input type="text" id="datepicker2" width="170px">
+                                        </div>
+                                        </div>
+                                    </div>
+                                   
+                                    
                                     </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
@@ -125,6 +139,66 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Modal -->
+     <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Update List Of Campaign</h5>
+            </div>
+            <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
+                            <div class="col-sm-9">
+                            <input type="text" class="form-control" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            
+                                            <label for="inputPassword" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
+                                        </div>
+                                        <div class="col-md-7">
+                                        <input id="datepicker" width="170px" autofocus  >
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
+                                        </div>
+                                        <div class="col-md-7">
+                                        <input id="datepicker2" width="170px" autofocus  >
+                                    </div>
+                                    </div>
+                                </div>
+                               
+                                
+                                </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
+                            <div class="col-sm-9">
+                            <input type="password" class="form-control">
+                            </div>
+                        </div>
+                    </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-sm btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
 
     <script src="{{asset('js/jquery-3.3.1.min.js')}} "></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}} "></script>
