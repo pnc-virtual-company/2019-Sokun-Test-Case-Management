@@ -4,10 +4,10 @@
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
 @extends('layouts.app')
     @section('content')
-        
 <body>
     <div class="container-fluid">
         <h2>List of Campaign </h2>
+        <button class="btn" style="background:#006df0; color:white;margin-bottom:20px;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Campaign</button>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -16,7 +16,6 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Short Description</th>
-                    
                 </tr>
             </thead>
             <tbody>
@@ -58,7 +57,7 @@
                 </tr>
             </tfoot>
         </table>
-        <button class="btn" style="background:#006df0; color:white;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Campaign</button>
+        
     </div>
     @endsection
      <!-- create Modal -->
