@@ -8,14 +8,14 @@
             @include('session-flash')
 
             <div class="card">
-                <div class="card-header">@lang('List of users')</div>
+                <div class="card-header"><h2>@lang('List of users')</h2></div>
 
                 <div class="card-body">
 
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn btn-secondary" href="{{url('users/create')}}">@lang('Add a new user')</a>
-                            <a class="btn btn-secondary" href="{{url('users/export')}}" download>@lang('Export to Excel')</a>
+                            <a class="btn  bg-primary" href="{{url('users/create')}}">@lang('Add a new user')</a>
+                            <a class="btn  bg-success" href="{{url('users/export')}}" download>@lang('Export to Excel')</a>
                         </div>
                     </div>
 

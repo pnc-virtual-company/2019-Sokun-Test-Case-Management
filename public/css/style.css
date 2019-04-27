@@ -44,7 +44,7 @@
 /*----------------------------------------*/
 
 
-html, body {height: 100%; font-family: 'Roboto', sans-serif;font-weight:400;background:#F6F8FA;}
+html, body {height: 100%; font-family: 'Roboto', sans-serif;font-weight:300;background:#F6F8FA;}
 .floatleft {float:left}
 .floatright {float:right}
 .alignleft {float:left;margin-right:15px;margin-bottom: 15px}

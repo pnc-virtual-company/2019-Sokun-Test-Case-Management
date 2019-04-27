@@ -49,6 +49,7 @@ class UserController extends Controller
         $request->user()->authorizeRoles(['Administrator']);
         $users = User::with('roles')->get();
         return view('users.index', ['users' => $users]);
+        
     }
 
     /**
