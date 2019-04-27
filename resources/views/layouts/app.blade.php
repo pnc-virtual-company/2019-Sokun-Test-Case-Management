@@ -180,12 +180,6 @@
                     </div>
                 </div>
             </div>
-
-
-        
-        <main>
-                @yield('content')
-            </main>
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
