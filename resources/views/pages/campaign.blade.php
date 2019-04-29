@@ -1,5 +1,5 @@
 
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
 @extends('layouts.app')

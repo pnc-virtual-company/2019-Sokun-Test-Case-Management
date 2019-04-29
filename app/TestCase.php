@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Compaign;
+use App\testStep;
 class TestCase extends Model
 {
     protected $fillable = [
