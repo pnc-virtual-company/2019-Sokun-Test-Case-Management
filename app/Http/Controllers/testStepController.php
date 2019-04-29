@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TestStep;
 
 class testStepController extends Controller
 {
@@ -13,7 +14,9 @@ class testStepController extends Controller
      */
     public function index()
     {
-        return view('pages.testStep');
+        $testStep = TestStep::all();
+       return view('pages.testStep',compact('testStep'));
+        // return view('pages.testStep',compact($testSteps ,"testSteps"));
     }
 
     /**
@@ -24,6 +27,7 @@ class testStepController extends Controller
     public function create()
     {
         //
+
     }
 
     /**

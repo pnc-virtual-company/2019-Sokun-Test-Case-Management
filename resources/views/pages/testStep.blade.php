@@ -27,18 +27,7 @@
                     <td>Logo</td>
                     <td>Check the size of the logo</td>
                     <td>Logo should fit header</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
-                        <span>2</span>
-                    </td>
-                    <td>Header Title</td>
-                    <td>Check the content of header</td>
-                    <td>The title in header is "xxx"</td>
-                </tr>
-
+                </tr>               
             </tfoot>
         </table>
         
