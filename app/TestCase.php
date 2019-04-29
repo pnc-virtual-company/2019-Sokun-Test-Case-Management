@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Campaign;
-use App\testCase;
+use App\TestCase;
 class TestCase extends Model
 {
 
@@ -13,7 +13,7 @@ class TestCase extends Model
         return $this->belongsTo(Campaign::class);
     }
     public function testSteps(){
-        return $this->hasMany(testStep::class);
+        return $this->hasMany(TestStep::class);
     }
 
 }
