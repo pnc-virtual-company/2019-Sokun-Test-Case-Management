@@ -2,7 +2,6 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
-   
 @extends('layouts.app')
     @section('content')
         
@@ -10,7 +9,7 @@
     <div class="container-fluid">
         <h2>List of Test Case Steps </h2>
         <p>Execution of test XXX in Campaign XXX</p>
-        <button class="btn btn-primary pull-right">Save</button><br><br>
+        <a href="" class="btn pull-right" style="background:#006df0;color:white;"><span class="mdi mdi-content-save"></span> Save</a><br><br>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -42,7 +41,7 @@
                             <option value="">Not run</option>
                         </select>
                     </td>
-                    <td><input type="text" class="form-control"/></td>
+                    <td><textarea></textarea></td>
                 </tr>
                 <tr>
                     <td>
@@ -60,7 +59,7 @@
                                 <option value="">Not run</option>
                             </select>
                         </td>
-                        <td><input type="text" class="form-control"/></td>
+                        <td><textarea></textarea></td>
                 </tr>
             </tfoot>
         </table>
