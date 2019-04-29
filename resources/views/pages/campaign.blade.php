@@ -22,8 +22,8 @@
                 <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
-                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted"  aria-hidden="true"></i></a> 
+                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
+                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
                         <span>1</span>
                     </td>
                     <td>Version1</td>
@@ -34,8 +34,8 @@
                 <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
-                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted"  aria-hidden="true"></i></a> 
+                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
+                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
                         <span>2</span>
                     </td>
                     <td>Version2</td>
@@ -46,8 +46,8 @@
                 <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete md-18 text-danger"></i></a>
-                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted"  aria-hidden="true"></i></a> 
+                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
+                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
                         <span>3</span>
                     </td>
                     <td>Version3</td>
