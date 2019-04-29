@@ -92,6 +92,7 @@
             background-size: cover;
         }
         .modal-content {
+            border:1px solid #007bff;
             right: -18%;
             margin-top: 140px;
             box-shadow: 3px 3px 5px white;
@@ -99,6 +100,9 @@
             opacity: .8;
             padding: 0 18px;
             border-radius: 10px;
+        }
+        #email,#password{
+            border:1px solid #007bff;
         }
 
         </style>
@@ -135,7 +139,7 @@
                         </span>
                     @endif
             </div>
-            <a href="{{route('campaign.index')}} " type="submit" class="btn btn-success">Login</a>
+            <a href="{{route('campaign.index')}} " ><button type="submit" class="btn  btn-sm btn-primary">Login</button></a>
           </form>
         </div>
 

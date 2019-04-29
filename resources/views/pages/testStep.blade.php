@@ -1,21 +1,20 @@
 
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
 @extends('layouts.app')
     @section('content')
 <body>
     <div class="container-fluid">
-        <h2>List of Campaign </h2>
-        <button class="btn" style="background:#006df0; color:white;margin-bottom:20px;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Campaign</button>
+        <h2>List of test step </h2>
+        <button class="btn" style="background:#006df0; color:white;margin-bottom:20px;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Test Step</button>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Short Description</th>
+                    <th>Action</th>
+                    <th>Expected Results</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,14 +22,12 @@
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
-                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
-                        <span>2</span>
+                        <span>1</span>
                     </td>
-                    <td>Version1</td>
-                    <td>20/12/2020</td>
-                    <td>25/12/2020</td>
-                    <td>Second Priorty Test</td>
-                </tr>                                
+                    <td>Logo</td>
+                    <td>Check the size of the logo</td>
+                    <td>Logo should fit header</td>
+                </tr>               
             </tfoot>
         </table>
         

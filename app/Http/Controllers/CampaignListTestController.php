@@ -13,10 +13,8 @@ class CampaignListTestController extends Controller
      */
     public function index()
     {
-        // $testCase = TestCase::all();
-        // return view('pages.campaignListTest',compact('testCase'));
-
-        return view('pages.campaignListTest');
+        $testCase = TestCase::all();
+        return view('pages.campaignListTest',compact('testCase'));
     }
 
     /**

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Campaign;
-class CampaignController extends Controller
+use App\TestStep;
+
+class testStepController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,9 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        $campaign = Campaign::all();
-        return view('pages.campaign',compact('campaign'));
+        $testStep = TestStep::all();
+       return view('pages.testStep',compact('testStep'));
+        // return view('pages.testStep',compact($testSteps ,"testSteps"));
     }
 
     /**
@@ -25,6 +27,7 @@ class CampaignController extends Controller
     public function create()
     {
         //
+
     }
 
     /**

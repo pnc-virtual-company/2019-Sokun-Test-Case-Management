@@ -7,9 +7,40 @@
 <script src="{{asset('js/moment.min.js')}} "></script>
 <script src="{{asset('js/jquery.min.js')}} "></script>
 <script src="{{asset('js/fullcalendar.min.js')}} "></script>
-
+<style>
+  .fc-today-button{
+    background-color: #007bff;
+    color:white;
+  }
+  .fc-today-button:focus{
+    
+  }
+  .fc-today-button{
+    background-color: #007bff;
+  }
+  .fc-month-button,.fc-agendaWeek-button,.fc-agendaDay-button{
+    background-color: #007bff;
+  }
+  .fc-month-button:focus{
+    color:white;
+  }
+  .fc-agendaWeek-button:focus{
+    color:white;
+  }
+  .fc-agendaDay-button:focus{
+    color:white;
+  }
+  .fc-day-header{
+    height: 35px;
+   
+  }
+  .fc-day-header span{
+   position: absolute;
+   bottom: 6px;
+  }
+}
+</style>
 <script>
-
   $(document).ready(function() {
     $('#bootstrapModalFullCalendar').fullCalendar({
         events: '/hackyjson/cal/',
@@ -55,18 +86,6 @@
           title: 'Repeating Event',
           start: '2019-04-09T16:00:00',
           color: 'blue'
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2019-04-16T16:00:00',
-          color: 'purple'
-        },
-        {
-          title: 'Conference',
-          start: '2019-04-15',
-          end: '2019-04-17',
-          color: 'black'
         }
       ]
   });
