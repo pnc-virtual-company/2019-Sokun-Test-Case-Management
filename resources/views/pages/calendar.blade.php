@@ -7,9 +7,40 @@
 <script src="{{asset('js/moment.min.js')}} "></script>
 <script src="{{asset('js/jquery.min.js')}} "></script>
 <script src="{{asset('js/fullcalendar.min.js')}} "></script>
-
+<style>
+  .fc-today-button{
+    background-color: #007bff;
+    color:white;
+  }
+  .fc-today-button:focus{
+    
+  }
+  .fc-today-button{
+    background-color: #007bff;
+  }
+  .fc-month-button,.fc-agendaWeek-button,.fc-agendaDay-button{
+    background-color: #007bff;
+  }
+  .fc-month-button:focus{
+    color:white;
+  }
+  .fc-agendaWeek-button:focus{
+    color:white;
+  }
+  .fc-agendaDay-button:focus{
+    color:white;
+  }
+  .fc-day-header{
+    height: 35px;
+   
+  }
+  .fc-day-header span{
+   position: absolute;
+   bottom: 6px;
+  }
+}
+</style>
 <script>
-
   $(document).ready(function() {
     $('#bootstrapModalFullCalendar').fullCalendar({
         events: '/hackyjson/cal/',
@@ -36,30 +67,7 @@
       selectHelper: true,
       navLinks: true, // can click day/week names to navigate views
       editable: true,
-      eventLimit: true,
-      select:function (startDate,endDate ){
-          var eventTitle = prompt('Even Title:','dog vs cat');
-          var eventData;
-          if(eventTitle){
-            //random color
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-              for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-                   }
-              eventData ={
-                  title: eventTitle,
-                  start: startDate,
-                  end: endDate,
-                  
-                  color: color  
-              };
-
-              $('#calendar').fullCalendar('renderEvent',eventData,true,);//stick true
-          }
-          $('#calendar').fullCalendar(unselect);
-          },
-         
+      eventLimit: true,   
           events: [
         {
           title: 'All Day Event',
@@ -78,18 +86,6 @@
           title: 'Repeating Event',
           start: '2019-04-09T16:00:00',
           color: 'blue'
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2019-04-16T16:00:00',
-          color: 'purple'
-        },
-        {
-          title: 'Conference',
-          start: '2019-04-15',
-          end: '2019-04-17',
-          color: 'black'
         }
       ]
   });
