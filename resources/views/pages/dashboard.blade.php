@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class="container-fluid">
+    <div class="container-fluid"><br>
             <div class="row ">
                     <div class="col-lg-6 ">
                         <!-- pie chart-->
@@ -12,7 +12,7 @@
                                <h2> Campaign Status</h2>
                             </div>
                             <div class="panel-body bg-info">
-                                <select style="width: 195px;height:50px;" class="optionCampaign form-control " id="sel1">
+                                <select style="width: 195px;height:50px; background:blue;color:white; font-weight:500px;" class="optionCampaign form-control " id="sel1">
                                     <option>Version 1</option>
                                     <option>Version 2</option>
                                     <option>Version 3</option>
@@ -79,8 +79,8 @@
                     datasets: [
                     {
                         label: "hello",
-                        backgroundColor: ["#255CEF", "#E74722","#F39544"],
-                        data: [0,10,20,30]
+                        backgroundColor: ["#f39544", "#E74722","#255CEF"],
+                        data: [1,10,20,30,40]
                     }
                     ]
                 },
