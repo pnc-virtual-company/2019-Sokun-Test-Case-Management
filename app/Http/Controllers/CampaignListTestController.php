@@ -24,7 +24,7 @@ class CampaignListTestController extends Controller
      */
     public function create()
     {
-        //
+        // return view('pages.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class CampaignListTestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // TestCase::create($request->all());
+        // return redirect()->route('campaignListTest.index');
     }
 
     /**
@@ -46,7 +47,8 @@ class CampaignListTestController extends Controller
      */
     public function show($id)
     {
-        //
+        // $testCase = TestCase::findOrFail($id);
+        // return view('pages.show', compact('campaignListTest', $testCase));
     }
 
     /**
@@ -57,7 +59,8 @@ class CampaignListTestController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $testCase = TestCase::findOrFail($id);
+        // return view('pages.edit')->with('campaignListTest',$testCase);
     }
 
     /**
@@ -69,7 +72,8 @@ class CampaignListTestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // TestCase::findOrFail($id)->update($request->all());
+        // return redirect()->route('campaignListTest.index');
     }
 
     /**
@@ -80,6 +84,7 @@ class CampaignListTestController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // TestCase::find($id)->delete();
+        // return back();
     }
 }
