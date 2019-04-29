@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Campaign;
-use App\TestStep;
+use App\TestCase;
 class TestCase extends Model
 {
 
