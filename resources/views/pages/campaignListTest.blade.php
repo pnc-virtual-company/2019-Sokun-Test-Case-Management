@@ -25,6 +25,7 @@
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
                         <a href="{{route('testExecution.index')}} "><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
                         <a href=""><i class="mdi  mdi-rewind text-info"  aria-hidden="true"></i></a>
+                        <a href="{{route('testStep.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
                         <span>1</span>
                     </td>
                     <td>Header</td>
@@ -37,6 +38,7 @@
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
                         <a href=""><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
                         <a href=""><i class="mdi mdi-rewind text-info"  aria-hidden="true"></i></a>
+                        <a href="{{route('testStep.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
                         <span>2</span>
                     </td>
                     <td>Screen 1 Form</td>
