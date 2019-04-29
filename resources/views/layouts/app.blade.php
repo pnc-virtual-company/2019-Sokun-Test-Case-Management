@@ -65,7 +65,7 @@
                     <ul class="metismenu" id="menu1">
                         <li class="active">
                             <a class="has-arrow" href="index.html">
-								   <span class="educate-icon educate-home icon-wrap"></span>
+								   <span class="mdi mdi-home icon-wrap"></span>
 								   <span class="mini-click-non">Test Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
@@ -77,7 +77,7 @@
                         </li>
                         <li class="active">
                             <a class="has-arrow" href="index.html">
-								   <span class="educate-icon educate-home icon-wrap"></span>
+								   <span class="mdi mdi-account icon-wrap"></span>
 								   <span class="mini-click-non">User Management</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
