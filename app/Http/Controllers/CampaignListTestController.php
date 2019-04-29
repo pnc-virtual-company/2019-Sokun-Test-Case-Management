@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\TestCase;
 class CampaignListTestController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class CampaignListTestController extends Controller
      */
     public function index()
     {
-        return view('pages.campaignListTest');
+        $testCase = TestCase::all();
+        return view('pages.campaignListTest',compact('testCase'));
     }
 
     /**

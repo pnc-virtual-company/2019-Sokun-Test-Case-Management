@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Campaign;
 class CampaignController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        return view('pages.campaign');
+        $campaign = Campaign::all();
+        return view('pages.campaign',compact('campaign'));
     }
 
     /**
