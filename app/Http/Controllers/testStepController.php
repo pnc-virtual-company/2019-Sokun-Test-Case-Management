@@ -27,6 +27,7 @@ class testStepController extends Controller
     public function create()
     {
         //
+        return view('pages.testStep');
 
     }
 
@@ -38,7 +39,8 @@ class testStepController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $testStep = TestStep::create($request->all());
+        return redirect('testStep');
     }
 
     /**
@@ -72,7 +74,10 @@ class testStepController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $TestStep = TestStep::findOrFail($id);
+        $TestStep->update($request->all());
+
+        return redirect('testStep');
     }
 
     /**
@@ -83,6 +88,8 @@ class testStepController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $TestStep = TestStep::findOrFail($id);
+        $TestStep->delete();
+        return redirect('testStep');
     }
 }

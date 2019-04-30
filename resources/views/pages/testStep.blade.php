@@ -7,7 +7,7 @@
 <body>
     <div class="container-fluid">
         <h2>List of test step </h2>
-        <button class="btn" style="background:#006df0; color:white;margin-bottom:20px;" data-toggle="modal" data-target="#createModal"><a href=""><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Test Step</button>
+        <button class="btn" style="background:#006df0; color:white;margin-bottom:20px;" data-toggle="modal" data-target="#createModal"><a href="#createModal"><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a>Create Test Step</button>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -17,20 +17,23 @@
                     <th>Expected Results</th>
                 </tr>
             </thead>
+            
+            
             <tbody>
+                    @foreach ($testStep as $item)
                 <tr>
                     <td>
-                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
-                        <span>1</span>
+                    <a href="#" id="editData" data-id="{{$item->id}}" data-name="{{$item->name}}" data-action="{{$item->action}}" data-expectedresult="{{$item->expected_result}}" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" aria-hidden="true" data-id="{{$item->id}}" data-title="{{$item->name}}" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
+                        <span>{{ $item->id }}</span>
                     </td>
-                    <td>Logo</td>
-                    <td>Check the size of the logo</td>
-                    <td>Logo should fit header</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->action }}</td>
+                    <td>{{ $item->expected_result }}</td>
                 </tr>               
+                @endforeach
             </tfoot>
         </table>
-        
     </div>
     @endsection
      <!-- create Modal -->
@@ -38,54 +41,35 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Create New Campagin</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Create New Test Step</h5>
                 </div>
-                <div class="modal-body">
-                        <form>
+                <form action="{{action('testStepController@store')}} " method="POST">
+                    @csrf
+                    <div class="modal-body">
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
-                                <input type="text" class="form-control" autofocus>
+                                <input type="text" name="name" class="form-control" autofocus>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                    
-                                    <div class="col-md-5">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                
-                                                <label for="#" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
-                                            </div>
-                                            <div class="col-md-7">
-                                            <input type="text" id="datepicker" width="170px">
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
-                                            </div>
-                                            <div class="col-md-7">
-                                            <input type="text" id="datepicker2" width="170px">
-                                        </div>
-                                        </div>
-                                    </div>
-                                   
-                                    
-                                    </div>
-                            <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Action:</label>
                                 <div class="col-sm-9">
-                                <input type="password" class="form-control">
+                                <input type="text" name="action" class="form-control" autofocus>
                                 </div>
                             </div>
-                        </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-sm btn-primary">Create</button>
-                </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Exspected Result:</label>
+                                <div class="col-sm-9">
+                                <input type="text" name="expected_result" class="form-control" autofocus>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Create</button>
+                    </div>
+                </form>
               </div>
             </div>
           </div>
@@ -103,72 +87,59 @@
                     </div>
                     <div class="modal-body">
                         <p>Are you sure that you want to remove the test from compaign?</p>
+                        <p id="mPostTitle" ></p>
                     </div>
+                    <form action="" id="mDelete" method="POST">
+                        @csrf
+                        @method('DELETE')
                     <div class="modal-footer">
                       <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-sm btn-primary">Yes</button>
+                      <button type="submit" class="btn btn-sm btn-primary">Yes</button>
                     </div>
+                    </form>
                   </div>
                 </div>
               </div>
 
-              <!-- Modal -->
-     <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Update List Of Campaign</h5>
-            </div>
-            <div class="modal-body">
-                    <form>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
-                            <div class="col-sm-9">
-                            <input type="text" class="form-control" autofocus>
+    <!-- create Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Update Test Step</h5>
+                </div>
+                <form action="" method="POST" id="editForm">
+                    @csrf
+                    @method('PATCH')
+                    <div class="modal-body">
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
+                                <div class="col-sm-9">
+                                <input type="text" value="" name="name" id="name" class="form-control" autofocus>
+                                <p id="TestStep"></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                                
-                                <div class="col-md-5">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            
-                                            <label for="inputPassword" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                        <input id="datepicker" width="170px" autofocus  >
-                                    </div>
-                                    </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Action:</label>
+                                <div class="col-sm-9">
+                                <input type="text" value="" name="action" id="action" class="form-control" autofocus>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                        <input id="datepicker2" width="170px" autofocus  >
-                                    </div>
-                                    </div>
-                                </div>
-                               
-                                
-                                </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
-                            <div class="col-sm-9">
-                            <input type="password" class="form-control">
                             </div>
-                        </div>
-                    </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-sm btn-primary">Update</button>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Exspected Result:</label>
+                                <div class="col-sm-9">
+                                <input type="text" value="" name="expected_result" id="expected_result" class="form-control" autofocus>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Edit</button>
+                    </div>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
 
 
 
@@ -181,12 +152,31 @@
             $('#example').DataTable({
                 colReorder: true
             });
-            $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap'
+
+
         });
-            $('#datepicker2').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-        });
+        $('#deleteModal').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget)
+        var postTitle = button.data('title')
+        var id = button.data('id')
+        var modal = $(this)
+        modal.find('#mPostTitle').text(postTitle)
+        var url ="{{url('testStep')}}/"+id;
+        $('#mDelete').attr('action',url);   
+    })
+
+    $('#updateModal').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget)
+        var postTitle = button.data('name')
+        var action = button.data('action')
+        var expectedresult = button.data('expectedresult')
+        var id = button.data('id')
+        var modal = $(this)
+        modal.find('#name').attr('value',postTitle)
+        modal.find('#action').attr('value',action)
+        modal.find('#expected_result').attr('value',expectedresult)
+        var url ="{{url('testStep')}}/"+id;
+        $('#editForm').attr('action',url);   
+    })
     </script>
 </body>
