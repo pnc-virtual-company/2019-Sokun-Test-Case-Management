@@ -23,13 +23,14 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($testExecution as $value)
                 <tr>
                     <td>
-                        <span>1</span>
+                    <span> {{$value->id}}</span>
                     </td>
-                    <td>Logo</td>
-                    <td>Check the size of the logo</td>
-                    <td>Logo should fit header</td>
+                    <td>{{$value->name}}</td>
+                    <td>{{$value->action}} </td>
+                    <td>{{$value->exspected_result}}</td>
                     <td>
                         <input id="datepicker" width="200px"/>
                     </td>
@@ -42,27 +43,11 @@
                         </select>
                     </td>
                     <td><textarea></textarea></td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>2</span>
-                    </td>
-                    <td>Header Title</td>
-                    <td>Check the content of header</td>
-                    <td>The title in header is "xxxx"</td>
-                    <td><input id="datepicker2"/></td>
-                    <td>
-                            <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
-                                <option selected>Choose...</option>
-                                <option value="">Passed</option>
-                                <option value="">Failed</option>
-                                <option value="">Not run</option>
-                            </select>
-                        </td>
-                        <td><textarea></textarea></td>
-                </tr>
+                </tr>                 
+                @endforeach
             </tfoot>
         </table>
+        <a href="{{route('campaignListTest.index')}} "><h5><span class="mdi mdi-chevron-left text-info mdi-24px"></span> Back to campaign tests</h5></a>
     </div>
     @endsection
 

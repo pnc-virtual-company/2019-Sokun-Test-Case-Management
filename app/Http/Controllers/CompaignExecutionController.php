@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\TestStep;
 class CompaignExecutionController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class CompaignExecutionController extends Controller
      */
     public function index()
     {
-        return view('pages.testExecution');
+        $testExecution = TestStep::all();
+        return view('pages.testExecution', compact('testExecution'));
     }
 
     /**

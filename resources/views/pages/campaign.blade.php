@@ -78,9 +78,9 @@
                                     
                                     </div>
                             <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
+                                <label for="" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
                                 <div class="col-sm-9">
-                                <input type="password" class="form-control">
+                                <input type="text" class="form-control">
                                 </div>
                             </div>
                         </form>
@@ -139,7 +139,7 @@
                                             <label for="inputPassword" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
                                         </div>
                                         <div class="col-md-7">
-                                        <input id="datepicker" width="170px" autofocus  >
+                                        <input id="datepicker3" width="170px" autofocus  >
                                     </div>
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@
                                             <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
                                         </div>
                                         <div class="col-md-7">
-                                        <input id="datepicker2" width="170px" autofocus  >
+                                        <input id="datepicker4" width="170px" autofocus  >
                                     </div>
                                     </div>
                                 </div>
@@ -190,6 +190,23 @@
             $('#datepicker2').datepicker({
             uiLibrary: 'bootstrap'
         });
+            $('#datepicker3').datepicker({
+            uiLibrary: 'bootstrap'
+        });
+            $('#datepicker4').datepicker({
+            uiLibrary: 'bootstrap'
+        });
+
+        $('#deleteModal').on('show.bs.modal',function(event){
+    console.log('delete me');
+    var button = $(event.relatedTarget)
+    var postTitle = button.data('title')
+    var id = button.data('id')
+    var modal= $(this)
+    modal.find('#mPostTitle').text(postTitle)
+    var url ="{{url('posts')}}/"+id;
+    $('#mDelete').attr('action',url);
+  })
         });
     </script>
 </body>
