@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Campaign;
 
 class CampaignController extends Controller
 {
@@ -13,17 +14,27 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        return view('pages.campaign');
+      
+        $data = \App\Campaign::all();
+        return view('pages.campaign',compact('data'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        // $request->validate([
+        //     'name'=>'required',
+        //     'start_date'=>'required',
+        //     'end_date'=>'required',
+        //     'description'=>'required',
+            
+
+        // ]);
     }
 
     /**

@@ -19,43 +19,25 @@
                 </tr>
             </thead>
             <tbody>
+                    @foreach ($data as $value)
                 <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
                         <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
-                        <span>1</span>
+                        <span></span>
                     </td>
-                    <td>Version1</td>
-                    <td>20/12/2020</td>
-                    <td>25/12/2020</td>
-                    <td>Test Primary Component</td>
+                <td>{{$value->id}}</td>
+                    <td>{{$value->name}}</td>
+                    <td>{{$value->start_date}}</td>
+                    <td>{{$value->end_date}}</td>
+                    <td>{{$value->description}}</td>
+                    <td>{{$value->status}}</td>
+                    
                 </tr>
-                <tr>
-                    <td>
-                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
-                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
-                        <span>2</span>
-                    </td>
-                    <td>Version2</td>
-                    <td>20/12/2020</td>
-                    <td>25/12/2020</td>
-                    <td>Second Priorty Test</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
-                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
-                        <span>3</span>
-                    </td>
-                    <td>Version3</td>
-                    <td>20/12/2020</td>
-                    <td>25/12/2020</td>
-                    <td>Finalize V2 Test</td>
-                </tr>
+               
             </tfoot>
+            @endforeach
         </table>
         
     </div>
