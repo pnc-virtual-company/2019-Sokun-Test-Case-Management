@@ -13,7 +13,7 @@ class CreateTestStepTable extends Migration
      */
     public function up()
     {
-        Schema::create('teststep', function (Blueprint $table) {
+        Schema::create('teststeps', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('action');
@@ -24,7 +24,7 @@ class CreateTestStepTable extends Migration
             $table->integer('testCase_id')->unsigned();
             $table->foreign('testCase_id')
             ->references('id')
-            ->on('testCase');
+            ->on('testCases');
             $table->timestamps();
         });
     }
