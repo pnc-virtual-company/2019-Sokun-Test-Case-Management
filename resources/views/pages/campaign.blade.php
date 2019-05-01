@@ -18,20 +18,25 @@
                     <th>Short Description</th>
                 </tr>
             </thead>
+            @foreach ($campaign as $item)
+{{-- {{dd($item)}} --}}
+                
+          
             <tbody>
                 <tr>
                     <td>
-                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$item->id}}" data-name="{{$item->name}}" data-startdate="{{$item->start_date}}" data-enddate="{{$item->end_date}}" data-description="{{$item->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                    <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info"></i></a>
                         <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
-                        <span>2</span>
+                        <span>{{$item->id}}</span>
                     </td>
-                    <td>Version1</td>
-                    <td>20/12/2020</td>
-                    <td>25/12/2020</td>
-                    <td>Second Priorty Test</td>
+                <td>{{$item->name}}</td>
+                    <td>{{$item->start_date}}</td>
+                    <td>{{$item->end_date}}</td>
+                    <td>{{$item->description}}</td> 
                 </tr>                                
-            </tfoot>
+            </tbody>
+            @endforeach
         </table>
         
     </div>
@@ -43,138 +48,124 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Create New Campagin</h5>
                 </div>
-                <div class="modal-body">
-                        <form>
+                <form action="{{action('CampaignController@store')}}" method="POST">
+                    @csrf
+                    <div class="modal-body">
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
-                                <input type="text" class="form-control" autofocus>
+                                    <input type="text" class="form-control"  name="name" autofocus>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                    
-                                    <div class="col-md-5">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                
-                                                <label for="#" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
-                                            </div>
-                                            <div class="col-md-7">
-                                            <input type="text" id="datepicker" width="170px">
-                                        </div>
-                                        </div>
+                                    <label for="#" class="col-sm-3 "  style="margin-top: 10px;" >Start Date:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="datepicker" name="start_date" class="form-control">
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
-                                            </div>
-                                            <div class="col-md-7">
-                                            <input type="text" id="datepicker2" width="170px">
-                                        </div>
-                                        </div>
+                            </div>
+                            <div class="form-group row">
+                                    <label for="#" class="col-sm-3 " style="margin-top: 10px;" >End Date:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="datepicker2" name="end_date" class="form-control">
                                     </div>
-                                   
-                                    
-                                    </div>
+                            </div>
+
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
                                 <div class="col-sm-9">
-                                <input type="text" class="form-control">
+                                    <input type="text" name="description" class="form-control">
                                 </div>
                             </div>
-                        </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-sm btn-primary">Create</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-      <!-- Modal -->
-
-          <!-- Modal -->
-          <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Remove Test</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure that you want to remove the test from compaign?</p>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-sm btn-primary">Yes</button>
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Create</button>
                     </div>
-                  </div>
-                </div>
+                </form>
               </div>
-
-              <!-- Modal -->
-     <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Update List Of Campaign</h5>
-            </div>
-            <div class="modal-body">
-                    <form>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
-                            <div class="col-sm-9">
-                            <input type="text" class="form-control" autofocus>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                                
-                                <div class="col-md-5">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            
-                                            <label for="inputPassword" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                        <input id="datepicker3" width="170px" autofocus  >
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                        <input id="datepicker4" width="170px" autofocus  >
-                                    </div>
-                                    </div>
-                                </div>
-                               
-                                
-                                </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
-                            <div class="col-sm-9">
-                            <input type="password" class="form-control">
-                            </div>
-                        </div>
-                    </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-sm btn-primary">Update</button>
             </div>
           </div>
-        </div>
-      </div>
+
+             <!-- Update Modal -->
+     <div  class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Update Campagin</h5>
+                </div>
+                <form action="" method="POST" id="updateForm">
+                    @csrf
+                    @method('PATCH')
+                    <div class="modal-body">
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" value="" class="form-control"  name="name" id="name" autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                    <label for="#" class="col-sm-3 "  style="margin-top: 10px;" >Start Date:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" value="" id="start_date" name="start_date" class="form-control">
+                                    </div>
+                            </div>
+                            <div class="form-group row">
+                                    <label for="#" class="col-sm-3 " style="margin-top: 10px;" >End Date:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" value="" id="end_date" name="end_date" class="form-control">
+                                    </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" value="" name="description" id="description" class="form-control">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
 
 
 
+          <!-- Delete Modal -->
+          <div  class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Delete Campaign</h5>
+                  <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure to delete this campaign!!</p>
+                   <small id="title"></small>
+                </div>
+              <form  id="fDelete" action="" method="POST">
+                  @csrf
+                @method('DELETE')
+                    
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-sm btn-primary">OK</button>
+                </div>
+            </form>
+              </div>
+            </div>
+          </div>
+    
+              <!-- Modal -->
+     
 
+
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/jquery-3.3.1.min.js')}} "></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}} "></script>
     <script src="{{asset('js/dataTables.bootstrap.min.js')}} "></script>
@@ -190,23 +181,41 @@
             $('#datepicker2').datepicker({
             uiLibrary: 'bootstrap'
         });
-            $('#datepicker3').datepicker({
+            $('.start_date').datepicker({
             uiLibrary: 'bootstrap'
         });
-            $('#datepicker4').datepicker({
+            $('.end_date').datepicker({
             uiLibrary: 'bootstrap'
+        });
         });
 
-        $('#deleteModal').on('show.bs.modal',function(event){
-    console.log('delete me');
-    var button = $(event.relatedTarget)
-    var postTitle = button.data('title')
-    var id = button.data('id')
-    var modal= $(this)
-    modal.find('#mPostTitle').text(postTitle)
-    var url ="{{url('posts')}}/"+id;
-    $('#mDelete').attr('action',url);
-  })
+        $('#updateModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+        var name = button.data('name')
+        var startdate = button.data('startdate')
+        var enddate = button.data('enddate')
+        var description = button.data('description')
+        var modal = $(this)
+        modal.find('#name').attr('value',name)
+        modal.find('#start_date').attr('value',startdate)
+        modal.find('#end_date').attr('value',enddate)
+        modal.find('#description').attr('value',description)
+        
+        var url = "{{url('campaign')}}/"+id;
+        $('#updateForm').attr('action',url);
         });
+
+
+        $('#deleteModal').on('show.bs.modal',function(event){
+        var button=$(event.relatedTarget)
+        var id =button.data('id')
+        var title =button.data('title')
+        console.log(title)
+        var modal=$(this)
+        modal.find('#title').text(title)
+        var url = "{{url('campaign/')}}/"+id;
+        $("#fDelete").attr('action',url);
+  });
     </script>
 </body>

@@ -35,7 +35,8 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campaign = Campaign::create($request->all());
+        return redirect('campaign');
     }
 
     /**
@@ -69,7 +70,9 @@ class CampaignController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $campaign = Campaign::Find($id);
+        $campaign->update($request->all());
+        return redirect('campaign');
     }
 
     /**
@@ -80,6 +83,8 @@ class CampaignController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $campaign = Campaign::FindOrFail($id);
+        $campaign->delete();
+        return redirect('campaign');
     }
 }
