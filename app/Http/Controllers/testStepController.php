@@ -16,7 +16,6 @@ class testStepController extends Controller
     {
         $testStep = TestStep::all();
        return view('pages.testStep',compact('testStep'));
-        // return view('pages.testStep',compact($testSteps ,"testSteps"));
     }
 
     /**
