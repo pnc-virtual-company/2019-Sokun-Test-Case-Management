@@ -1,5 +1,5 @@
 
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
 @extends('layouts.app')
@@ -24,37 +24,13 @@
                         <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                         <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
                         <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
-                        <span>1</span>
+                        <span>2</span>
                     </td>
                     <td>Version1</td>
                     <td>20/12/2020</td>
                     <td>25/12/2020</td>
-                    <td>Test Primary Component</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
-                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
-                        <span>2</span>
-                    </td>
-                    <td>Version2</td>
-                    <td>20/12/2020</td>
-                    <td>25/12/2020</td>
                     <td>Second Priorty Test</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
-                        <a href="{{route('campaignListTest.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
-                        <span>3</span>
-                    </td>
-                    <td>Version3</td>
-                    <td>20/12/2020</td>
-                    <td>25/12/2020</td>
-                    <td>Finalize V2 Test</td>
-                </tr>
+                </tr>                                
             </tfoot>
         </table>
         
