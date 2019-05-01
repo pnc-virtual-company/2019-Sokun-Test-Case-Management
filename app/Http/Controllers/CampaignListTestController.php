@@ -24,7 +24,9 @@ class CampaignListTestController extends Controller
      */
     public function create()
     {
-        // return view('pages.create');
+        return view('pages.campaignListTest');
+       
+    
     }
 
     /**
@@ -35,8 +37,8 @@ class CampaignListTestController extends Controller
      */
     public function store(Request $request)
     {
-        // TestCase::create($request->all());
-        // return redirect()->route('campaignListTest.index');
+        $testCase = TestCase::create($request->all());
+        return redirect('campaignListTest');
     }
 
     /**
@@ -72,8 +74,9 @@ class CampaignListTestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // TestCase::findOrFail($id)->update($request->all());
-        // return redirect()->route('campaignListTest.index');
+        $testCase = TestCase::findOrFail($id);
+        $testCase->update($request->all());
+        return redirect('campaignListTest');
     }
 
     /**
@@ -86,5 +89,9 @@ class CampaignListTestController extends Controller
     {
         // TestCase::find($id)->delete();
         // return back();
+
+        $testcase = TestCase::findOrFail($id);
+        $testcase->delete();
+        return redirect('campaignListTest');
     }
 }
