@@ -19,7 +19,7 @@ class CreateTestStepTable extends Migration
             $table->string('action');
             $table->string('expected_result');
             $table->string('executed_date')->default('null');
-            $table->string('status')->default('null');
+            $table->string('status')->default('Passed');
             $table->string('actual_result')->default('null');
             $table->integer('testCase_id')->unsigned()->default(1);
             $table->foreign('testCase_id')
