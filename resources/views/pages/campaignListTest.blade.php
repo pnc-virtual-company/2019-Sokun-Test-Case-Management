@@ -24,6 +24,7 @@
                 </tr>
             </thead>
             <tbody>
+                {{-- {{dd($campaign)}} --}}
                 @foreach ($campaign->testCases as $value)
                 <tr>
                     <td>
@@ -33,7 +34,7 @@
 
                         <a href="{{route('testExecution.index')}} "><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
                         <a href=""><i class="mdi  mdi-rewind text-info"  aria-hidden="true"></i></a>
-                        <a href="{{route('testStep.index',$value->id)}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
+                        <a href="{{url('testStep')}}/{{$value->id}}"><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
                     <span>{{$value->id}}</span>
                     </td>
                     <td>{{$value->name}}</td>

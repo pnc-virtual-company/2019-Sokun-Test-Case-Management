@@ -15,7 +15,8 @@ class CampaignListTestController extends Controller
     public function index()
     {
         $testCase = TestCase::all();
-        return view('pages.campaignListTest',compact('testCase'));
+        $campaign = Campaign::all();
+        return view('pages.campaignListTest',compact('testCase','campaign'));
     }
 
     /**
