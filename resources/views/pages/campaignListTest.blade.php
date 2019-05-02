@@ -24,9 +24,8 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($testCase as $value)
-                {{-- {{dd($value)}} --}}
-                <tr>
+                @foreach ($campaign as $value)
+                {{-- <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$value->id}}" data-name="{{$value->name}}" data-creator="{{$value->creator}}" data-description="{{$value->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                     
@@ -34,13 +33,14 @@
 
                         <a href="{{route('testExecution.index')}} "><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
                         <a href=""><i class="mdi  mdi-rewind text-info"  aria-hidden="true"></i></a>
-                        <a href="{{route('testStep.index')}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
+                        <a href="{{route('testStep.index',$value->id)}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
                     <span>{{$value->id}}</span>
                     </td>
                     <td>{{$value->name}}</td>
                     <td>{{$value->creator}}</td>
                     <td>{{$value->description}}</td>
-                </tr>
+                </tr> --}}
+
                 @endforeach
             </tbody>
         </table>
