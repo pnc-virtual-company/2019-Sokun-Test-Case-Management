@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TestCase;
+use App\Campaign;
 class CampaignListTestController extends Controller
 {
     /**
@@ -49,8 +50,9 @@ class CampaignListTestController extends Controller
      */
     public function show($id)
     {
-        // $testCase = TestCase::findOrFail($id);
-        // return view('pages.show', compact('campaignListTest', $testCase));
+        $campaign = Campaign::find($id);
+        $campaign->testCases;
+        return view('pages.campaignListTest',compact('campaign'));
     }
 
     /**
