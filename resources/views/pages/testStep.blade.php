@@ -167,8 +167,8 @@
         var button = $(event.relatedTarget)
         var postTitle = button.data('name')
         var action = button.data('action')
-        var expectedresult = button.data('expectedresult')
-        var id = button.data('id')
+        var  = button.data('expectedresult')
+        var id = button.data('id')expectedresult
         var modal = $(this)
         modal.find('#name').attr('value',postTitle)
         modal.find('#action').attr('value',action)
