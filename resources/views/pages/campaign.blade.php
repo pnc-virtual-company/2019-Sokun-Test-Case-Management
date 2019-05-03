@@ -48,7 +48,7 @@
                   <h5 class="modal-title" id="exampleModalLabel">Create New Campagin</h5>
                 </div>
                 <form action="{{action('CampaignController@store')}}" method="POST">
-                    @csrf
+                    {{ csrf_field() }}
                     <div class="modal-body">
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>

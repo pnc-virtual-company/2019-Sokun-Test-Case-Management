@@ -68,26 +68,17 @@
       navLinks: true, // can click day/week names to navigate views
       editable: true,
       eventLimit: true,   
-          events: [
-        {
-          title: 'All Day Event',
-          start: '2019-04-01T10:00:00',
-          end: '2019-04-01T12:30:00',
-          color: 'red'
-        },
-        {
-          title: 'Long Event',
-          start: '2019-04-07',
-          end: '2019-04-10',
-          color: 'green'
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2019-04-09T16:00:00',
-          color: 'blue'
-        }
-      ]
+      events : [
+                @foreach($campaign as $item)
+                {
+                    title : '{{ $item->name }}',
+                    start : '{{ $item->start_date }}',
+                    end : '{{$item->end_date}}',
+                    description : '{{$item->description}}',
+                    url : '{{ route('pages.campaign', $item->id) }}'
+                },
+                @endforeach
+            ]
   });
   });
 </script>
