@@ -139,6 +139,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">Remove Test</h5>
                     </div>
                     <div class="modal-body">
+                            <input type="hidden" value="{{$campaign->id}} "  class="form-control">
                         <p>Are you sure that you want to remove the test case?</p>
                         <p id="name"></p>
                     </div>
@@ -195,16 +196,6 @@
            
             var modal = $(this)
             modal.find('#name').attr('value',name)
-
-            var url ="{{url('campaignListTest')}}/"+id;
-            $('#deleteData').attr('action',url);   
-    })
-    $('#createModal').on('show.bs.modal',function(event){
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-           
-            var modal = $(this)
-            modal.find('#cid').attr('value',id)
 
             var url ="{{url('campaignListTest')}}/"+id;
             $('#deleteData').attr('action',url);   

@@ -14,9 +14,8 @@ class CampaignListTestController extends Controller
      */
     public function index()
     {
-        $testCase = TestCase::all();
-    
-        return view('pages.campaignListTest',compact('testCase','campaign'));
+        // $testCase = TestCase::all();
+        // return view('pages.campaignListTest',compact('testCase','campaign'));
     }
 
     /**
@@ -52,7 +51,7 @@ class CampaignListTestController extends Controller
     public function show($id)
     {
         $campaign = Campaign::find($id);
-        // $campaign->testCases;
+        //$campaign->testCases;
         return view('pages.campaignListTest',compact('campaign'));
     }
 
@@ -78,7 +77,7 @@ class CampaignListTestController extends Controller
     {
         $testCase = TestCase::findOrFail($id);
         $testCase->update($request->all());
-        return redirect('campaignListTest');
+        return redirect('campaignListTest/'.$id);
     }
 
     /**
@@ -87,11 +86,8 @@ class CampaignListTestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        // TestCase::find($id)->delete();
-        // return back();
-
         $testcase = TestCase::findOrFail($id);
         $testcase->delete();
         return redirect('campaignListTest');

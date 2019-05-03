@@ -39,7 +39,7 @@ class testStepController extends Controller
     public function store(Request $request)
     {
         $testStep = TestStep::create($request->all());
-        return redirect('testStep/1');
+        return redirect('testStep/'.$request->test_case_id);
     }
 
     /**
@@ -51,7 +51,7 @@ class testStepController extends Controller
     public function show($id)
     {
         $testCase = TestCase::find($id);
-        $testCase->testSteps;
+        //$testCase->testSteps;
         return view('pages.testStep',compact('testCase'));
     }
 
@@ -77,8 +77,7 @@ class testStepController extends Controller
     {
         $TestStep = TestStep::findOrFail($id);
         $TestStep->update($request->all());
-
-        return redirect('testStep');
+        return redirect('testStep/'.$request->$id);
     }
 
     /**

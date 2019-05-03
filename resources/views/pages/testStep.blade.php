@@ -49,6 +49,7 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
+                                <input type="hidden" value="{{$testCase->id}} " name="test_case_id" class="form-control">
                                 <input type="text" name="name" class="form-control" autofocus>
                                 </div>
                             </div>
@@ -113,6 +114,7 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
+                                <input type="hidden" value="{{$testCase->id}} " name="test_case_id" class="form-control">
                                 <input type="text" value="" name="name" id="name" class="form-control" autofocus>
                                 <p id="TestStep"></p>
                                 </div>
@@ -146,35 +148,35 @@
     <script src="{{asset('js/dataTables.bootstrap.min.js')}} "></script>
     <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>
     <script>
-        $(document).ready(function () {
-            $('#example').DataTable({
-                colReorder: true
+            $(document).ready(function () {
+                $('#example').DataTable({
+                    colReorder: true
+                });
+    
+    
             });
-
-
-        });
-        $('#deleteModal').on('show.bs.modal',function(event){
-        var button = $(event.relatedTarget)
-        var postTitle = button.data('title')
-        var id = button.data('id')
-        var modal = $(this)
-        modal.find('#mPostTitle').text(postTitle)
-        var url ="{{url('testStep')}}/"+id;
-        $('#mDelete').attr('action',url);   
-    })
-
-    $('#updateModal').on('show.bs.modal',function(event){
-        var button = $(event.relatedTarget)
-        var postTitle = button.data('name')
-        var action = button.data('action')
-        var  = button.data('expectedresult')
-        var id = button.data('id')expectedresult
-        var modal = $(this)
-        modal.find('#name').attr('value',postTitle)
-        modal.find('#action').attr('value',action)
-        modal.find('#expected_result').attr('value',expectedresult)
-        var url ="{{url('testStep')}}/"+id;
-        $('#editForm').attr('action',url);   
-    })
-    </script>
+            $('#deleteModal').on('show.bs.modal',function(event){
+            var button = $(event.relatedTarget)
+            var postTitle = button.data('title')
+            var id = button.data('id')
+            var modal = $(this)
+            modal.find('#mPostTitle').text(postTitle)
+            var url ="{{url('testStep')}}/"+id;
+            $('#mDelete').attr('action',url);   
+        })
+    
+        $('#updateModal').on('show.bs.modal',function(event){
+            var button = $(event.relatedTarget)
+            var postTitle = button.data('name')
+            var action = button.data('action')
+            var expectedresult = button.data('expectedresult')
+            var id = button.data('id')
+            var modal = $(this)
+            modal.find('#name').attr('value',postTitle)
+            modal.find('#action').attr('value',action)
+            modal.find('#expected_result').attr('value',expectedresult)
+            var url ="{{url('testStep')}}/"+id;
+            $('#editForm').attr('action',url);   
+        })
+        </script>
 </body>
