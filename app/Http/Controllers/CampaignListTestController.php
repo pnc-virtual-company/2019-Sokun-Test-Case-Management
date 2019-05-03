@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TestCase;
+use App\Campaign;
 class CampaignListTestController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class CampaignListTestController extends Controller
     public function index()
     {
         $testCase = TestCase::all();
-        return view('pages.campaignListTest',compact('testCase'));
+        $campaign = Campaign::all();
+        return view('pages.campaignListTest',compact('testCase','campaign'));
     }
 
     /**
@@ -24,7 +26,9 @@ class CampaignListTestController extends Controller
      */
     public function create()
     {
-        // return view('pages.create');
+        return view('pages.campaignListTest');
+       
+    
     }
 
     /**
@@ -35,8 +39,8 @@ class CampaignListTestController extends Controller
      */
     public function store(Request $request)
     {
-        // TestCase::create($request->all());
-        // return redirect()->route('campaignListTest.index');
+        $testCase = TestCase::create($request->all());
+        return redirect('campaignListTest');
     }
 
     /**
@@ -47,8 +51,9 @@ class CampaignListTestController extends Controller
      */
     public function show($id)
     {
-        // $testCase = TestCase::findOrFail($id);
-        // return view('pages.show', compact('campaignListTest', $testCase));
+        $campaign = Campaign::find($id);
+        $campaign->testCases;
+        return view('pages.campaignListTest',compact('campaign'));
     }
 
     /**
@@ -72,8 +77,9 @@ class CampaignListTestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // TestCase::findOrFail($id)->update($request->all());
-        // return redirect()->route('campaignListTest.index');
+        $testCase = TestCase::findOrFail($id);
+        $testCase->update($request->all());
+        return redirect('campaignListTest');
     }
 
     /**
@@ -86,5 +92,9 @@ class CampaignListTestController extends Controller
     {
         // TestCase::find($id)->delete();
         // return back();
+
+        $testcase = TestCase::findOrFail($id);
+        $testcase->delete();
+        return redirect('campaignListTest');
     }
 }

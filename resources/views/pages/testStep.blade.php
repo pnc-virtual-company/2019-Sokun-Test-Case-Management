@@ -21,7 +21,7 @@
             
             
             <tbody>
-                    @foreach ($testStep as $item)
+                    @foreach ($testCase->testSteps as $item)    
                 <tr>
                     <td>
                     <a href="#" id="editData" data-id="{{$item->id}}" data-name="{{$item->name}}" data-action="{{$item->action}}" data-expectedresult="{{$item->expected_result}}" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
