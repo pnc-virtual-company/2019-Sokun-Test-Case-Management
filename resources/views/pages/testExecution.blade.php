@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($testExecution as $value)
+                @foreach ($testExecution->testSteps as $value)
                 <tr>
                     <td>
                     <span> {{$value->id}}</span>

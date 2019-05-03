@@ -39,7 +39,7 @@ class testStepController extends Controller
     public function store(Request $request)
     {
         $testStep = TestStep::create($request->all());
-        return redirect('testStep');
+        return redirect('testStep/1');
     }
 
     /**
