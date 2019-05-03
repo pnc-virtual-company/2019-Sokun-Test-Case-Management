@@ -210,7 +210,6 @@
         var button=$(event.relatedTarget)
         var id =button.data('id')
         var title =button.data('title')
-        console.log(title)
         var modal=$(this)
         modal.find('#title').text(title)
         var url = "{{url('campaign/')}}/"+id;

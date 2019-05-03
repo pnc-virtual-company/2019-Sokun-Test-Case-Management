@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TestStep;
+use App\TestCase;
 class CompaignExecutionController extends Controller
 {
     /**
@@ -13,8 +14,7 @@ class CompaignExecutionController extends Controller
      */
     public function index()
     {
-        $testExecution = TestStep::all();
-        return view('pages.testExecution', compact('testExecution'));
+        
     }
 
     /**
@@ -35,7 +35,7 @@ class CompaignExecutionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -46,7 +46,9 @@ class CompaignExecutionController extends Controller
      */
     public function show($id)
     {
-        //
+        $testExecution = TestCase::find($id);
+        $testExecution->testSteps;
+        return view('pages.testExecution',compact('testExecution'));
     }
 
     /**
