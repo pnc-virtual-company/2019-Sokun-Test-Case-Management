@@ -92,12 +92,12 @@
             background-size: cover;
         }
         .modal-content {
-            border:1px solid #007bff;
+            border:none;
             right: -18%;
             margin-top: 140px;
             box-shadow: 3px 3px 5px white;
             background-color:rgba(255,255,255,0.6);;
-            opacity: .8;
+            opacity: .9;
             padding: 0 18px;
             border-radius: 10px;
         }

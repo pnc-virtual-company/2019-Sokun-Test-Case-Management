@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}} ">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}} ">
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}} ">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
 
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>

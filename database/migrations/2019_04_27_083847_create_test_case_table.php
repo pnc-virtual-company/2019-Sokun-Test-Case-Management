@@ -13,11 +13,7 @@ class CreateTestCaseTable extends Migration
      */
     public function up()
     {
-<<<<<<< HEAD
-        Schema::create('testcases', function (Blueprint $table) {
-=======
         Schema::create('test_cases', function (Blueprint $table) {
->>>>>>> 7bc7c62a3d94a6094a4f40d0e2699ccfed55db68
             $table->increments('id');
             $table->string('name');
             $table->string('creator');
