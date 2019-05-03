@@ -31,7 +31,7 @@
                                <h2>Number of passed test</h2>
                             </div>
                             <div class="panel-body">
-                                   <p>The result of number passed test of  campaign eskdflsdmfsdlfdlsk sdkfjowe eorjw  </p>
+                                   <p>The result of number passed test of  campaign</p>
                                 <div class="flot-chart">
                                         <canvas id="bar-chart"  width="516px" height="423px"></canvas>
                                 </div>

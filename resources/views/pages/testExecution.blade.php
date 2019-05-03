@@ -19,7 +19,7 @@
                     <th>Expected Result</th>
                     <th>Execution Date</th>
                     <th>Status</th>
-                    <th>Actual Reslut</th>
+                    <th>Actual Result</th>
                 </tr>
             </thead>
             <tbody>

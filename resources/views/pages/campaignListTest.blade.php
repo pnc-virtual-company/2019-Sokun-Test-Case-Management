@@ -25,7 +25,7 @@
             </thead>
             <tbody>
                 @foreach ($campaign as $value)
-                {{-- <tr>
+                <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$value->id}}" data-name="{{$value->name}}" data-creator="{{$value->creator}}" data-description="{{$value->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                     
@@ -39,7 +39,7 @@
                     <td>{{$value->name}}</td>
                     <td>{{$value->creator}}</td>
                     <td>{{$value->description}}</td>
-                </tr> --}}
+                </tr>
 
                 @endforeach
             </tbody>
