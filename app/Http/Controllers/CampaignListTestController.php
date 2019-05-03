@@ -15,7 +15,8 @@ class CampaignListTestController extends Controller
     public function index()
     {
         $testCase = TestCase::all();
-        return view('pages.campaignListTest',compact('testCase'));
+    
+        return view('pages.campaignListTest',compact('testCase','campaign'));
     }
 
     /**
@@ -39,7 +40,7 @@ class CampaignListTestController extends Controller
     public function store(Request $request)
     {
         $testCase = TestCase::create($request->all());
-        return redirect('campaignListTest');
+        return redirect('campaignListTest/'.$request->campaign_id);
     }
 
     /**
@@ -51,7 +52,7 @@ class CampaignListTestController extends Controller
     public function show($id)
     {
         $campaign = Campaign::find($id);
-        $campaign->testCases;
+        // $campaign->testCases;
         return view('pages.campaignListTest',compact('campaign'));
     }
 
@@ -63,8 +64,7 @@ class CampaignListTestController extends Controller
      */
     public function edit($id)
     {
-        // $testCase = TestCase::findOrFail($id);
-        // return view('pages.edit')->with('campaignListTest',$testCase);
+        //
     }
 
     /**

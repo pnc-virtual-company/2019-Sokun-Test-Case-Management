@@ -23,14 +23,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($testExecution as $value)
+                @foreach ($testExecution->testSteps as $value)
                 <tr>
                     <td>
                     <span> {{$value->id}}</span>
                     </td>
                     <td>{{$value->name}}</td>
                     <td>{{$value->action}} </td>
-                    <td>{{$value->exspected_result}}</td>
+                    <td>{{$value->expected_result}}</td>
                     <td>
                         <input id="datepicker" width="200px"/>
                     </td>

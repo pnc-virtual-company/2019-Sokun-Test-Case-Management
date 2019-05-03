@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TestStep;
-
+use App\TestCase;
 class testStepController extends Controller
 {
     /**
@@ -39,7 +39,7 @@ class testStepController extends Controller
     public function store(Request $request)
     {
         $testStep = TestStep::create($request->all());
-        return redirect('testStep');
+        return redirect('testStep/1');
     }
 
     /**
@@ -50,7 +50,9 @@ class testStepController extends Controller
      */
     public function show($id)
     {
-        //
+        $testCase = TestCase::find($id);
+        $testCase->testSteps;
+        return view('pages.testStep',compact('testCase'));
     }
 
     /**
