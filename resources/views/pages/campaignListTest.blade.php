@@ -209,6 +209,16 @@
             var id = button.data('id')
            
             var modal = $(this)
+            modal.find('#name').attr('value',name)
+
+            var url ="{{url('campaignListTest')}}/"+id;
+            $('#deleteData').attr('action',url);   
+    })
+    $('#createModal').on('show.bs.modal',function(event){
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+           
+            var modal = $(this)
             modal.find('#cid').attr('value',id)
 
             var url ="{{url('campaignListTest')}}/"+id;
