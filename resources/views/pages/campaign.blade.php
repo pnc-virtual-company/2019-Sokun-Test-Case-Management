@@ -25,7 +25,7 @@
                 <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$item->id}}" data-name="{{$item->name}}" data-startdate="{{$item->start_date}}" data-enddate="{{$item->end_date}}" data-description="{{$item->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                    <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info"></i></a>
+                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info"></i></a>
                         <a href="{{route('campaignListTest.show',$item->id)}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
                         <span>{{$item->id}}</span>
                     </td>
@@ -48,7 +48,7 @@
                   <h5 class="modal-title" id="exampleModalLabel">Create New Campagin</h5>
                 </div>
                 <form action="{{action('CampaignController@store')}}" method="POST">
-                    @csrf
+                    {{ csrf_field() }}
                     <div class="modal-body">
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
