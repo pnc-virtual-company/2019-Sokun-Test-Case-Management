@@ -71,11 +71,13 @@
       events : [
                 @foreach($campaign as $item)
                 {
+                  
                     title : '{{ $item->name }}',
                     start : '{{ $item->start_date }}',
                     end : '{{$item->end_date}}',
                     description : '{{$item->description}}',
-                    url : '{{ route('pages.campaign', $item->id) }}'
+                    color: 'green'
+                    
                 },
                 @endforeach
             ]
@@ -88,6 +90,7 @@
      @extends('layouts.app')
     @section('content')
     <div id='calendar'></div>
+   
     @endsection
 </body>
 </html>

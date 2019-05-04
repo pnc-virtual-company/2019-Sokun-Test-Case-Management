@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Campaign;
 class fullcalenderController extends Controller
 {
     /**
@@ -13,7 +13,10 @@ class fullcalenderController extends Controller
      */
     public function index()
     {
-      return view('pages.calendar');
+    $campaign = Campaign::all();
+    
+    return view('pages.calendar',compact('campaign'));
+      
     }
 
     /**
@@ -23,7 +26,7 @@ class fullcalenderController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.calendar');
     }
 
     /**
