@@ -77,7 +77,7 @@ class testStepController extends Controller
     {
         $TestStep = TestStep::findOrFail($id);
         $TestStep->update($request->all());
-        return redirect('testStep/'.$request->$id);
+        return redirect('testStep/'.$request->test_case_id);
     }
 
     /**
@@ -86,10 +86,10 @@ class testStepController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $TestStep = TestStep::findOrFail($id);
         $TestStep->delete();
-        return redirect('testStep');
+        return redirect('testStep/'.$request->test_case_id);
     }
 }

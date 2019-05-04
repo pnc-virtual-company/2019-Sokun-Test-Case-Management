@@ -27,7 +27,7 @@
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$value->id}}" data-name="{{$value->name}}" data-creator="{{$value->creator}}" data-description="{{$value->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                     
-                        <a href="" aria-hidden="true" data-id="{{$value->id}}" data-name="{{$value->name}}" data-description="{{$value->description}}" data-creator="{{$value->creator}}" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
+                        <a href="" aria-hidden="true" data-id="{{$value->id}}" data-name="{{$value->name}}" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
 
                         <a href="{{url('testExecution')}}/{{$value->id}}"><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
                         <a href=""><i class="mdi  mdi-rewind text-info"  aria-hidden="true"></i></a>
@@ -75,7 +75,7 @@
                         <div class="col-sm-9">
                             <input type="text" name="description" class="form-control" required>
                         </div>
-                    </div>       
+                    </div>        
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
@@ -103,6 +103,7 @@
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                         <div class="col-sm-9">
+                                <input type="hidden" value="{{$campaign->id}} " name="campaign_id" class="form-control">
                         <input type="text" name="name" value="" id="name" class="form-control" autofocus>
                         </div>
                     </div>
@@ -139,13 +140,13 @@
                         <h5 class="modal-title" id="exampleModalLabel">Remove Test</h5>
                     </div>
                     <div class="modal-body">
-                            <input type="hidden" value="{{$campaign->id}} "  class="form-control">
-                        <p>Are you sure that you want to remove the test case?</p>
-                        <p id="name"></p>
+                        <p>Are you sure you want to remove campaign ?</p>
+                        <p id="deleteTitle"></p>
                     </div>
                     <form action="" id="deleteData" method="POST">
-                    @csrf
-                    @method('DELETE')
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" value="{{$campaign->id}}" name="campaign_id" class="form-control">
                     <div class="modal-footer">
                         
                         <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
@@ -174,7 +175,6 @@
             var creator = button.data('creator')    
             var description = button.data('description')
             var id = button.data('id')
-           
             var modal = $(this)
 
             // modal.find('#name').attr('value',testcaseId)
@@ -183,19 +183,17 @@
             modal.find('#description').attr('value',description)
 
             var url ="{{url('campaignListTest')}}/"+ id;
+            console.log(id)
             $('#updateForm').attr('action',url);   
             });
         });
 
         $('#deleteModal').on('show.bs.modal',function(event){
             var button = $(event.relatedTarget)
-            var name = button.data('name')
-            var creator = button.data('creator')
-            var description = button.data('description')
             var id = button.data('id')
-           
+            var name = button.data('name')
             var modal = $(this)
-            modal.find('#name').attr('value',name)
+            modal.find('#deleteTitle').attr('value',name)
 
             var url ="{{url('campaignListTest')}}/"+id;
             $('#deleteData').attr('action',url);   

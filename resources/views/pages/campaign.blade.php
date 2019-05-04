@@ -25,7 +25,7 @@
                 <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$item->id}}" data-name="{{$item->name}}" data-startdate="{{$item->start_date}}" data-enddate="{{$item->end_date}}" data-description="{{$item->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                    <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info"></i></a>
+                    <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
                         <a href="{{route('campaignListTest.show',$item->id)}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
                         <span>{{$item->id}}</span>
                     </td>
@@ -139,13 +139,9 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Delete Campaign</h5>
-                  <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                 </div>
                 <div class="modal-body">
-                  <p>Are you sure to delete this campaign!!</p>
-                   <small id="title"></small>
+                    <h5>Are you sure you want to remove campaign ?</h5><p id="title" style="color:red;"></p>
                 </div>
               <form  id="fDelete" action="" method="POST">
                   @csrf
