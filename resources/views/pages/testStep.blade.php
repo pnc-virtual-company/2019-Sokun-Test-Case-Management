@@ -24,7 +24,7 @@
                 <tr>
                     <td>
                     <a href="#" id="editData" data-id="{{$item->id}}" data-name="{{$item->name}}" data-action="{{$item->action}}" data-expectedresult="{{$item->expected_result}}" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-id="{{$item->id}}" data-title="{{$item->name}}" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info"></i></a>
+                        <a href="" aria-hidden="true" data-id="{{$item->id}}" data-title="{{$item->name}}" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
                         <span>{{ $item->id }}</span>
                     </td>
                     <td>{{ $item->name }}</td>
@@ -43,7 +43,7 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Create New Test Step</h5>
                 </div>
-                <form action="{{action('testStepController@store')}} " method="POST">
+                <form action="{{action('testStepController@store')}} " method="POST" autocomplete="off">
                     @csrf
                     <div class="modal-body">
                             <div class="form-group row">
@@ -91,6 +91,7 @@
                     <form action="" id="mDelete" method="POST">
                         @csrf
                         @method('DELETE')
+                        <input type="hidden" value="{{$testCase->id}}" name="test_case_id" class="form-control">
                     <div class="modal-footer">
                       <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
                       <button type="submit" class="btn btn-sm btn-primary">Yes</button>
@@ -107,7 +108,7 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Update Test Step</h5>
                 </div>
-                <form action="" method="POST" id="editForm">
+                <form action="" method="POST" id="editForm" autocomplete="off">
                     @csrf
                     @method('PATCH')
                     <div class="modal-body">
@@ -159,6 +160,7 @@
             var button = $(event.relatedTarget)
             var postTitle = button.data('title')
             var id = button.data('id')
+            console.log(id)
             var modal = $(this)
             modal.find('#mPostTitle').text(postTitle)
             var url ="{{url('testStep')}}/"+id;

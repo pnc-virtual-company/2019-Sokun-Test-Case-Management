@@ -19,7 +19,7 @@ class CreateCampaignTable extends Migration
             $table->string('start_date');
             $table->string('end_date');
             $table->string('description');
-            $table->string('status')->default("Passed");
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

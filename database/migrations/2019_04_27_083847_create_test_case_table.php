@@ -18,7 +18,7 @@ class CreateTestCaseTable extends Migration
             $table->string('name');
             $table->string('creator');
             $table->string('description');
-            $table->string('status')->default('Passed');  
+            $table->integer('status')->default(0); 
             $table->integer('campaign_id')->unsigned()->default(1);
             $table->foreign('campaign_id')
             ->references('id')

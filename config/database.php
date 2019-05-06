@@ -41,10 +41,10 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'kratie'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'skeleton'),
-            'username' => env('DB_USERNAME', 'root'),
+            'database' => env('DB_DATABASE', '2019vc2gc'),
+            'username' => env('DB_USERNAME', '2019vc2gc'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',

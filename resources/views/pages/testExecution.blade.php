@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <h2>List of Test Case Steps </h2>
         <p>Execution of test XXX in Campaign XXX</p>
-        <a href="" class="btn pull-right" style="background:#006df0;color:white;"><span class="mdi mdi-content-save"></span> Save</a><br><br>
+        <a href="{{route('testExecution.index')}} " class="btn pull-right" style="background:#006df0;color:white;"><span class="mdi mdi-content-save"></span> Save</a><br><br>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -32,17 +32,27 @@
                     <td>{{$value->action}} </td>
                     <td>{{$value->expected_result}}</td>
                     <td>
-                        <input id="datepicker" width="200px"/>
+                        <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} ">
                     </td>
                     <td>
                         <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
-                            <option selected>Choose...</option>
-                            <option value="">Passed</option>
-                            <option value="">Failed</option>
-                            <option value="">Not run</option>
+                            <?php if($value->status == 0) { ?>
+                                <option value="0" selected>Not run</option>
+                                <option value="1">Passed</option>
+                                <option value="2">Failed</option>
+
+                            <?php } else if($value->status == 1){ ?>
+                                <option value="0">Not run</option>
+                                <option value="1" selected>Passed</option>
+                                <option value="2">Failed</option>
+                            <?php } else { ?>
+                                <option value="0">Not run</option>
+                                <option value="1">Passed</option>
+                                <option value="2" selected>Failed</option>
+                            <?php }?>
                         </select>
                     </td>
-                    <td><textarea></textarea></td>
+                    <td> <input width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control"></td>
                 </tr>                 
                 @endforeach
             </tfoot>

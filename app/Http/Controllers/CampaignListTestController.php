@@ -77,7 +77,7 @@ class CampaignListTestController extends Controller
     {
         $testCase = TestCase::findOrFail($id);
         $testCase->update($request->all());
-        return redirect('campaignListTest/'.$id);
+        return redirect('campaignListTest/'.$request->campaign_id);
     }
 
     /**
@@ -86,10 +86,10 @@ class CampaignListTestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function  destroy(Request $request, $id)
     {
         $testcase = TestCase::findOrFail($id);
         $testcase->delete();
-        return redirect('campaignListTest');
+        return redirect('campaignListTest/'.$request->campaign_id);
     }
 }
