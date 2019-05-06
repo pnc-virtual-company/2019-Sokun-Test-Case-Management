@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Campaign;
+use App\TestCase;
 class fullcalenderController extends Controller
 {
     /**
@@ -26,7 +27,7 @@ class fullcalenderController extends Controller
      */
     public function create()
     {
-        return view('pages.calendar');
+       
     }
 
     /**

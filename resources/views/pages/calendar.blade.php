@@ -72,11 +72,12 @@
                 @foreach($campaign as $item)
                 {
                   
-                    title : '{{ $item->name }}',
+                    title : '{{$item->name }}',
                     start : '{{ $item->start_date }}',
                     end : '{{$item->end_date}}',
                     description : '{{$item->description}}',
-                    color: 'green'
+                    color: 'green',
+                    url : '{{url('campaignListTest', $item->id) }}'
                     
                 },
                 @endforeach
