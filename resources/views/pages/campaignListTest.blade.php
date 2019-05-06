@@ -54,7 +54,7 @@
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Create Test Case</h5>
             </div>
-            <form action="{{action('CampaignListTestController@store')}}" method="POST">
+            <form action="{{action('CampaignListTestController@store')}}" method="POST" autocomplete="off">
             @csrf
             <div class="modal-body">
                     <div class="form-group row">
@@ -95,7 +95,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Update Test Case</h5>
         </div>
-        <form id="updateForm" method="POST" action="">
+        <form id="updateForm" method="POST" action="" autocomplete="off">
             @csrf
             @method('PATCH')
         <div class="modal-body">

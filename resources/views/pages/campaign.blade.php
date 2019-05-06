@@ -47,11 +47,11 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Create New Campagin</h5>
                 </div>
-                <form action="{{action('CampaignController@store')}}" method="POST">
-                    @csrf
+                <form action="{{action('CampaignController@store')}}" method="POST" autocomplete="off">
+                    {{ csrf_field() }}
                     <div class="modal-body">
                             <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
+                                <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;" >Name:</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control"  name="name" autofocus>
                                 </div>
@@ -92,7 +92,7 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Update Campagin</h5>
                 </div>
-                <form action="" method="POST" id="updateForm">
+                <form action="" method="POST" id="updateForm" autocomplete="off">
                     @csrf
                     @method('PATCH')
                     <div class="modal-body">
@@ -143,7 +143,7 @@
                 <div class="modal-body">
                     <h5>Are you sure you want to remove campaign ?</h5><p id="title" style="color:red;"></p>
                 </div>
-              <form  id="fDelete" action="" method="POST">
+              <form  id="fDelete" action="" method="POST" autocomplete="off">
                   @csrf
                 @method('DELETE')
                     
