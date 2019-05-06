@@ -67,7 +67,8 @@
       selectHelper: true,
       navLinks: true, // can click day/week names to navigate views
       editable: true,
-      eventLimit: true,   
+      eventLimit: true, 
+      displayEventTime: false,  
       events : [
                 @foreach($campaign as $item)
                 {
