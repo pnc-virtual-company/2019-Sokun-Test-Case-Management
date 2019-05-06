@@ -67,8 +67,8 @@
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-sm btn-primary">Create</button>
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> Create</button>
                     </div>
                 </form>
               </div>
@@ -93,8 +93,8 @@
                         @method('DELETE')
                         <input type="hidden" value="{{$testCase->id}}" name="test_case_id" class="form-control">
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-                      <button type="submit" class="btn btn-sm btn-primary">Yes</button>
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> Yes</button>
                     </div>
                     </form>
                   </div>
@@ -134,8 +134,8 @@
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-sm btn-primary">Edit</button>
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-restore"></span> Edit</button>
                     </div>
                 </form>
               </div>

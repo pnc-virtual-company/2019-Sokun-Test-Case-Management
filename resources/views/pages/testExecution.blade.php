@@ -74,8 +74,8 @@
                     <p>Are you sure that you want to remove the test from compaign?</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-sm btn-primary">Yes</button>
+                    <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
+                    <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> Yes</button>
                 </div>
               </div>
             </div>
