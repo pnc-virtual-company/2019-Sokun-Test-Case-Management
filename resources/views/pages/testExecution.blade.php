@@ -6,10 +6,11 @@
     @section('content')
         
 <body>
+    <form action="{{route('testExecution.update',$testExecution->$id)}} " method="POST">
     <div class="container-fluid">
         <h2>List of Test Case Steps </h2>
         <p>Execution of test XXX in Campaign XXX</p>
-        <a href="{{route('testExecution.index')}} " class="btn pull-right" style="background:#006df0;color:white;"><span class="mdi mdi-content-save"></span> Save</a><br><br>
+        <button class="btn pull-right" style="background:#006df0;color:white; font-weight:600;"><span class="mdi mdi-content-save"></span> Save</button><br><br>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -19,7 +20,7 @@
                     <th>Expected Result</th>
                     <th>Execution Date</th>
                     <th>Status</th>
-                    <th>Actual Reslut</th>
+                    <th>Actual Resultt</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,8 +58,9 @@
                 @endforeach
             </tfoot>
         </table>
-        <a href="{{route('campaignListTest.index')}} "><h5><span class="mdi mdi-chevron-left text-info mdi-24px"></span> Back to campaign tests</h5></a>
+        <a href="{{route('campaignListTest.index')}}"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
     </div>
+    </form>
     @endsection
 
     <!-- Modal -->
