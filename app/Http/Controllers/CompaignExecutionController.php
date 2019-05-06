@@ -71,7 +71,8 @@ class CompaignExecutionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $testStep = TestStep::find($id);
+        dd($testStep);
     }
 
     /**
