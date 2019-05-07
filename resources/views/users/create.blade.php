@@ -8,8 +8,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">@lang('Create a new user')</div>
-
+                <div class="card-header">@lang('Upload your image')</div>
                 <div class="card-body">
 
                     <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
