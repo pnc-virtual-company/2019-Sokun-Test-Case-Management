@@ -6,11 +6,13 @@
     @section('content')
         
 <body>
-    <form action="{{route('testExecution.update',$testExecution->$id)}} " method="POST">
+    <form action="{{route('testExecution.update',$testExecution->id)}} " method="POST">
+        @csrf
+        @method("PATCH")
     <div class="container-fluid">
         <h2>List of Test Case Steps </h2>
         <p>Execution of test XXX in Campaign XXX</p>
-        <button class="btn pull-right" style="background:#006df0;color:white; font-weight:600;"><span class="mdi mdi-content-save"></span> Save</button><br><br>
+        <button  type="submit" class="btn pull-right" style="background:#006df0;color:white; font-weight:600;"><span class="mdi mdi-content-save"></span> Save</button><br><br>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -33,10 +35,11 @@
                     <td>{{$value->action}} </td>
                     <td>{{$value->expected_result}}</td>
                     <td>
-                        <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} ">
+                    <input type="hidden" name="id[]" value="{{$value->id}}">
+                        <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]">
                     </td>
                     <td>
-                        <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
+                        <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" name="status[]">
                             <?php if($value->status == 0) { ?>
                                 <option value="0" selected>Not run</option>
                                 <option value="1">Passed</option>
@@ -53,7 +56,7 @@
                             <?php }?>
                         </select>
                     </td>
-                    <td> <input width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control"></td>
+                    <td> <input width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control" name="actual_result[]"></td>
                 </tr>                 
                 @endforeach
             </tfoot>

@@ -35,7 +35,8 @@ class CompaignExecutionController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $testStep = TestStep::find($id);
+        dd($testStep);
     }
 
     /**
@@ -71,8 +72,42 @@ class CompaignExecutionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $testStep = TestStep::find($id);
+        $testExecution = TestCase::find($id);
+        $testStep = $testExecution->testSteps;
+        $collection = collect(['id' => $request->id, 
+                                'execute_date' => $request->executed_date,
+                                'status' => $request->status,
+                                'actual_result' => $request->actual_result  
+        ]);
+        $collection->toArray();
         dd($testStep);
+        
+        // dd($request->executed_date);
+        //foreach($testStep as $value){
+        //     //dd($value->execute_date);
+        //  $value->id = $collection->id;
+        // $value->execute_date = $collection->execute_date;
+        // $value->status = $collection->status;
+        // $value->actual_result = $collection->actual_result;
+        //     //dd($value);
+        //     //$testStep->fill($value)->save();
+        //     //$value->update($request->all());
+        //     //$value = request()->except(['_token']);
+        //     //$value->where('id', $value->id)->update($request->all());
+        //     // dd($value);
+        //     // $value->id = $id;
+        //     // $value->status = $status;
+        //     // dd($value->executed_date);
+
+
+
+
+        //}
+         TestStep::where('id', $request->id)
+          ->update(['executed_date' => $request->executed_date]);
+          
+
+
     }
 
     /**
