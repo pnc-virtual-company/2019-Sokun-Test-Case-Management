@@ -135,9 +135,35 @@
                                                         
                                                     <li><a  href="{{url('/profile')}}"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
                                                         </li>
+                                                        <li>
+                                                        {{-- 
+                                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                            onclick="event.preventDefault();
+                                                                          document.getElementById('logout-form').submit();">
+                                                             Logout
+                                                         </a>
+                                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                            @csrf
+                                                        </form> --}}
 
-                                                        <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+
+                                                               <a style="margin-left:10px;" class="dropdown-item nav-link" href="{{ route('logout') }}" 
+                                                                onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                                                   
+        
+                                                                        Logout
+                                                                   
+                                                                    </a>
+                                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                    @csrf
+                                                                    </form>
                                                         </li>
+
+
+
+
+                                                      
                                                     </ul>
                                                 </li>
                                             </ul>
