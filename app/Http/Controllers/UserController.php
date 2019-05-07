@@ -12,6 +12,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\UsersExport;
 use App\User;
 use App\Role;
+use \App\Post;
+use Image;
 
 class UserController extends Controller
 {
@@ -196,5 +198,21 @@ class UserController extends Controller
     public function export() 
     {
         return Excel::download(new UsersExport, 'users.xlsx');
+    }
+    public function update_avatar(Request $request){
+        // handle the user upload avartae
+            if($request->hasFile('avatar')){
+                $fileName = $request->file('avatar')->getClientOriginalName();
+                $request->file('avatar')->storeAs('public/images',$fileName);
+                $user = Auth::user();
+                $user->avatar = $fileName;
+                $user->save();
+                return view('pages.profile',array('user'=>Auth::user()));
+            }
+            return "no file choosen";
+    
+    }
+    public function profile1(){
+        return view('pages.profile',array('user'=>Auth::user()));
     }
 }

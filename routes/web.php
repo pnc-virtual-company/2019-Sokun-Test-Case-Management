@@ -69,3 +69,7 @@ Route::resource('testStep',"testStepController");
 Route::resource('testExecution','CompaignExecutionController');
 Route::resource('calendar','fullcalenderController');
 Route::resource('dashboard','DashboardController');
+
+//upload profile
+Route::GET('/profile', 'UserController@profile1');
+Route::POST('/profile', 'UserController@update_avatar');

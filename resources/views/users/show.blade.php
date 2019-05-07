@@ -9,7 +9,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">@lang('User details')</div>
-
+                <div>
+                    <img src="{{url('images/examples/faces/m34.jpg')}}" alt="img did not found">
+                </div>
                 <div class="card-body">
 
                     <div class="row">
