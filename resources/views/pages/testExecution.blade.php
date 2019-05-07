@@ -61,15 +61,15 @@
                 @endforeach
             </tfoot>
         </table>
-        <a href="{{url('campaignListTest')}}/{{$testExecution->id}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
+        <a href="{{url('campaignListTest')}}/{{$testExecution->campaign_id}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
     </div>
     </form>
     @endsection
 
-    <!-- Modal -->
+    <!--Delete Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Remove Test</h5>
                 </div>
@@ -80,9 +80,9 @@
                     <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
                     <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> Yes</button>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
+    </div>
 
     <script src="{{asset('js/jquery-3.3.1.min.js')}} "></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}} "></script>

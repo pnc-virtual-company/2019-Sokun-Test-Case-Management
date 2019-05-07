@@ -6,7 +6,8 @@
     @section('content')
 <body>
     <div class="container-fluid">
-        <h2>List of {{$testCase->name}} </h2>
+        @if(!empty($testCase->name)) {{ $testCase->name }} @endif
+        {{-- <h2>List of test step in {{$testCase->name}} </h2> --}}
         <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" data-toggle="modal" data-target="#createModal"><a href="#createModal"></a><i class="mdi mdi-plus-circle"  aria-hidden="true"></i>Create Test Step</button>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
@@ -32,7 +33,7 @@
                 @endforeach
             </tfoot>
         </table>
-        <a href="{{url('campaignListTest')}}/{{$testCase->id}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
+        <a href="{{url('campaignListTest')}}/{{$testCase->campaign_id}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
 
     </div>
     @endsection
