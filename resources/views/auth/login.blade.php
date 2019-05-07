@@ -139,7 +139,7 @@
                         </span>
                     @endif
             </div>
-            <a href="{{route('campaign.index')}} " ><button type="submit" class="btn  btn-sm btn-primary">Login</button></a>
+            <button type="submit" class="btn  btn-sm btn-primary">Login</button>
           </form>
         </div>
 
