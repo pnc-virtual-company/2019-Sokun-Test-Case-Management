@@ -13,18 +13,18 @@ class CreateTestStepTable extends Migration
      */
     public function up()
     {
-        Schema::create('teststep', function (Blueprint $table) {
+        Schema::create('test_steps', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('action');
-            $table->string('exspected_result');
-            $table->string('executed_date');
-            $table->string('status');
-            $table->string('actual_result');
-            $table->integer('testCase_id')->unsigned();
-            $table->foreign('testCase_id')
+            $table->string('expected_result');
+            $table->string('executed_date')->default("");
+            $table->integer('status')->default(0);
+            $table->string('actual_result')->default("");
+            $table->integer('test_case_id')->unsigned()->default(1);
+            $table->foreign('test_case_id')
             ->references('id')
-            ->on('testCase');
+            ->on('test_cases');
             $table->timestamps();
         });
     }

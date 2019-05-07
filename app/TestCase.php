@@ -3,20 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Campaign;
+use App\TestCase;
 class TestCase extends Model
 {
-    protected $fillable = [
-        'Name', 'Creator','Description','status'
-    ];
-
-    
+    protected $table="test_cases";
+    protected $fillable=['name','creator','description','campaign_id'];
     // one to many relationship between compaign and and testcase
     public function campaigns(){
         return $this->belongsTo(Campaign::class);
     }
     public function testSteps(){
-        return $this->hasMany(testStep::class);
+        return $this->hasMany(TestStep::class);
     }
 
 }

@@ -13,16 +13,16 @@ class CreateTestCaseTable extends Migration
      */
     public function up()
     {
-        Schema::create('testcase', function (Blueprint $table) {
+        Schema::create('test_cases', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('creator');
             $table->string('description');
-            $table->string('status');  
-            $table->integer('campaign_id')->unsigned();
+            $table->integer('status')->default(0); 
+            $table->integer('campaign_id')->unsigned()->default(1);
             $table->foreign('campaign_id')
             ->references('id')
-            ->on('campaign');
+            ->on('campaigns');
             $table->timestamps();
         });
     }

@@ -6,10 +6,13 @@
     @section('content')
         
 <body>
+    <form action="{{route('testExecution.update',$testExecution->id)}} " method="POST">
+        @csrf
+        @method("PATCH")
     <div class="container-fluid">
         <h2>List of Test Case Steps </h2>
         <p>Execution of test XXX in Campaign XXX</p>
-        <a href="" class="btn pull-right" style="background:#006df0;color:white;"><span class="mdi mdi-content-save"></span> Save</a><br><br>
+        <button  type="submit" class="btn pull-right" style="background:#006df0;color:white; font-weight:600;"><span class="mdi mdi-content-save"></span> Save</button><br><br>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -19,51 +22,48 @@
                     <th>Expected Result</th>
                     <th>Execution Date</th>
                     <th>Status</th>
-                    <th>Actual Reslut</th>
+                    <th>Actual Resultt</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($testExecution->testSteps as $value)
                 <tr>
                     <td>
-                        <span>1</span>
+                    <span> {{$value->id}}</span>
                     </td>
-                    <td>Logo</td>
-                    <td>Check the size of the logo</td>
-                    <td>Logo should fit header</td>
+                    <td>{{$value->name}}</td>
+                    <td>{{$value->action}} </td>
+                    <td>{{$value->expected_result}}</td>
                     <td>
-                        <input id="datepicker" width="200px"/>
+                    <input type="hidden" name="id[]" value="{{$value->id}}">
+                        <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]">
                     </td>
                     <td>
-                        <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
-                            <option selected>Choose...</option>
-                            <option value="">Passed</option>
-                            <option value="">Failed</option>
-                            <option value="">Not run</option>
+                        <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" name="status[]">
+                            <?php if($value->status == 0) { ?>
+                                <option value="0" selected>Not run</option>
+                                <option value="1">Passed</option>
+                                <option value="2">Failed</option>
+
+                            <?php } else if($value->status == 1){ ?>
+                                <option value="0">Not run</option>
+                                <option value="1" selected>Passed</option>
+                                <option value="2">Failed</option>
+                            <?php } else { ?>
+                                <option value="0">Not run</option>
+                                <option value="1">Passed</option>
+                                <option value="2" selected>Failed</option>
+                            <?php }?>
                         </select>
                     </td>
-                    <td><textarea></textarea></td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>2</span>
-                    </td>
-                    <td>Header Title</td>
-                    <td>Check the content of header</td>
-                    <td>The title in header is "xxxx"</td>
-                    <td><input id="datepicker2"/></td>
-                    <td>
-                            <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref">
-                                <option selected>Choose...</option>
-                                <option value="">Passed</option>
-                                <option value="">Failed</option>
-                                <option value="">Not run</option>
-                            </select>
-                        </td>
-                        <td><textarea></textarea></td>
-                </tr>
+                    <td> <input width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control" name="actual_result[]"></td>
+                </tr>                 
+                @endforeach
             </tfoot>
         </table>
+        <a href="{{route('campaignListTest.index')}}"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
     </div>
+    </form>
     @endsection
 
     <!-- Modal -->
@@ -77,8 +77,8 @@
                     <p>Are you sure that you want to remove the test from compaign?</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-sm btn-primary">Yes</button>
+                    <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
+                    <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> Yes</button>
                 </div>
               </div>
             </div>

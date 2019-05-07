@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\TestStep;
+use App\TestCase;
 class testStepController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class testStepController extends Controller
      */
     public function index()
     {
-        return view('pages.testStep');
+        $testStep = TestStep::all();
+       return view('pages.testStep',compact('testStep'));
     }
 
     /**
@@ -24,6 +26,8 @@ class testStepController extends Controller
     public function create()
     {
         //
+        return view('pages.testStep');
+
     }
 
     /**
@@ -34,7 +38,8 @@ class testStepController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $testStep = TestStep::create($request->all());
+        return redirect('testStep/'.$request->test_case_id);
     }
 
     /**
@@ -45,7 +50,9 @@ class testStepController extends Controller
      */
     public function show($id)
     {
-        //
+        $testCase = TestCase::find($id);
+        //$testCase->testSteps;
+        return view('pages.testStep',compact('testCase'));
     }
 
     /**
@@ -68,7 +75,9 @@ class testStepController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $TestStep = TestStep::findOrFail($id);
+        $TestStep->update($request->all());
+        return redirect('testStep/'.$request->test_case_id);
     }
 
     /**
@@ -77,8 +86,10 @@ class testStepController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $TestStep = TestStep::findOrFail($id);
+        $TestStep->delete();
+        return redirect('testStep/'.$request->test_case_id);
     }
 }
