@@ -6,7 +6,7 @@
     @section('content')
 <body>
     <div class="container-fluid">
-        <h2>List of test step </h2>
+        <h2>List of {{$testCase->name}} </h2>
         <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" data-toggle="modal" data-target="#createModal"><a href="#createModal"></a><i class="mdi mdi-plus-circle"  aria-hidden="true"></i>Create Test Step</button>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
@@ -17,8 +17,6 @@
                     <th>Expected Results</th>
                 </tr>
             </thead>
-            
-            
             <tbody>
                     @foreach ($testCase->testSteps as $item)    
                 <tr>
@@ -34,6 +32,8 @@
                 @endforeach
             </tfoot>
         </table>
+        <a href="{{url('campaignListTest')}}/{{$testCase->id}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
+
     </div>
     @endsection
      <!-- create Modal -->

@@ -2,57 +2,53 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container-fluid"><br>
-            <div class="row ">
-                    <div class="col-lg-6 ">
-                        <!-- pie chart-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading bg-dark">
-                               <h2> Campaign Status</h2>
-                            </div>
-                            <div class="panel-body bg-info">
-                                <select style="width: 195px;height:50px; background:blue;color:white; font-weight:500px;" class="optionCampaign form-control " id="sel1">
-                                    <option>Version 1</option>
-                                    <option>Version 2</option>
-                                    <option>Version 3</option>
-                                </select>
-                                <div class="flot-chart">
-                                    <canvas id="pie-chart"  width="500px" height="400px"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                          <!--end pie chart-->
+        <div class="row ">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <!-- pie chart-->
+                <div class="panel panel-default">
+                    <div class="panel-heading bg-dark">
+                        <h2> Campaign Status</h2>
                     </div>
-                    <div class="col-lg-6">
-                         <!--  bar Chart-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                               <h2>Number of passed test</h2>
-                            </div>
-                            <div class="panel-body">
-                                   <p>The result of number passed test of  campaign eskdflsdmfsdlfdlsk sdkfjowe eorjw  </p>
-                                <div class="flot-chart">
-                                        <canvas id="bar-chart"  width="516px" height="423px"></canvas>
-                                </div>
-                            </div>
+                    <div class="panel-body bg-info">
+                        <select style="width: 250px;height:50px; background:blue;color:white; font-weight:500px;" class="optionCampaign form-control " id="sel1">
+                            <option>Task Management System</option>
+                            <option>Students Seletion Application</option>
+                            <option>Test Case Management System</option>
+                        </select>
+                        <div class="flot-chart">
+                            <canvas id="pie-chart"  width="500px" height="400px"></canvas>
                         </div>
-                         <!-- End bar Chart-->
                     </div>
+                </div>
+                <!--end pie chart-->
             </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <!--  bar Chart-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>Number of passed test</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>The result of number passed test of  campaign </p>
+                        <div class="flot-chart">
+                            <canvas id="bar-chart"  width="516px" height="423px"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- End bar Chart-->
+            </div>
+        </div>
     </div>
 
 @endsection
 @push('scripts')
-<script>
-     
+    <script>
         $(function() {
             //Pie Chart
             new Chart(document.getElementById("pie-chart"), {
                 type: 'pie',
-
-                data: {
-                   
+                data: {   
                     labels: ["Passed", "Failed", "Not Run"],
                     datasets: [{
                     // label: "Population (millions)",
@@ -69,17 +65,16 @@
                     }
                 }
             });
-        
         });
             // Bar Chart
             new Chart(document.getElementById("bar-chart"), {
                 type: 'bar',
                 data: {
-                    labels: ["version 01", "Version 02", "Version 03"],
+                    labels: [ "Task Management", "Students Selection","Test Cast Management"],
                     datasets: [
                     {
-                        label: "hello",
-                        backgroundColor: ["#f39544", "#E74722","#255CEF"],
+                        
+                        backgroundColor: ["#255CEF", "#255CEF2","#255CEF"],
                         data: [1,10,20,30,40]
                     }
                     ]
@@ -89,11 +84,8 @@
                     title: {
                     display: true,
                     text: 'The number of tests'
-                    }
                 }
-            });
-
-
-
-        </script>
+            }
+        });
+    </script>
 @endpush
