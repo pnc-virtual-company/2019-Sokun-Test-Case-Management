@@ -74,6 +74,8 @@
 
                             </ul>
                         </li>
+                        @auth
+                        @if(Auth::user()->name=="Administrator")
                         <li class="active">
                             <a class="has-arrow" href="index.html">
 								   <span class="mdi mdi-account icon-wrap"></span>
@@ -83,7 +85,8 @@
                                 <li><a title="Dashboard v.1" href="{{route('users.index')}} "><span class="mini-sub-pro">Users</span></a></li>
                             </ul>
                         </li>
-                       
+                        @endif
+                       @endauth
                     </ul>
                 </nav>
             </div>
@@ -127,8 +130,8 @@
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															<img src="{{asset('images/logosn.png')}} " alt="" />
-															<span class="admin-name">Manager</span>
+															<img src="{{asset('storage/images/'.Auth::user()->avatar)}} " alt="" />
+															<span class="admin-name">{{Auth::user()->name}}</span>
 															<i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
@@ -136,17 +139,6 @@
                                                     <li><a  href="{{url('/profile')}}"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
                                                         </li>
                                                         <li>
-                                                        {{-- 
-                                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                                            onclick="event.preventDefault();
-                                                                          document.getElementById('logout-form').submit();">
-                                                             Logout
-                                                         </a>
-                                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                            @csrf
-                                                        </form> --}}
-
-
                                                                <a style="margin-left:10px;" class="dropdown-item nav-link" href="{{ route('logout') }}" 
                                                                 onclick="event.preventDefault();
                                                                 document.getElementById('logout-form').submit();">
