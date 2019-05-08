@@ -24,7 +24,8 @@ class CreateTestStepTable extends Migration
             $table->integer('test_case_id')->unsigned()->default(1);
             $table->foreign('test_case_id')
             ->references('id')
-            ->on('test_cases');
+            ->on('test_cases')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

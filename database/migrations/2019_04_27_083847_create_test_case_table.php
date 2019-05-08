@@ -22,7 +22,8 @@ class CreateTestCaseTable extends Migration
             $table->integer('campaign_id')->unsigned()->default(1);
             $table->foreign('campaign_id')
             ->references('id')
-            ->on('campaigns');
+            ->on('campaigns')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

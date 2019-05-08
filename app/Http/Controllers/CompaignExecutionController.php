@@ -82,14 +82,13 @@ class CompaignExecutionController extends Controller
         //$testStep->where('id',$test->id)->update($test->all());
         //dd($request);
          
-
         for($i=0; $i<count($request->id);$i++){
             TestStep::where('id', $request->id[$i])
           ->update(['executed_date' => $request->executed_date[$i],
                     'status' => $request->status[$i],
                     'actual_result' => $request->actual_result[$i]]);
         }
-       
+        return redirect('testExecution/'.$id);
         //->update($test->all());
 
         // $data = $request->all();
