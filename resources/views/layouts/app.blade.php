@@ -75,7 +75,7 @@
                             </ul>
                         </li>
                         @auth
-                        @if(Auth::user()->name=="Administrator")
+                        @if(Auth::user()->roles->pluck('name')->implode(', ')=="Administrator")
                         <li class="active">
                             <a class="has-arrow" href="index.html">
 								   <span class="mdi mdi-account icon-wrap"></span>
