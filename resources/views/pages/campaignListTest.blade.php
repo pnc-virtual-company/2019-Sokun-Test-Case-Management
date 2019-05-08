@@ -27,8 +27,7 @@
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$value->id}}" data-name="{{$value->name}}" data-creator="{{$value->creator}}" data-description="{{$value->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                     
-                        <a href="" aria-hidden="true" data-id="{{$value->id}}" data-name="{{$value->name}}" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
-
+                        <a href="" aria-hidden="true" data-id="{{$value->id}}"  data-name="{{$value->name}}" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
                         <a href="{{url('testExecution')}}/{{$value->id}}"><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
                         <a href=""><i class="mdi  mdi-rewind text-info"  aria-hidden="true"></i></a>
                         <a href="{{url('testStep')}}/{{$value->id}}"><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
