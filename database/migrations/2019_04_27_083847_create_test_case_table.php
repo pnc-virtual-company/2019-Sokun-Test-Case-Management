@@ -16,7 +16,6 @@ class CreateTestCaseTable extends Migration
         Schema::create('test_cases', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('creator');
             $table->string('description');
             $table->integer('status')->default(0); 
             $table->integer('campaign_id')->unsigned()->default(1);

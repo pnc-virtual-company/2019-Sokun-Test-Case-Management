@@ -35,7 +35,9 @@
                     </td>
                     <td>{{$value->name}}</td>
                     <td>{{$value->creator}}</td>
-                    <td>{{$value->description}}</td>
+                    <td>{{$value->description}}
+                        <p>{{$value->testSteps()->pluck('status')->contains(2)}} </p>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

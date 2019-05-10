@@ -75,76 +75,33 @@ class CompaignExecutionController extends Controller
     public function update(Request $request, $id)
     {
         $testExecution = TestCase::find($id);
-        $testStep = $testExecution->testSteps;
-        // $test = request()->except(['_token']);
+        
+         
 
-
-        //$testStep->where('id',$test->id)->update($test->all());
-        //dd($request);
          
         for($i=0; $i<count($request->id);$i++){
             TestStep::where('id', $request->id[$i])
-          ->update(['executed_date' => $request->executed_date[$i],
+                ->update(['executed_date' => $request->executed_date[$i],
                     'status' => $request->status[$i],
                     'actual_result' => $request->actual_result[$i]]);
+                $run = 0;
+                $passed = 0;
+                $failed = 0;
+
+                // @if($request->status[$i] == 0)
+                //     $run += $run;
+                // @elseif ($request->status[$i] == 1)
+                //     $passed += $passed;
+                // @elseif ($request->status[$i] == 2)
+                //     $failed += $failed;
+                // @endif
+                
         }
+        dd($failed);
+
+
+    
         return redirect('testExecution/'.$id);
-        //->update($test->all());
-
-        // $data = $request->all();
-        // $lastid = TestCase::update($data)->id;
-        // if(count($request->executed_date) > 0)
-        // {
-        //     foreach($request->executed_date as $value)
-        //     {
-        //         $data2 = array(
-        //             'id'=>$lastid,
-        //             'executed_date'=>$request->executed_date[$data],
-        //             'status'=>$request->status[$data],
-        //             'actual_result'=>$request->actual_result[$data]
-        //         );
-        //         TestCase::update($data2);
-        //     }
-        // }
-
-
-        // $collection = collect(['id' => $request->id, 
-        //                         'execute_date' => $request->executed_date,
-        //                         'status' => $request->status,
-        //                         'actual_result' => $request->actual_result  
-        // ]);
-        // $collection->toArray();
-
-        
-        //dd(json_encode($testS));
-        //TestStep::update($testS);
-        //dd($collection);
-        
-        // dd($request->executed_date);
-
-        
-        // dd($value->execute_date);
-        // $value->id = $request->id;
-        // $value->execute_date = $request->execute_date;
-        // $value->status = $request->status;
-        // $value->save();
-        // $value->actual_result = $collection->actual_result;
-        //dd($value);
-        //$testStep->fill($value)->save();
-        //$value->update($request->all());
-        //$value = request()->except(['_token']);
-        //$value::where('id', $request->id)->update($test->all());
-        // dd($value);
-        // $value->id = $id;
-        // $value->status = $status;
-        // dd($value->executed_date);
-
-        //$value->update($testS);
-
-        //}
-         
-        
-
     }
 
     /**
