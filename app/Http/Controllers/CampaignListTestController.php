@@ -54,7 +54,7 @@ class CampaignListTestController extends Controller
     public function show($id)
     {
         $campaign = Campaign::find($id);
-        //$campaign->testCases;
+        $campaign->testCases;
         return view('pages.campaignListTest',compact('campaign'));
     }
 
@@ -70,11 +70,11 @@ class CampaignListTestController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update th$e specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+        * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
