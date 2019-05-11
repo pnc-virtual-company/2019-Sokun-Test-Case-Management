@@ -75,29 +75,15 @@ class CompaignExecutionController extends Controller
     public function update(Request $request, $id)
     {
         $testExecution = TestCase::find($id);
-        
+         
          
 
-         
         for($i=0; $i<count($request->id);$i++){
             TestStep::where('id', $request->id[$i])
                 ->update(['executed_date' => $request->executed_date[$i],
                     'status' => $request->status[$i],
                     'actual_result' => $request->actual_result[$i]]);
-                $run = 0;
-                $passed = 0;
-                $failed = 0;
-
-                // @if($request->status[$i] == 0)
-                //     $run += $run;
-                // @elseif ($request->status[$i] == 1)
-                //     $passed += $passed;
-                // @elseif ($request->status[$i] == 2)
-                //     $failed += $failed;
-                // @endif
-                
         }
-        dd($failed);
 
 
     
