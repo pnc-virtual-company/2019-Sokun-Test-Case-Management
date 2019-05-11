@@ -54,7 +54,6 @@ class CampaignListTestController extends Controller
     public function show($id)
     {
         $campaign = Campaign::find($id);
-        $campaign->testCases;
         return view('pages.campaignListTest',compact('campaign'));
     }
 

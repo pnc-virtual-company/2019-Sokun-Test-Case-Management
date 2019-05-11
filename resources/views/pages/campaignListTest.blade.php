@@ -19,10 +19,13 @@
                     <th>Name</th>
                     <th>Creator</th>
                     <th>Short Description</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($campaign->testCases as $value)
+        
+
                 <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$value->id}}" data-name="{{$value->name}}" data-creator="{{$value->creator}}" data-description="{{$value->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
@@ -34,9 +37,19 @@
                     <span>{{$value->id}}</span>
                     </td>
                     <td>{{$value->name}}</td>
-                    <td>{{$value->creator}}</td>
+                    <td>{{Auth::user()->name}}</td>
                     <td>{{$value->description}}
-                        <p>{{$value->testSteps()->pluck('status')->contains(2)}} </p>
+                    </td>
+                    <td>
+
+
+                        @if ($value->testSteps()->pluck('status')->isEmpty())
+                            <p style="color:blue;">Not run </p>
+                        @elseif($value->testSteps()->pluck('status'))          
+                            <p style="color:blue;">Passed </p>
+                        @endif
+                        
+
                     </td>
                 </tr>
                 @endforeach
@@ -113,7 +126,7 @@
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Creator:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="creator" id="creator" value="" class="form-control">
+                            <input type="text"  name="creator" class="form-control" value="{{Auth::user()->name}}" disabled>
                         </div>
                     </div>
                     <div class="form-group row">
