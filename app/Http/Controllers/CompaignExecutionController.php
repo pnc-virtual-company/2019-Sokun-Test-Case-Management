@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\TestStep;
 use App\TestCase;
+use App\Campaign;
 class CompaignExecutionController extends Controller
 {
     public function __construct(){
@@ -74,8 +75,9 @@ class CompaignExecutionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $testCase = TestCase::find($id);
+        $cam_id = $testCase->campaign_id;
+
         $arr = collect([]);
         for($i=0; $i<count($request->id);$i++){
             TestStep::where('id', $request->id[$i])
@@ -99,12 +101,31 @@ class CompaignExecutionController extends Controller
         }  
 
 
-
+        $campaign = Campaign::find($cam_id);
+        $testCases = TestCase::where("campaign_id", $id)->get();
+        $arr2 = collect([]);
+        foreach($testCases as $testCase) {
+            
+            $arr2->push($testCase->status);
+        }
         
-        
+        if(!$arr2->contains(0) && !$arr2->contains(2)){
+            Campaign::where('id', $id)->update(['status'=> 1]);
+        }
+        elseif(!$arr2->contains(1) && !$arr2->contains(2)) {
+            Campaign::where('id', $id)->update(['status'=> 3]); 
+        }
+        elseif($arr2->contains(0)) {
+            Campaign::where('id', $id)->update(['status'=> 0]);
+        }
+        elseif($arr2->contains(2)) {
+            Campaign::where('id', $id)->update(['status'=> 2]);
+        }
 
 
-    
+
+
+
         return redirect('testExecution/'.$id);
     }
 
