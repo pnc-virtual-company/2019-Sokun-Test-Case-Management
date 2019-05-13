@@ -91,10 +91,10 @@ class CompaignExecutionController extends Controller
             TestCase::where('id', $id)->update(['status'=> 1]);
         }
         elseif(!$arr->contains(1) && !$arr->contains(2)) {
-            TestCase::where('id', $id)->update(['status'=> 3]); 
+            TestCase::where('id', $id)->update(['status'=> 0]); 
         }
         elseif($arr->contains(0)) {
-            TestCase::where('id', $id)->update(['status'=> 0]);
+            TestCase::where('id', $id)->update(['status'=> 3]);
         }
         elseif($arr->contains(2)) {
             TestCase::where('id', $id)->update(['status'=> 2]);
@@ -108,15 +108,15 @@ class CompaignExecutionController extends Controller
             
             $arr2->push($testCase->status);
         }
-        
-        if(!$arr2->contains(0) && !$arr2->contains(2)){
+
+        if(!$arr2->contains(0) && !$arr2->contains(2) && !$arr2->contains(3)){
             Campaign::where('id', $id)->update(['status'=> 1]);
         }
-        elseif(!$arr2->contains(1) && !$arr2->contains(2)) {
-            Campaign::where('id', $id)->update(['status'=> 3]); 
+        elseif(!$arr2->contains(1) && !$arr2->contains(2) && !$arr2->contains(3)) {
+            Campaign::where('id', $id)->update(['status'=> 0]); 
         }
-        elseif($arr2->contains(0)) {
-            Campaign::where('id', $id)->update(['status'=> 0]);
+        elseif($arr2->contains(0) || $arr2->contains(3)) {
+            Campaign::where('id', $id)->update(['status'=> 3]);
         }
         elseif($arr2->contains(2)) {
             Campaign::where('id', $id)->update(['status'=> 2]);
