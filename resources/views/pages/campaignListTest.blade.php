@@ -43,7 +43,7 @@
                     <td>
 
 
-                        @if ($value->testSteps()->pluck('status')->isEmpty())
+                        @if ($value->testSteps()->pluck('status')->contains(1))
                             <p style="color:blue;">Not run </p>
                         @elseif($value->testSteps()->pluck('status'))          
                             <p style="color:blue;">Passed </p>

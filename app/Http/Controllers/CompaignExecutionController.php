@@ -74,16 +74,34 @@ class CompaignExecutionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $testExecution = TestCase::find($id);
-         
-         
-
+        
+        $testCase = TestCase::find($id);
+        $arr = collect([]);
         for($i=0; $i<count($request->id);$i++){
             TestStep::where('id', $request->id[$i])
-                ->update(['executed_date' => $request->executed_date[$i],
-                    'status' => $request->status[$i],
-                    'actual_result' => $request->actual_result[$i]]);
+            ->update(['executed_date' => $request->executed_date[$i],
+            'status' => $request->status[$i],
+            'actual_result' => $request->actual_result[$i]]);  
+            $arr->push($request->status[$i]);
         }
+        
+        if(!$arr->contains(0) && !$arr->contains(2)){
+            TestCase::where('id', $id)->update(['status'=> 1]);
+        }
+        elseif(!$arr->contains(1) && !$arr->contains(2)) {
+            TestCase::where('id', $id)->update(['status'=> 3]); 
+        }
+        elseif($arr->contains(0)) {
+            TestCase::where('id', $id)->update(['status'=> 0]);
+        }
+        elseif($arr->contains(2)) {
+            TestCase::where('id', $id)->update(['status'=> 2]);
+        }  
+
+
+
+        
+        
 
 
     
