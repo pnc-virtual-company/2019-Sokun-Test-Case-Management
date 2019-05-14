@@ -51,8 +51,9 @@ class CompaignExecutionController extends Controller
     public function show($id)
     {
         $testExecution = TestCase::find($id);
-        //$testExecution->testSteps;
-        return view('pages.testExecution',compact('testExecution'));
+        $cam_id = $testExecution->campaign_id;
+        $campaign = Campaign::find($cam_id);
+        return view('pages.testExecution',compact('testExecution','campaign'));
     }
 
     /**

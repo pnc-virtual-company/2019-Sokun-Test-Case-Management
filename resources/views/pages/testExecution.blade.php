@@ -11,7 +11,7 @@
         @method("PATCH")
     <div class="container-fluid">
         <h2>List of Test Case Steps </h2>
-        <p>Execution of test {{$testExecution->name}} in Campaign XXX</p>
+    <p>Execution of test {{$testExecution->name}} in Campaign {{$campaign->name}}</p>
         <button  type="submit" class="btn pull-right" style="background:#006df0;color:white; font-weight:600;"><span class="mdi mdi-content-save"></span> Save</button><br><br>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
