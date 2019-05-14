@@ -155,6 +155,7 @@
                     </div>
                     <div class="modal-body">
                         <p>Are you sure you want to remove campaign ?</p>
+                        
                         <p id="deleteTitle"></p>
                     </div>
                     <form action="" id="deleteData" method="POST">

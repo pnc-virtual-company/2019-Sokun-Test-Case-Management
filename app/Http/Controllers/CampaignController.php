@@ -76,6 +76,7 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::Find($id);
         $campaign->update($request->all());
+        alert()->success('Update Success','Campaign has been updated!');
         return redirect('campaign');
     }
 
@@ -89,6 +90,7 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::FindOrFail($id);
         $campaign->delete();
+        alert()->success('Delete Success','Campaign has been deleted!');
         return redirect('campaign');
     }
 }
