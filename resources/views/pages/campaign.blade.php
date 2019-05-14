@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
 @extends('layouts.app')
     @section('content')
+    @include('sweetalert::alert')
 <body>
     <div class="container-fluid">
         <h2>List of Campaign </h2>
