@@ -16,6 +16,7 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Short Description</th>
+                    <th style="width: 108px;">Status</th>
                 </tr>
             </thead>
             @foreach ($campaign as $item)
@@ -33,6 +34,17 @@
                     <td>{{$item->start_date}}</td>
                     <td>{{$item->end_date}}</td>
                     <td>{{$item->description}}</td> 
+                    <td>
+                        @if($item->status == 0)
+                            <input type="text" value="Not Run" disabled class="form-control" style="width: 130px;"> 
+                        @elseif($item->status == 1)
+                            <input type="text" value="Passed" disabled class="form-control" style="width: 130px;"> 
+                        @elseif($item->status == 2)
+                            <input type="text" value="Failed" disabled class="form-control" style="width: 130px;"> 
+                        @elseif($item->status == 3)
+                            <input type="text" value="In Progress" disabled class="form-control" style="width: 130px;"> 
+                        @endif
+                    </td> 
                 </tr>                                
             </tbody>
             @endforeach

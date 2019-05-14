@@ -19,7 +19,7 @@
                     <th>Name</th>
                     <th>Creator</th>
                     <th>Short Description</th>
-                    <th>Status</th>
+                    <th style="width: 108px;">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,18 +38,17 @@
                     </td>
                     <td>{{$value->name}}</td>
                     <td>{{Auth::user()->name}}</td>
-                    <td>{{$value->description}}
-                    </td>
+                    <td>{{$value->description}}</td>
                     <td>
-
-
-                        @if ($value->testSteps()->pluck('status')->contains(1))
-                            <p style="color:blue;">Not run </p>
-                        @elseif($value->testSteps()->pluck('status'))          
-                            <p style="color:blue;">Passed </p>
+                        @if($value->status == 0)
+                            <input type="text" value="Not Run" disabled class="form-control" style="width: 130px;"> 
+                        @elseif($value->status == 1)
+                            <input type="text" value="Passed" disabled class="form-control" style="width: 130px;"> 
+                        @elseif($value->status == 2)
+                            <input type="text" value="Failed" disabled class="form-control" style="width: 130px;"> 
+                        @elseif($value->status == 3)
+                            <input type="text" value="In Progress" disabled class="form-control" style="width: 130px;"> 
                         @endif
-                        
-
                     </td>
                 </tr>
                 @endforeach
