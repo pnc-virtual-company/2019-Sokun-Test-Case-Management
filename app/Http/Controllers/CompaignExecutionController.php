@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\TestStep;
 use App\TestCase;
 use App\Campaign;
+
 class CompaignExecutionController extends Controller
 {
     public function __construct(){
@@ -88,6 +89,7 @@ class CompaignExecutionController extends Controller
             $arr->push($request->status[$i]);
         }
         
+
         if(!$arr->contains(0) && !$arr->contains(2)){
             TestCase::where('id', $id)->update(['status'=> 1]);
         }
@@ -123,10 +125,7 @@ class CompaignExecutionController extends Controller
             Campaign::where('id', $id)->update(['status'=> 2]);
         }
 
-
-
-
-
+        alert()->success('Update Success','Test Step has been update!');
         return redirect('testExecution/'.$id);
     }
 

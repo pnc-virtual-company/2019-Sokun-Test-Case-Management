@@ -39,6 +39,7 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
         $campaign = Campaign::create($request->all());
+        alert()->success('Create Success','Campaign has been created!');
         return redirect('campaign');
     }
 
