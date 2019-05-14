@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Campaign;
+
 
 class DashboardController extends Controller
 {
@@ -14,9 +16,12 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('pages.dashboard');
+        $campaign = Campaign::all();
+        return view('pages.dashboard',compact('campaign'));     
+        // return view('pages.dashboard');
     }
 
     /**
