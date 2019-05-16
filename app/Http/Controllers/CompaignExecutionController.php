@@ -104,8 +104,7 @@ class CompaignExecutionController extends Controller
         }  
 
 
-        $campaign = Campaign::find($cam_id);
-        $testCases = TestCase::where("campaign_id", $id)->get();
+        $testCases = TestCase::where("campaign_id", $cam_id)->get();
         $arr2 = collect([]);
         foreach($testCases as $testCase) {
             
@@ -113,16 +112,16 @@ class CompaignExecutionController extends Controller
         }
 
         if(!$arr2->contains(0) && !$arr2->contains(2) && !$arr2->contains(3)){
-            Campaign::where('id', $id)->update(['status'=> 1]);
+            Campaign::where('id', $cam_id)->update(['status'=> 1]);
         }
         elseif(!$arr2->contains(1) && !$arr2->contains(2) && !$arr2->contains(3)) {
-            Campaign::where('id', $id)->update(['status'=> 0]); 
+            Campaign::where('id', $cam_id)->update(['status'=> 0]); 
         }
         elseif($arr2->contains(0) || $arr2->contains(3)) {
-            Campaign::where('id', $id)->update(['status'=> 3]);
+            Campaign::where('id', $cam_id)->update(['status'=> 3]);
         }
         elseif($arr2->contains(2)) {
-            Campaign::where('id', $id)->update(['status'=> 2]);
+            Campaign::where('id', $cam_id)->update(['status'=> 2]);
         }
 
         alert()->success('Update Success','Test Step has been update!');
