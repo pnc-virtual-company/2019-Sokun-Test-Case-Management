@@ -41,6 +41,11 @@ class testStepController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'action' => 'required',
+            'expected_result' => 'required',
+        ]); 
         $testStep = TestStep::create($request->all());
         alert()->success('Created Success','Test Step has been created!');
         return redirect('testStep/'.$request->test_case_id);
@@ -79,6 +84,11 @@ class testStepController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'action' => 'required',
+            'expected_result' => 'required',
+        ]); 
         $TestStep = TestStep::findOrFail($id);
         $TestStep->update($request->all());
         alert()->success('Update Success','Test Step has been updated!');

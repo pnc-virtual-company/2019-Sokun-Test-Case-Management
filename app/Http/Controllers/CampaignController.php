@@ -39,7 +39,14 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        $messages = ['name.required'=>'This recodes already taken'];
+        $request->validate([
+            'name' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'description'=>'required'
+        ]);
+      
+       $messages = ['name.required'=>'This recodes already taken'];
        $this->validate($request,[
            'name' => 'required|unique:campaigns||min:1',
        ],$messages);
@@ -89,6 +96,12 @@ class CampaignController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'description'=>'required'
+        ]);
         $campaign = Campaign::Find($id);
         $campaign->update($request->all());
         alert()->success('Update Success','Campaign has been updated!');
