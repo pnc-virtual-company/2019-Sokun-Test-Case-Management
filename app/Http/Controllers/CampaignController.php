@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Campaign;
+
 class CampaignController extends Controller
 {
     public function __construct(){
@@ -38,6 +39,20 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = ['name.required'=>'This recodes already taken'];
+       $this->validate($request,[
+           'name' => 'required|unique:campaigns||min:1',
+       ],$messages);
+
+       $campaign = new Campaign;
+       $campaign->name = $request->name;
+       $campaign->start_date = $request->start_date;
+       $campaign->end_date = $request->end_date;
+       $campaign->description = $request->description;
+
+       $campaign->save();
+     
+       return redirect('campaign');
         $campaign = Campaign::create($request->all());
         alert()->success('Create Success','Campaign has been created!');
         return redirect('campaign');
