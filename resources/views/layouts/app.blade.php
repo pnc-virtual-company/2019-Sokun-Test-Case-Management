@@ -51,7 +51,7 @@
 
 </head>
 <body>
-
+    @include('sweetalert::alert')
     <!-- Start Left menu area -->
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">

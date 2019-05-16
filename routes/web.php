@@ -73,3 +73,6 @@ Route::resource('dashboard','DashboardController');
 //upload profile
 Route::GET('/profile', 'UserController@profile1');
 Route::POST('/profile', 'UserController@update_avatar');
+
+Route::get("/chartjs", "DashboardController@Chartjs");
+Route::post('/campaigndata', 'DashboardController@testCase');

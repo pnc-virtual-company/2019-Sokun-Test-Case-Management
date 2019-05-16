@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Campaign;
+
 class CampaignController extends Controller
 {
     public function __construct(){
@@ -44,7 +45,23 @@ class CampaignController extends Controller
             'end_date' => 'required',
             'description'=>'required'
         ]);
+      
+       $messages = ['name.required'=>'This recodes already taken'];
+       $this->validate($request,[
+           'name' => 'required|unique:campaigns||min:1',
+       ],$messages);
+
+       $campaign = new Campaign;
+       $campaign->name = $request->name;
+       $campaign->start_date = $request->start_date;
+       $campaign->end_date = $request->end_date;
+       $campaign->description = $request->description;
+
+       $campaign->save();
+     
+       return redirect('campaign');
         $campaign = Campaign::create($request->all());
+        alert()->success('Create Success','Campaign has been created!');
         return redirect('campaign');
     }
 
@@ -87,6 +104,7 @@ class CampaignController extends Controller
         ]);
         $campaign = Campaign::Find($id);
         $campaign->update($request->all());
+        alert()->success('Update Success','Campaign has been updated!');
         return redirect('campaign');
     }
 
@@ -100,6 +118,7 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::FindOrFail($id);
         $campaign->delete();
+        alert()->success('Delete Success','Campaign has been deleted!');
         return redirect('campaign');
     }
 }

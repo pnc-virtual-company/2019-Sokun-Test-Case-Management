@@ -4,10 +4,16 @@
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
 @extends('layouts.app')
     @section('content')
+    @include('sweetalert::alert')
 <body>
     <div class="container-fluid">
         <h2>List of Campaign </h2>
         <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" data-toggle="modal" data-target="#createModal"><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a> Create Campaign</button>
+        @if (Session::has('message'))
+
+            <div class="alert alert-info">{{ Session::get('message') }}</div>
+
+        @endif
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -16,6 +22,7 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Short Description</th>
+                    <th style="width: 108px;">Status</th>
                 </tr>
             </thead>
             @foreach ($campaign as $item)
@@ -33,6 +40,17 @@
                     <td>{{$item->start_date}}</td>
                     <td>{{$item->end_date}}</td>
                     <td>{{$item->description}}</td> 
+                    <td>
+                        @if($item->status == 0)
+                            <input type="text" value="Not Run" disabled class="form-control" style="width: 130px;"> 
+                        @elseif($item->status == 1)
+                            <input type="text" value="Passed" disabled class="form-control" style="width: 130px;"> 
+                        @elseif($item->status == 2)
+                            <input type="text" value="Failed" disabled class="form-control" style="width: 130px;"> 
+                        @elseif($item->status == 3)
+                            <input type="text" value="In Progress" disabled class="form-control" style="width: 130px;"> 
+                        @endif
+                    </td> 
                 </tr>                                
             </tbody>
             @endforeach
@@ -177,12 +195,7 @@
             $('#datepicker2').datepicker({
             uiLibrary: 'bootstrap'
         });
-            $('.start_date').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-            $('.end_date').datepicker({
-            uiLibrary: 'bootstrap'
-        });
+            
         });
 
         $('#updateModal').on('show.bs.modal', function (event) {
@@ -194,8 +207,7 @@
         var description = button.data('description')
         var modal = $(this)
         modal.find('#name').attr('value',name)
-        modal.find('#start_date').attr('value',startdate)
-        modal.find('#end_date').attr('value',enddate)
+       
         modal.find('#description').attr('value',description)
         
         var url = "{{url('campaign')}}/"+id;
