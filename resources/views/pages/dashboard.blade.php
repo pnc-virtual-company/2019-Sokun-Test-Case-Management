@@ -11,10 +11,10 @@
                         <h2> Campaign Status</h2>
                     </div>
                     <div class="panel-body bg-info">
-                        <select style="width: 250px;height:50px; background:blue;color:white; font-weight:500px;" class="optionCampaign form-control " id="sel1">
-                            <option>Task Management System</option>
-                            <option>Students Seletion Application</option>
-                            <option>Test Case Management System</option>
+                        <select id="campaign" name="campaign" style="width: 250px;height:50px; background:blue;color:white; font-weight:500px;" class="optionCampaign form-control " id="sel1">
+                            @foreach ($campaign as $value)
+                                <option value="{{$value->id}} ">{{$value->name}} </option>
+                            @endforeach
                         </select>
                         <div class="flot-chart">
                             <canvas id="pie-chart"  width="500px" height="400px"></canvas>
@@ -45,7 +45,11 @@
 @endsection
 @push('scripts')
     <script>
-        $(function() {
+
+    $(function(){
+        
+        
+        function initPieChart(datas){
             //Pie Chart
             new Chart(document.getElementById("pie-chart"), {
                 type: 'pie',
@@ -54,10 +58,8 @@
                     datasets: [{
                     // label: "Population (millions)",
                     backgroundColor: ["#255CEF", "#E74722","#F39544"],
-                    data: [40,25,30],
+                    data: datas,
                     }],
-                    value: [10,20,30],
-                    // labels: ["Passed", "Failed", "Not Run"]
                 },
                 options: {
                     title: {
@@ -66,18 +68,19 @@
                     }
                 }
             });
-        });
+        }
+        function initBarChart(barTitle, barData){
             // Bar Chart
             new Chart(document.getElementById("bar-chart"), {
                 type: 'bar',
                 data: {
                                 
-                    labels: [ "<?php foreach($campaign as $value){ echo ($value->name).",";} ?>"],
+                    labels: barTitle,
                     datasets: [
                     {
                         
                         backgroundColor: ["#255CEF", "#E74722","#255CEF","#F39544","#255CEF"],
-                        data: [1,10,20,30,40]
+                        data: barData
                     }
                     ]
                 },
@@ -89,5 +92,37 @@
                 }
             }
         });
+        }
+
+        $("#campaign").change(function(){
+            setupPieChart();
+        });
+
+        function setupPieChart(){
+            var campaignId = $('#campaign option:selected').val();   
+            var url = "{{ url('/campaigndata')}}";
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {_token: "{{csrf_token()}}",id:campaignId},
+                success: function(data) {
+                    initPieChart(data['pie']);
+
+                },
+                error: function(data) {
+                    alert('errors');
+                }
+                
+            });
+        }
+
+        setupPieChart();
+        var barTitle = {!!json_encode($barTitle)!!};
+        var barData = {!!json_encode($barData)!!};
+        initBarChart(barTitle, barData); 
+
+
+    });
     </script>
 @endpush

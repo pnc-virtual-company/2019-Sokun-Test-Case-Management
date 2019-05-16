@@ -118,20 +118,20 @@
                         <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                         <div class="col-sm-9">
                                 <input type="hidden" value="{{$campaign->id}} " name="campaign_id" class="form-control">
-                        <input type="text" name="name" value="" id="name" class="form-control" autofocus>
+                                <input type="text" name="name" value="" id="name" class="form-control" autofocus required>
                         </div>
                     </div>
                     
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Creator:</label>
                         <div class="col-sm-9">
-                            <input type="text"  name="creator" class="form-control" value="{{Auth::user()->name}}" disabled>
+                            <input type="text" name="creator" id="creator" value="" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Description:</label>
                         <div class="col-sm-9">
-                        <input type="text" name="description" id="description" value="" class="form-control">
+                        <input type="text" name="description" id="description" value="" class="form-control" required>
                         </div>
                     </div>
             </div>

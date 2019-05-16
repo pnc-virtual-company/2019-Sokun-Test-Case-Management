@@ -16,17 +16,17 @@
 
                         <div class="form-group">
                             <label for="name">@lang('Name')</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">@lang('Email')</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
+                            <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="txtPassword">@lang('Password')</label>
-                            <input type="password" class="form-control" id="password" name="password">
+                            <input type="password" class="form-control" id="password" name="password" required>
                         </div>
 
                         <div class="form-group">
@@ -38,7 +38,7 @@
                             </select>
                         </div>
 
-                        <input type="submit" class="btn btn-primary" value="Save" />
+                        <input type="submit" class="btn btn-primary" value="Save" required />
                     </form>
                 </div>
             </div>

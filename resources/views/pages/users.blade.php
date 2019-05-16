@@ -73,7 +73,7 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
-                                <input type="text" class="form-control" autofocus>
+                                <input type="text" class="form-control" autofocus required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -85,7 +85,7 @@
                                                 <label for="#" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
                                             </div>
                                             <div class="col-md-7">
-                                            <input type="text" id="datepicker" width="170px">
+                                            <input type="text" id="datepicker" width="170px" required>
                                         </div>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@
                                                 <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
                                             </div>
                                             <div class="col-md-7">
-                                            <input type="text" id="datepicker2" width="170px">
+                                            <input type="text" id="datepicker2" width="170px" required>
                                         </div>
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
                                 <div class="col-sm-9">
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" required>
                                 </div>
                             </div>
                         </form>
@@ -152,7 +152,7 @@
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                             <div class="col-sm-9">
-                            <input type="text" class="form-control" autofocus>
+                            <input type="text" class="form-control" autofocus required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -164,7 +164,7 @@
                                             <label for="inputPassword" class="col-sm-6" style="margin-right:10%;margin-top:10%" >Start:</label>
                                         </div>
                                         <div class="col-md-7">
-                                        <input id="datepicker" width="170px" autofocus  >
+                                        <input id="datepicker" width="170px" autofocus required >
                                     </div>
                                     </div>
                                 </div>
@@ -174,7 +174,7 @@
                                             <label for="inputPassword" class="col-sm-6" style="margin-left:50%;margin-top:10%">End:</label>
                                         </div>
                                         <div class="col-md-7">
-                                        <input id="datepicker2" width="170px" autofocus  >
+                                        <input id="datepicker2" width="170px" autofocus  required>
                                     </div>
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
                             <div class="col-sm-9">
-                            <input type="password" class="form-control">
+                            <input type="password" class="form-control" required>
                             </div>
                         </div>
                     </form>
