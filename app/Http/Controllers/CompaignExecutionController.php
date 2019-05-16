@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\TestStep;
 use App\TestCase;
+use App\Campaign;
+
 class CompaignExecutionController extends Controller
 {
     public function __construct(){
@@ -50,8 +52,9 @@ class CompaignExecutionController extends Controller
     public function show($id)
     {
         $testExecution = TestCase::find($id);
-        //$testExecution->testSteps;
-        return view('pages.testExecution',compact('testExecution'));
+        $cam_id = $testExecution->campaign_id;
+        $campaign = Campaign::find($cam_id);
+        return view('pages.testExecution',compact('testExecution','campaign'));
     }
 
     /**
@@ -74,77 +77,55 @@ class CompaignExecutionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $testExecution = TestCase::find($id);
-        $testStep = $testExecution->testSteps;
-        // $test = request()->except(['_token']);
+        $testCase = TestCase::find($id);
+        $cam_id = $testCase->campaign_id;
 
-
-        //$testStep->where('id',$test->id)->update($test->all());
-        //dd($request);
-         
+        $arr = collect([]);
         for($i=0; $i<count($request->id);$i++){
             TestStep::where('id', $request->id[$i])
-          ->update(['executed_date' => $request->executed_date[$i],
-                    'status' => $request->status[$i],
-                    'actual_result' => $request->actual_result[$i]]);
+            ->update(['executed_date' => $request->executed_date[$i],
+            'status' => $request->status[$i],
+            'actual_result' => $request->actual_result[$i]]);  
+            $arr->push($request->status[$i]);
         }
+        
+
+        if(!$arr->contains(0) && !$arr->contains(2)){
+            TestCase::where('id', $id)->update(['status'=> 1]);
+        }
+        elseif(!$arr->contains(1) && !$arr->contains(2)) {
+            TestCase::where('id', $id)->update(['status'=> 0]); 
+        }
+        elseif($arr->contains(0)) {
+            TestCase::where('id', $id)->update(['status'=> 3]);
+        }
+        elseif($arr->contains(2)) {
+            TestCase::where('id', $id)->update(['status'=> 2]);
+        }  
+
+
+        $testCases = TestCase::where("campaign_id", $cam_id)->get();
+        $arr2 = collect([]);
+        foreach($testCases as $testCase) {
+            
+            $arr2->push($testCase->status);
+        }
+
+        if(!$arr2->contains(0) && !$arr2->contains(2) && !$arr2->contains(3)){
+            Campaign::where('id', $cam_id)->update(['status'=> 1]);
+        }
+        elseif(!$arr2->contains(1) && !$arr2->contains(2) && !$arr2->contains(3)) {
+            Campaign::where('id', $cam_id)->update(['status'=> 0]); 
+        }
+        elseif($arr2->contains(0) || $arr2->contains(3)) {
+            Campaign::where('id', $cam_id)->update(['status'=> 3]);
+        }
+        elseif($arr2->contains(2)) {
+            Campaign::where('id', $cam_id)->update(['status'=> 2]);
+        }
+
+        alert()->success('Update Success','Test Step has been update!');
         return redirect('testExecution/'.$id);
-        //->update($test->all());
-
-        // $data = $request->all();
-        // $lastid = TestCase::update($data)->id;
-        // if(count($request->executed_date) > 0)
-        // {
-        //     foreach($request->executed_date as $value)
-        //     {
-        //         $data2 = array(
-        //             'id'=>$lastid,
-        //             'executed_date'=>$request->executed_date[$data],
-        //             'status'=>$request->status[$data],
-        //             'actual_result'=>$request->actual_result[$data]
-        //         );
-        //         TestCase::update($data2);
-        //     }
-        // }
-
-
-        // $collection = collect(['id' => $request->id, 
-        //                         'execute_date' => $request->executed_date,
-        //                         'status' => $request->status,
-        //                         'actual_result' => $request->actual_result  
-        // ]);
-        // $collection->toArray();
-
-        
-        //dd(json_encode($testS));
-        //TestStep::update($testS);
-        //dd($collection);
-        
-        // dd($request->executed_date);
-
-        
-        // dd($value->execute_date);
-        // $value->id = $request->id;
-        // $value->execute_date = $request->execute_date;
-        // $value->status = $request->status;
-        // $value->save();
-        // $value->actual_result = $collection->actual_result;
-        //dd($value);
-        //$testStep->fill($value)->save();
-        //$value->update($request->all());
-        //$value = request()->except(['_token']);
-        //$value::where('id', $request->id)->update($test->all());
-        // dd($value);
-        // $value->id = $id;
-        // $value->status = $status;
-        // dd($value->executed_date);
-
-        //$value->update($testS);
-
-        //}
-         
-        
-
     }
 
     /**

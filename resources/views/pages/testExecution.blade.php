@@ -2,16 +2,16 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
+    
 @extends('layouts.app')
     @section('content')
-        
 <body>
     <form action="{{route('testExecution.update',$testExecution->id)}} " method="POST">
         @csrf
         @method("PATCH")
     <div class="container-fluid">
         <h2>List of Test Case Steps </h2>
-        <p>Execution of test {{$testExecution->name}} in Campaign XXX</p>
+    <p>Execution of test {{$testExecution->name}} in Campaign {{$campaign->name}}</p>
         <button  type="submit" class="btn pull-right" style="background:#006df0;color:white; font-weight:600;"><span class="mdi mdi-content-save"></span> Save</button><br><br>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
@@ -20,7 +20,7 @@
                     <th>Name</th>
                     <th>Action</th>
                     <th>Expected Result</th>
-                    <th>Execution Date</th>
+                    <th style="123px;">Execution Date</th>
                     <th>Status</th>
                     <th>Actual Resultt</th>
                 </tr>
@@ -36,24 +36,24 @@
                     <td>{{$value->expected_result}}</td>
                     <td>
                     <input type="hidden" name="id[]" value="{{$value->id}}">
-                        <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]">
+                        <input class="datepicker" style="width:105px;" autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]">
                     </td>
                     <td>
                         <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" name="status[]">
-                            <?php if($value->status == 0) { ?>
+                            @if($value->status == 0)
                                 <option value="0" selected>Not run</option>
                                 <option value="1">Passed</option>
                                 <option value="2">Failed</option>
 
-                            <?php } else if($value->status == 1){ ?>
+                            @elseif($value->status == 1)
                                 <option value="0">Not run</option>
                                 <option value="1" selected>Passed</option>
                                 <option value="2">Failed</option>
-                            <?php } else { ?>
+                            @else
                                 <option value="0">Not run</option>
                                 <option value="1">Passed</option>
                                 <option value="2" selected>Failed</option>
-                            <?php }?>
+                            @endif
                         </select>
                     </td>
                     <td> <input width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control" name="actual_result[]"></td>
@@ -94,12 +94,10 @@
             $('#example').DataTable({
                 colReorder: true
             });
-            $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap'
+            $('.datepicker').datepicker({
+            uiLibrary: 'bootstrap',
+            format: 'dd/mm/yyyy'
         });
-            $('#datepicker2').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-        });
+    });
     </script>
 </body>

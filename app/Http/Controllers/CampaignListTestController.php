@@ -42,6 +42,7 @@ class CampaignListTestController extends Controller
     public function store(Request $request)
     {
         $testCase = TestCase::create($request->all());
+        alert()->success('Create Success','Test Case has been created!');
         return redirect('campaignListTest/'.$request->campaign_id);
     }
 
@@ -54,7 +55,6 @@ class CampaignListTestController extends Controller
     public function show($id)
     {
         $campaign = Campaign::find($id);
-        //$campaign->testCases;
         return view('pages.campaignListTest',compact('campaign'));
     }
 
@@ -70,16 +70,17 @@ class CampaignListTestController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update th$e specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+        * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $testCase = TestCase::findOrFail($id);
         $testCase->update($request->all());
+        alert()->success('Update Success','Test Case has been updated!');
         return redirect('campaignListTest/'.$request->campaign_id);
     }
 
@@ -93,6 +94,7 @@ class CampaignListTestController extends Controller
     {
         $testcase = TestCase::findOrFail($id);
         $testcase->delete();
+        alert()->success('Delete Success','Test Case has been deleted!');
         return redirect('campaignListTest/'.$request->campaign_id);
     }
 }
