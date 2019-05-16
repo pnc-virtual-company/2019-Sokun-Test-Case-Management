@@ -53,26 +53,26 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;" >Name:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control"  name="name" autofocus>
+                                    <input type="text" class="form-control"  name="name" autofocus required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 "  style="margin-top: 10px;" >Start Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" id="datepicker" name="start_date" class="form-control">
+                                        <input type="text" id="datepicker" name="start_date" class="form-control" required>
                                     </div>
                             </div>
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 " style="margin-top: 10px;" >End Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" id="datepicker2" name="end_date" class="form-control">
+                                        <input type="text" id="datepicker2" name="end_date" class="form-control" required>
                                     </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="description" class="form-control">
+                                    <input type="text" name="description" class="form-control" required>
                                 </div>
                             </div>
                     </div>
@@ -100,26 +100,26 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" value="" class="form-control"  name="name" id="name" autofocus>
+                                    <input type="text" value="" class="form-control"  name="name" id="name" autofocus required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 "  style="margin-top: 10px;" >Start Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="" id="start_date" name="start_date" class="form-control">
+                                        <input type="text" value="" id="start_date" name="start_date" class="form-control" required>
                                     </div>
                             </div>
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 " style="margin-top: 10px;" >End Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="" id="end_date" name="end_date" class="form-control">
+                                        <input type="text" value="" id="end_date" name="end_date" class="form-control" required>
                                     </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" value="" name="description" id="description" class="form-control">
+                                    <input type="text" value="" name="description" id="description" class="form-control" required>
                                 </div>
                             </div>
                     </div>

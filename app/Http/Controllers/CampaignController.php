@@ -38,6 +38,12 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'description'=>'required'
+        ]);
         $campaign = Campaign::create($request->all());
         return redirect('campaign');
     }
@@ -73,6 +79,12 @@ class CampaignController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'description'=>'required'
+        ]);
         $campaign = Campaign::Find($id);
         $campaign->update($request->all());
         return redirect('campaign');

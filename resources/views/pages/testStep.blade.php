@@ -50,19 +50,19 @@
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
                                 <input type="hidden" value="{{$testCase->id}} " name="test_case_id" class="form-control">
-                                <input type="text" name="name" class="form-control" autofocus>
+                                <input type="text" name="name" class="form-control" autofocus required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Action:</label>
                                 <div class="col-sm-9">
-                                <input type="text" name="action" class="form-control" autofocus>
+                                <input type="text" name="action" class="form-control" autofocus required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Exspected Result:</label>
                                 <div class="col-sm-9">
-                                <input type="text" name="expected_result" class="form-control" autofocus>
+                                <input type="text" name="expected_result" class="form-control" autofocus required>
                                 </div>
                             </div>
                     </div>
@@ -116,20 +116,20 @@
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
                                 <input type="hidden" value="{{$testCase->id}} " name="test_case_id" class="form-control">
-                                <input type="text" value="" name="name" id="name" class="form-control" autofocus>
+                                <input type="text" value="" name="name" id="name" class="form-control" autofocus required>
                                 <p id="TestStep"></p>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Action:</label>
                                 <div class="col-sm-9">
-                                <input type="text" value="" name="action" id="action" class="form-control" autofocus>
+                                <input type="text" value="" name="action" id="action" class="form-control" autofocus required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Exspected Result:</label>
                                 <div class="col-sm-9">
-                                <input type="text" value="" name="expected_result" id="expected_result" class="form-control" autofocus>
+                                <input type="text" value="" name="expected_result" id="expected_result" class="form-control" autofocus required>
                                 </div>
                             </div>
                     </div>

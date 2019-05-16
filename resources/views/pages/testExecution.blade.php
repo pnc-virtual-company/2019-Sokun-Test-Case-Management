@@ -36,7 +36,7 @@
                     <td>{{$value->expected_result}}</td>
                     <td>
                     <input type="hidden" name="id[]" value="{{$value->id}}">
-                        <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]">
+                        <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" required>
                     </td>
                     <td>
                         <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" name="status[]">
@@ -56,7 +56,7 @@
                             <?php }?>
                         </select>
                     </td>
-                    <td> <input width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control" name="actual_result[]"></td>
+                    <td> <input width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control" name="actual_result[]" required></td>
                 </tr>                 
                 @endforeach
             </tfoot>

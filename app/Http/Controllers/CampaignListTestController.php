@@ -42,6 +42,11 @@ class CampaignListTestController extends Controller
     public function store(Request $request)
     {
         $testCase = TestCase::create($request->all());
+        $request->validate([
+            'name' => 'required',
+            'creator' => 'required',
+            'description' => 'required',
+        ]); 
         return redirect('campaignListTest/'.$request->campaign_id);
     }
 
@@ -78,6 +83,11 @@ class CampaignListTestController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'creator' => 'required',
+            'description' => 'required',
+        ]); 
         $testCase = TestCase::findOrFail($id);
         $testCase->update($request->all());
         return redirect('campaignListTest/'.$request->campaign_id);
