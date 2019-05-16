@@ -11,10 +11,7 @@
                         <h2> Campaign Status</h2>
                     </div>
                     <div class="panel-body bg-info">
-                        <select id="campaign" name="campaign" style="width: 250px;height:50px; background:blue;color:white; font-weight:500px;" class="optionCampaign form-control " id="sel1">
-                            @foreach ($campaign as $value)
-                                <option value="{{$value->id}} ">{{$value->name}} </option>
-                            @endforeach
+                      
                         </select>
                         <div class="flot-chart">
                             <canvas id="pie-chart"  width="500px" height="400px"></canvas>
@@ -94,33 +91,6 @@
         });
         }
 
-        $("#campaign").change(function(){
-            setupPieChart();
-        });
-
-        function setupPieChart(){
-            var campaignId = $('#campaign option:selected').val();   
-            var url = "{{ url('/campaigndata')}}";
-
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: {_token: "{{csrf_token()}}",id:campaignId},
-                success: function(data) {
-                    initPieChart(data['pie']);
-
-                },
-                error: function(data) {
-                    alert('errors');
-                }
-                
-            });
-        }
-
-        setupPieChart();
-        var barTitle = {!!json_encode($barTitle)!!};
-        var barData = {!!json_encode($barData)!!};
-        initBarChart(barTitle, barData); 
 
 
     });

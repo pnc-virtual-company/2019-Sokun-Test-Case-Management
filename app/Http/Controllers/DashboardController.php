@@ -19,38 +19,12 @@ class DashboardController extends Controller
 
     public function testCase(Request $request)
     {
-        // $testCases = TestCase::where('compaign_id', $request->id)->select('*')->get();
-        // $pass = 0;
-        // $fail = 0;
-        // $not_run = 0;
-        // foreach ($testCases as $value){
-        //     if ($value->status==0){
-        //         $not_run = $not_run+1;
-        //     }
-        //     if ($value->status==1){
-        //         $pass = $pass+1;
-        //     }
-        //     if ($value->status==2){
-        //         $fail = $fail+1;
-        //     }
-        // }
-        $dataPie = [90, 90, 1000];
-        $arr['pie'] = $dataPie;
-        return response()->json($arr);
+
     }
     
     public function index()
     {
-        $campaign = Campaign::all();
-        $arr=[];
-        foreach($campaign as $com){
-            $arr[$com->name] = TestCase::where('campaign_id', $com->id)->count('id');
-        }
-        foreach($arr as $key => $value){
-            $barTitle[] = $key;
-            $barData[] = $value;
-        }
-        return view('pages.dashboard',compact(['campaign', 'barTitle', 'barData']));     
+   
     }
 
     /**
