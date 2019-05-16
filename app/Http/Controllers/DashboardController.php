@@ -41,7 +41,16 @@ class DashboardController extends Controller
     
     public function index()
     {
-  
+        $campaign = Campaign::all();
+        $arr=[];
+        foreach($campaign as $com){
+            $arr[$com->name] = TestCase::where('campaign_id', $com->id)->count('id');
+        }
+        foreach($arr as $key => $value){
+            $barTitle[] = $key;
+            $barData[] = $value;
+        }
+        return view('pages.dashboard',compact(['campaign', 'barTitle', 'barData']));  
     }
 
     /**
