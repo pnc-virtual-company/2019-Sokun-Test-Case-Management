@@ -42,6 +42,7 @@ class testStepController extends Controller
     public function store(Request $request)
     {
         $testStep = TestStep::create($request->all());
+        alert()->success('Created Success','Test Step has been created!');
         return redirect('testStep/'.$request->test_case_id);
     }
 
@@ -80,6 +81,7 @@ class testStepController extends Controller
     {
         $TestStep = TestStep::findOrFail($id);
         $TestStep->update($request->all());
+        alert()->success('Update Success','Test Step has been updated!');
         return redirect('testStep/'.$request->test_case_id);
     }
 
@@ -93,6 +95,7 @@ class testStepController extends Controller
     {
         $TestStep = TestStep::findOrFail($id);
         $TestStep->delete();
+        alert()->success('Delete Success','Test Step has been deleted!');
         return redirect('testStep/'.$request->test_case_id);
     }
 }

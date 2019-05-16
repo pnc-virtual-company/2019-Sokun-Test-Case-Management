@@ -28,6 +28,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h2>Number of passed test</h2>
+                        
                     </div>
                     <div class="panel-body">
                         <p>The result of number passed test of  campaign </p>
@@ -70,11 +71,12 @@
             new Chart(document.getElementById("bar-chart"), {
                 type: 'bar',
                 data: {
-                    labels: [ "Task Management", "Students Selection","Test Cast Management"],
+                                
+                    labels: [ "<?php foreach($campaign as $value){ echo ($value->name).",";} ?>"],
                     datasets: [
                     {
                         
-                        backgroundColor: ["#255CEF", "#255CEF2","#255CEF"],
+                        backgroundColor: ["#255CEF", "#E74722","#255CEF","#F39544","#255CEF"],
                         data: [1,10,20,30,40]
                     }
                     ]

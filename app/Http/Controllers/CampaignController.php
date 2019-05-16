@@ -51,12 +51,11 @@ class CampaignController extends Controller
        $campaign->description = $request->description;
 
        $campaign->save();
-       if($campaign->save()==false){
-          session::flash('message', "The record is already taken");
-       }
-    
-
+     
        return redirect('campaign');
+        $campaign = Campaign::create($request->all());
+        alert()->success('Create Success','Campaign has been created!');
+        return redirect('campaign');
     }
 
     /**
@@ -92,6 +91,7 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::Find($id);
         $campaign->update($request->all());
+        alert()->success('Update Success','Campaign has been updated!');
         return redirect('campaign');
     }
 
@@ -105,6 +105,7 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::FindOrFail($id);
         $campaign->delete();
+        alert()->success('Delete Success','Campaign has been deleted!');
         return redirect('campaign');
     }
 }
