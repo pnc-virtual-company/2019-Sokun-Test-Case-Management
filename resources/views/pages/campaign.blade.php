@@ -8,6 +8,11 @@
     <div class="container-fluid">
         <h2>List of Campaign </h2>
         <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" data-toggle="modal" data-target="#createModal"><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a> Create Campaign</button>
+        @if (Session::has('message'))
+
+            <div class="alert alert-info">{{ Session::get('message') }}</div>
+
+        @endif
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -106,13 +111,13 @@
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 "  style="margin-top: 10px;" >Start Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="" id="start_date" name="start_date" class="form-control">
+                                        <input type="date" value="2013-01-08" id="start_date" name="start_date" class="form-control">
                                     </div>
                             </div>
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 " style="margin-top: 10px;" >End Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="" id="end_date" name="end_date" class="form-control">
+                                        <input type="date" value="" id="end_date" name="end_date" class="form-control">
                                     </div>
                             </div>
 
@@ -177,12 +182,7 @@
             $('#datepicker2').datepicker({
             uiLibrary: 'bootstrap'
         });
-            $('.start_date').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-            $('.end_date').datepicker({
-            uiLibrary: 'bootstrap'
-        });
+            
         });
 
         $('#updateModal').on('show.bs.modal', function (event) {
@@ -194,8 +194,7 @@
         var description = button.data('description')
         var modal = $(this)
         modal.find('#name').attr('value',name)
-        modal.find('#start_date').attr('value',startdate)
-        modal.find('#end_date').attr('value',enddate)
+       
         modal.find('#description').attr('value',description)
         
         var url = "{{url('campaign')}}/"+id;
