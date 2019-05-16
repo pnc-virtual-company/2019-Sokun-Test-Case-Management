@@ -124,13 +124,13 @@
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 "  style="margin-top: 10px;" >Start Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="" id="start_date" name="start_date" class="form-control" required>
+                                        <input type="date" value="03/20/2019" id="start_date" name="start_date" class="form-control" required>
                                     </div>
                             </div>
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 " style="margin-top: 10px;" >End Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="" id="end_date" name="end_date" class="form-control" required>
+                                        <input type="date" value="" id="end_date" name="end_date" class="form-control" required>
                                     </div>
                             </div>
 
@@ -224,5 +224,10 @@
         var url = "{{url('campaign/')}}/"+id;
         $("#fDelete").attr('action',url);
   });
+
+ 
+document.getElementById('start_date').value = moment().format('YYYY-MM-DD');
+document.getElementById('end_date').value = moment().format('YYYY-MM-DD');
+
     </script>
 </body>
