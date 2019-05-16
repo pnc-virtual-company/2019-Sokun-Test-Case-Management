@@ -104,7 +104,6 @@ class CompaignExecutionController extends Controller
         }  
 
 
-       
         $testCases = TestCase::where("campaign_id", $cam_id)->get();
         $arr2 = collect([]);
         foreach($testCases as $testCase) {
