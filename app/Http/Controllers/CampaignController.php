@@ -39,6 +39,7 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = ['name.required'=>'This recodes already taken'];
         $request->validate([
             'name' => 'required',
             'start_date' => 'required',
