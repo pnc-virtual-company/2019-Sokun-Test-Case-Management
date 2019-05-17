@@ -22,7 +22,7 @@
                     <th>Expected Result</th>
                     <th style="123px;">Execution Date</th>
                     <th>Status</th>
-                    <th>Actual Resultt</th>
+                    <th>Actual Result</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,8 +36,10 @@
                     <td>{{$value->expected_result}}</td>
                     <td>
                     <input type="hidden" name="id[]" value="{{$value->id}}">
-                        <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" required>
-
+                        <input id="flatpickr_range" class="flatpickr form-control" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" required>
+                        <a class="input-button" title="toggle" data-toggle>
+                            <i class="icon-calendar"></i>   
+                        </a>
                     </td>
                     <td>
                         <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" name="status[]">
@@ -91,17 +93,15 @@
     <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>
    
     <script>
+
         $(document).ready(function () {
+            flatpickr("#flatpickr_range", {
+                dateFormat: "d/m/Y",
+            });
+
             $('#example').DataTable({
                 colReorder: true
             });
-            $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap',
-            format: 'dd/mm/yyyy'
-        });
-
-        $('#sandbox-container .input-group.date').datepicker({
-});
     });
     </script>
 </body>
