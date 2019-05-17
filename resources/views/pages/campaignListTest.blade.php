@@ -123,11 +123,11 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Creator:</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="creator" id="creator" value="" class="form-control" required>
+                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Creator:</label>
+                            <div class="col-sm-9">
+                                <input type="text"  name="creator" class="form-control" value="{{Auth::user()->name}}" disabled>
+                            </div>
                         </div>
-                    </div>
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Description:</label>
                         <div class="col-sm-9">

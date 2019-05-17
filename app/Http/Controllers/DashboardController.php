@@ -34,7 +34,7 @@ class DashboardController extends Controller
         //         $fail = $fail+1;
         //     }
         // }
-        $dataPie = [90, 90, 1000];
+        $dataPie = [90, 90, 100];
         $arr['pie'] = $dataPie;
         return response()->json($arr);
     }

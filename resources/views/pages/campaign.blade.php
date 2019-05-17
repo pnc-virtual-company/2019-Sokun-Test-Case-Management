@@ -186,6 +186,12 @@
     <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>
     <script>
         $(document).ready(function () {
+            flatpickr("#start_date", {
+                dateFormat: "d/m/Y",
+            });
+            flatpickr("#end_date", {
+                dateFormat: "d/m/Y",
+            });
             $('#example').DataTable({
                 colReorder: true
             });
