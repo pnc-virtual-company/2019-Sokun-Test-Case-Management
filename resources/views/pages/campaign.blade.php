@@ -124,7 +124,7 @@
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 "  style="margin-top: 10px;" >Start Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="" id="start_date" name="start_date" class="form-control" required>
+                                        <input class="form-control" type="text" value="" id="start_date" name="start_date"  required>
                                     </div>
                             </div>
                             <div class="form-group row">
@@ -208,6 +208,8 @@
         var modal = $(this)
         modal.find('#name').attr('value',name)
        
+        modal.find('#start_date').attr('value',startdate)
+        modal.find('#end_date').attr('value',enddate)
         modal.find('#description').attr('value',description)
         
         var url = "{{url('campaign')}}/"+id;
