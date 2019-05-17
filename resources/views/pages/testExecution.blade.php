@@ -37,6 +37,7 @@
                     <td>
                     <input type="hidden" name="id[]" value="{{$value->id}}">
                         <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" required>
+
                     </td>
                     <td>
                         <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" name="status[]">
@@ -94,10 +95,13 @@
             $('#example').DataTable({
                 colReorder: true
             });
-            $('.datepicker').datepicker({
+            $('#datepicker').datepicker({
             uiLibrary: 'bootstrap',
             format: 'dd/mm/yyyy'
         });
+
+        $('#sandbox-container .input-group.date').datepicker({
+});
     });
     </script>
 </body>

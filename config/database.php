@@ -45,7 +45,7 @@ return [
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', '2019vc2gc'),
             'username' => env('DB_USERNAME', '2019vc2gc'),
-            'password' => env('DB_PASSWORD', ''),
+            'password' => env('DB_PASSWORD', '2019vc2gc'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
