@@ -124,7 +124,7 @@
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 "  style="margin-top: 10px;" >Start Date:</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" value="" id="start_date" name="start_date"  required
+                                        <input class="form-control" type="text" value="" id="start_date" name="start_date"  required>
                                     </div>
                             </div>
                             <div class="form-group row">
