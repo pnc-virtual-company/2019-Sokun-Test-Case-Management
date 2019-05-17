@@ -130,7 +130,7 @@
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 " style="margin-top: 10px;" >End Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="" id="end_date" name="end_date" class="form-control" required>
+                                        <input type="date" value="" id="end_date" name="end_date" class="form-control" required>
                                     </div>
                             </div>
 
@@ -186,6 +186,12 @@
     <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>
     <script>
         $(document).ready(function () {
+            flatpickr("#start_date", {
+                dateFormat: "d/m/Y",
+            });
+            flatpickr("#end_date", {
+                dateFormat: "d/m/Y",
+            });
             $('#example').DataTable({
                 colReorder: true
             });
@@ -226,5 +232,10 @@
         var url = "{{url('campaign/')}}/"+id;
         $("#fDelete").attr('action',url);
   });
+
+ 
+document.getElementById('start_date').value = moment().format('YYYY-MM-DD');
+document.getElementById('end_date').value = moment().format('YYYY-MM-DD');
+
     </script>
 </body>
