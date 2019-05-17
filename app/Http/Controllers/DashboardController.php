@@ -37,85 +37,26 @@ class DashboardController extends Controller
         $dataPie = [90, 90, 1000];
         $arr['pie'] = $dataPie;
         return response()->json($arr);
+
     }
     
     public function index()
     {
         $campaign = Campaign::all();
+        // dd($campaign);
         $arr=[];
         foreach($campaign as $com){
+            // dd($com);
             $arr[$com->name] = TestCase::where('campaign_id', $com->id)->count('id');
+            // dd($arr);
         }
         foreach($arr as $key => $value){
             $barTitle[] = $key;
+            // dd($key);
             $barData[] = $value;
+            // dd($value);
         }
         return view('pages.dashboard',compact(['campaign', 'barTitle', 'barData']));  
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+  
 }
