@@ -8,9 +8,12 @@
 <body>
     <div class="container-fluid">
     <h2>List of test in {{$campaign->name}}</h2>
-            <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;"
-                data-toggle="modal" 
-                data-target="#createModal"><i class="mdi mdi-plus-circle"  aria-hidden="true"></i> Add Test Case
+   
+    <a href="{{route('campaign.index')}}" class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-height:35;" 
+    data-toggle="tooltip" data-placement="top" title="Back to campaign"><h5><span class="mdi mdi-chevron-left text-info mdi-24px"  ></span> Back to campaign</h5></a>
+            <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;font-height:35;"
+                data-toggle="modal" data-toggle="tooltip" data-placement="top" title="Add test case"
+                data-target="#createModal"  ><i class="mdi mdi-plus-circle mdi-24px"  aria-hidden="true" ></i> Add Test Case
             </button>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
@@ -54,7 +57,7 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="{{route('campaign.index')}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign</h5></a>
+        
         
     </div>
     @endsection

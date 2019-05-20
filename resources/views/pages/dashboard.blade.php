@@ -70,6 +70,8 @@
             });
         }
         function initBarChart(barTitle, barData){
+
+            
             // Bar Chart
             new Chart(document.getElementById("bar-chart"), {
                 type: 'bar',

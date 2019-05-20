@@ -19,22 +19,22 @@ class DashboardController extends Controller
 
     public function testCase(Request $request)
     {
-        // $testCases = TestCase::where('compaign_id', $request->id)->select('*')->get();
-        // $pass = 0;
-        // $fail = 0;
-        // $not_run = 0;
-        // foreach ($testCases as $value){
-        //     if ($value->status==0){
-        //         $not_run = $not_run+1;
-        //     }
-        //     if ($value->status==1){
-        //         $pass = $pass+1;
-        //     }
-        //     if ($value->status==2){
-        //         $fail = $fail+1;
-        //     }
-        // }
-        $dataPie = [90, 90, 1000];
+        $testCases = TestCase::where('compaign_id', $request->id)->select('*')->get();
+        $pass = 0;
+        $fail = 0;
+        $not_run = 0;
+        foreach ($testCases as $value){
+            if ($value->status==0){
+                $not_run = $not_run+1;
+            }
+            if ($value->status==1){
+                $pass = $pass+1;
+            }
+            if ($value->status==2){
+                $fail = $fail+1;
+            }
+        }
+        $dataPie = [$pass, $fail, $not_run];
         $arr['pie'] = $dataPie;
         return response()->json($arr);
     }
