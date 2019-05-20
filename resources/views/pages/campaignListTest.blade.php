@@ -9,7 +9,7 @@
     <div class="container-fluid">
     <h2>List of test in {{$campaign->name}}</h2>
    
-    <a href="{{route('campaign.index')}}" class="btn" style="background:#006df0; color:white;margin-bottom:5px; font-height:15;" data-toggle="tooltip" data-placement="top" title="Back to campaign"><h5><span class="mdi mdi-chevron-left text-info mdi-10px"></span> Back to campaign</h5></a>
+    <a href="{{route('campaign.index')}}" class="btn" style="background:#006df0; color:white;margin-bottom:10px; font-height:10;" data-toggle="tooltip" data-placement="top" title="Back to campaign"><h5><span class="mdi mdi-chevron-left text-info mdi-5px"></span> Back to campaign</h5></a>
 
     <button class="btn" style="background:#006df0; color:white;margin-bottom:5px; font-weight:600;font-height:20;"
                 data-toggle="modal" 
@@ -34,8 +34,8 @@
                         <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$value->id}}" data-name="{{$value->name}}" data-creator="{{$value->creator}}" data-description="{{$value->description}}" ><i class="mdi mdi-pencil text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="edit test"></i></a>
                     
                         <a href="" aria-hidden="true" data-id="{{$value->id}}"  data-name="{{$value->name}}" data-toggle="modal" data-target="#deleteModal" ><i class="mdi mdi-delete text-info" style="color:red;" data-toggle="tooltip" data-placement="top" title="delete test "></i></a>
-                        <a href="{{url('testExecution')}}/{{$value->id}}"><i class="mdi mdi-play text-info"  aria-hidden="true"  data-toggle="tooltip" data-placement="top" title="list test cases"></i></a>
-                        <a href=""><i class="mdi  mdi-rewind text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="excecuteion"></i></a>
+                        <a href="{{url('testExecution')}}/{{$value->id}}"><i class="mdi mdi-play text-info"  aria-hidden="true"  data-toggle="tooltip" data-placement="top" title="test excecution"></i></a>
+                        <a href=""><i class="mdi  mdi-rewind text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="excecuted"></i></a>
                         <a href="{{url('testStep')}}/{{$value->id}}" ><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="list test steps"></i></a> 
                     <span>{{$value->id}}</span>
                     </td>
