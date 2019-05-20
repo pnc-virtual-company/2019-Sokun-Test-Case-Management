@@ -210,7 +210,11 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{asset('js/gijgo.min.js')}} "></script>
-   
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+  //<![CDATA[
+          bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+    //]]>
+    </script>
 
 
 </body>
