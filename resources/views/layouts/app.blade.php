@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
 
 </head>
+
 <body>
     @include('sweetalert::alert')
     <!-- Start Left menu area -->
@@ -70,7 +71,7 @@
                         @auth
                         @if(Auth::user()->roles->pluck('name')->implode(', ')=="Administrator")
                         <li class="active">
-                            <a class="has-arrow" href="index.html">
+                            <a class="has-arrow" href="">
 								   <span class="mdi mdi-account icon-wrap"></span>
 								   <span class="mini-click-non">User Management</span>
 								</a>
@@ -185,6 +186,20 @@
     </div>
 
     @stack('scripts')
+
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+  //<![CDATA[
+    bkLib.onDomLoaded(function() {
+              new nicEditor().panelInstance('area1');
+              new nicEditor().panelInstance('area2');
+             
+        });
+    //]]>
+    </script>
+
+    <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script> -->
+
     <script src="{{ asset('js/flatpickr.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
@@ -210,12 +225,8 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{asset('js/gijgo.min.js')}} "></script>
-    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
-  //<![CDATA[
-          bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-    //]]>
-    </script>
-
+    
+    
 
 </body>
 
