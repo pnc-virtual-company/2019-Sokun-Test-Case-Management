@@ -34,7 +34,7 @@
                     </td>
                     <td>{{$value->name}}</td>
                     <td>{{$value->action}} </td>
-                    <td> <textarea name="area1" cols="40">{{$value->expected_result}}</textarea></td>
+                    <td> <textarea id="area1" cols="40">{{$value->expected_result}}</textarea></td>
                     <td>
                     <input type="hidden" name="id[]" value="{{$value->id}}">
                         <input id="flatpickr_range" class="flatpickr form-control" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" required>
@@ -60,7 +60,7 @@
                             @endif
                         </select>
                     </td>
-                    <td><textarea name="actual_result[]" name="area1" cols="40">{{$value->actual_result}}</textarea> </td>
+                    <td><textarea id="area2" name="actual_result[]"  cols="40">{{$value->actual_result}}</textarea> </td>
                 </tr>                 
                 @endforeach
             </tfoot>
@@ -104,5 +104,8 @@ D
                 colReorder: true
             });
     });
+    $(function(){
+    $("textarea").htmlarea();
+});
     </script>
 </body>
