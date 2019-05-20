@@ -186,7 +186,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer-copy-right">
-                            <p>Copyright © 2019. All rights reserved. Sokun Test Case Management</a></p>
+                            <p>Sokun Test Case Management</a></p>
                         </div>
                     </div>
                 </div>

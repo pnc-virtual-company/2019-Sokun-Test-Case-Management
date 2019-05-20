@@ -7,7 +7,7 @@
         
 <body>
     <div class="container-fluid">
-    <h2>List of test in {{$campaign->name}}</h2>
+    <h2>List of tests in <span style="color:grey;" >{{$campaign->name}}</span></h2>
             <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;"
                 data-toggle="modal" 
                 data-target="#createModal"><i class="mdi mdi-plus-circle"  aria-hidden="true"></i> Add Test Case

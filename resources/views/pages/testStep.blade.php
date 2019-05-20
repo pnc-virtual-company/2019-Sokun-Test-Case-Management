@@ -6,7 +6,7 @@
     @section('content')
 <body>
     <div class="container-fluid">
-        @if(!empty($testCase->name)) <h2>List of test step in {{ $testCase->name }} </h2>@endif
+        @if(!empty($testCase->name)) <h2>List of test steps in <span style="color:grey;">{{ $testCase->name }}</span> </h2>@endif
         <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" data-toggle="modal" data-target="#createModal"><a href="#createModal"></a><i class="mdi mdi-plus-circle"  aria-hidden="true"></i>Create Test Step</button>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
