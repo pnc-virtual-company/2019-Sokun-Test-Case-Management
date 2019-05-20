@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Campaign;
 use App\TestCase;
-
+use DB;
 class DashboardController extends Controller
 {
     public function __construct(){
@@ -19,22 +19,34 @@ class DashboardController extends Controller
 
     public function testCase(Request $request)
     {
-        // $testCases = TestCase::where('compaign_id', $request->id)->select('*')->get();
-        // $pass = 0;
-        // $fail = 0;
-        // $not_run = 0;
-        // foreach ($testCases as $value){
-        //     if ($value->status==0){
-        //         $not_run = $not_run+1;
-        //     }
-        //     if ($value->status==1){
-        //         $pass = $pass+1;
-        //     }
-        //     if ($value->status==2){
-        //         $fail = $fail+1;
-        //     }
-        // }
-        $dataPie = [90, 90, 100];
+        // alert($request->id);
+        $testC = TestCase::where('campaign_id', $request->id)->get();
+
+        $not_run = 0;
+        $passed = 0;
+        $failed = 0;
+
+        $arr3 = collect([]);
+        //$arr3 = new Collection();
+        // $arr3->push(1);
+        foreach($testC as $testCase) {
+            
+            $arr3->push($testCase->status);
+        }
+
+        foreach ($arr3 as $value){
+            if ($value == 0){
+                $not_run++;
+            }
+            if ($value == 1){
+                $passed++;
+            }
+            if ($value == 2){
+                $failed++;
+            }
+        }
+
+        $dataPie = [$passed, $failed, $not_run];
         $arr['pie'] = $dataPie;
         return response()->json($arr);
 
@@ -43,19 +55,24 @@ class DashboardController extends Controller
     public function index()
     {
         $campaign = Campaign::all();
-        // dd($campaign);
-        $arr=[];
-        foreach($campaign as $com){
-            // dd($com);
-            $arr[$com->name] = TestCase::where('campaign_id', $com->id)->count('id');
-            // dd($arr);
+        $barData=collect([]);
+
+        foreach($campaign as $cam){
+            $barData->push($cam->testCases()->where('status',1)->count());
         }
-        foreach($arr as $key => $value){
-            $barTitle[] = $key;
-            // dd($key);
-            $barData[] = $value;
-            // dd($value);
-        }
+        
+
+
+        $barTitle = $campaign->pluck('name');
+        // $barData = Campaign::select('id')->groupBy('name')->get()->count();
+
+        // $getData = DB::table('campaigns')
+        //          ->select('id', DB::raw('count(*) as total'))
+        //          ->groupBy('name')
+        //          ->get();
+
+       
+        
         return view('pages.dashboard',compact(['campaign', 'barTitle', 'barData']));  
     }
   
