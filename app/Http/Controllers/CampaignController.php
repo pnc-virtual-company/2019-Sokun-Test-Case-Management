@@ -40,19 +40,13 @@ class CampaignController extends Controller
     public function store(Request $request)
     { 
 
-        $messages = ['name.required'=>'This recodes already taken'];
+      
         $request->validate([
             'name' => 'required',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after:start_date',
             'description'=>'required'
         ]);
-      
-       $messages = ['name.required'=>'This recodes already taken'];
-       $this->validate($request,[
-           'name' => 'required|unique:campaigns||min:1',
-       ],$messages);
-
        $campaign = new Campaign;
        $campaign->name = $request->name;
        $campaign->start_date = $request->start_date;

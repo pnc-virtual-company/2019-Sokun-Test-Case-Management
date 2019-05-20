@@ -69,6 +69,9 @@
                 }
             });
         }
+
+
+        
         function initBarChart(barTitle, barData){
 
             
@@ -95,6 +98,10 @@
             }
         });
         }
+
+
+
+
 
         $("#campaign").change(function(){
             setupPieChart();

@@ -41,11 +41,6 @@ class CampaignListTestController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'creator' => 'required',
-            'description' => 'required',
-        ]); 
         $testCase = TestCase::create($request->all());
         alert()->success('Create Success','Test Case has been created!');
         return redirect('campaignListTest/'.$request->campaign_id);
@@ -82,12 +77,7 @@ class CampaignListTestController extends Controller
         * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required',
-            'creator' => 'required',
-            'description' => 'required',
-        ]); 
+    { 
         $testCase = TestCase::findOrFail($id);
         $testCase->update($request->all());
         alert()->success('Update Success','Test Case has been updated!');

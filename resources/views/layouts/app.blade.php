@@ -11,12 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Sokun</title>
-
-    
-    <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}"l="stylesheet"> --}}
-
-    
+    <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
@@ -38,13 +33,11 @@
     <link rel="stylesheet" href="{{asset('css/responsive.css')}} ">
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}} ">
 
-    
 
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
 
     
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
     <!-- Fonts and Icons -->
     <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
@@ -151,10 +144,6 @@
                                                                     @csrf
                                                                     </form>
                                                         </li>
-
-
-
-
                                                       
                                                     </ul>
                                                 </li>
@@ -196,7 +185,7 @@
     </div>
 
     @stack('scripts')
-
+    <script src="{{ asset('js/flatpickr.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
     <script src="{{ asset('js/jquery-price-slider.js') }}"></script>
