@@ -19,7 +19,6 @@ class DashboardController extends Controller
 
     public function testCase(Request $request)
     {
-        // alert($request->id);
         $testC = TestCase::where('campaign_id', $request->id)->get();
 
         $not_run = 0;
@@ -27,8 +26,6 @@ class DashboardController extends Controller
         $failed = 0;
 
         $arr3 = collect([]);
-        //$arr3 = new Collection();
-        // $arr3->push(1);
         foreach($testC as $testCase) {
             
             $arr3->push($testCase->status);
@@ -61,18 +58,7 @@ class DashboardController extends Controller
             $barData->push($cam->testCases()->where('status',1)->count());
         }
         
-
-
         $barTitle = $campaign->pluck('name');
-        // $barData = Campaign::select('id')->groupBy('name')->get()->count();
-
-        // $getData = DB::table('campaigns')
-        //          ->select('id', DB::raw('count(*) as total'))
-        //          ->groupBy('name')
-        //          ->get();
-
-       
-        
         return view('pages.dashboard',compact(['campaign', 'barTitle', 'barData']));  
     }
   

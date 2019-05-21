@@ -176,7 +176,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer-copy-right">
-                            <p>Sokun Test Case Management</a></p>
+                            <p style="font-weight:600">Sokun Test Case Management</p>
                         </div>
                     </div>
                 </div>

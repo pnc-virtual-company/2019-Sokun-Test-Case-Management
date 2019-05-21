@@ -110,9 +110,8 @@
                 url: url,
                 data: {_token: "{{csrf_token()}}",id:id},
                 success: function(data) {
-                    console.log(JSON.stringify(data))
-                    initPieChart([2,1,1]);
-                    //initPieChart(data['pie']);
+                    // console.log(JSON.stringify(data))
+                    initPieChart(data['pie']);
 
                 },
                 error: function(data) {
