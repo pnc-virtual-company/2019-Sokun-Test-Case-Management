@@ -11,12 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Sokun</title>
-
-    
-    <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}"l="stylesheet"> --}}
-
-    
+    <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
@@ -38,18 +33,17 @@
     <link rel="stylesheet" href="{{asset('css/responsive.css')}} ">
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}} ">
 
-    
 
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
 
     
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
     <!-- Fonts and Icons -->
     <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
 
 </head>
+
 <body>
     @include('sweetalert::alert')
     <!-- Start Left menu area -->
@@ -77,7 +71,7 @@
                         @auth
                         @if(Auth::user()->roles->pluck('name')->implode(', ')=="Administrator")
                         <li class="active">
-                            <a class="has-arrow" href="index.html">
+                            <a class="has-arrow" href="">
 								   <span class="mdi mdi-account icon-wrap"></span>
 								   <span class="mini-click-non">User Management</span>
 								</a>
@@ -151,10 +145,6 @@
                                                                     @csrf
                                                                     </form>
                                                         </li>
-
-
-
-
                                                       
                                                     </ul>
                                                 </li>
@@ -197,6 +187,20 @@
 
     @stack('scripts')
 
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+  //<![CDATA[
+    bkLib.onDomLoaded(function() {
+              new nicEditor().panelInstance('area1');
+              new nicEditor().panelInstance('area2');
+             
+        });
+    //]]>
+    </script>
+
+    <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script> -->
+
+    <script src="{{ asset('js/flatpickr.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
     <script src="{{ asset('js/jquery-price-slider.js') }}"></script>
@@ -221,8 +225,8 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{asset('js/gijgo.min.js')}} "></script>
-   
-
+    
+    
 
 </body>
 

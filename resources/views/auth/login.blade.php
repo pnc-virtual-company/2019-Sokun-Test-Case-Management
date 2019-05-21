@@ -1,4 +1,10 @@
+
+
+
+<?php if(Auth::guest()){ ?>
 {{-- @extends('layouts.app')
+
+
 
 @section('content')
 <div class="container">
@@ -155,8 +161,23 @@
     </div>
   </div>
 
+    
 
 
 </body>
 </html>
+<?php } ?>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+@if($user = Auth::user())
+        <div class="row">
+            <div class="col col-md-3"></div>
+            <div style="margin-top:10%;"  class="col col-md-6">
+                <img style="height:150px; margin-left:38%;" src="{{asset('images/checkmark.png')}}" alt="">
+                 <h1 class="text-center">You are already login!!</h1>
+                 <a style="margin-left:38%; font-weight:600;" href="{{route('campaign.index')}}"><button style="font-weight:600;" class="btn btn-primary">Back to homepage</button></a>
+            </div>
+            <div class="col col-md-3"></div>
+    </div>
 
+ @endif
+    

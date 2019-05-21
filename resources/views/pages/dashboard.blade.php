@@ -47,8 +47,7 @@
     <script>
 
     $(function(){
-        
-        
+         
         function initPieChart(datas){
             //Pie Chart
             new Chart(document.getElementById("pie-chart"), {
@@ -56,7 +55,6 @@
                 data: {   
                     labels: ["Passed", "Failed", "Not Run"],
                     datasets: [{
-                    // label: "Population (millions)",
                     backgroundColor: ["#255CEF", "#E74722","#F39544"],
                     data: datas,
                     }],
@@ -69,7 +67,12 @@
                 }
             });
         }
+
+
+        
         function initBarChart(barTitle, barData){
+
+            
             // Bar Chart
             new Chart(document.getElementById("bar-chart"), {
                 type: 'bar',
@@ -79,7 +82,7 @@
                     datasets: [
                     {
                         
-                        backgroundColor: ["#255CEF", "#E74722","#255CEF","#F39544","#255CEF"],
+                        backgroundColor: "#255CEF",
                         data: barData
                     }
                     ]
@@ -99,19 +102,21 @@
         });
 
         function setupPieChart(){
-            var campaignId = $('#campaign option:selected').val();   
+            var id = $('#campaign option:selected').val();   
             var url = "{{ url('/campaigndata')}}";
 
             $.ajax({
                 type: "POST",
                 url: url,
-                data: {_token: "{{csrf_token()}}",id:campaignId},
+                data: {_token: "{{csrf_token()}}",id:id},
                 success: function(data) {
-                    initPieChart(data['pie']);
+                    console.log(JSON.stringify(data))
+                    initPieChart([2,1,1]);
+                    //initPieChart(data['pie']);
 
                 },
                 error: function(data) {
-                    alert('errors');
+                    alert('error');
                 }
                 
             });

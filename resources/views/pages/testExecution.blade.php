@@ -12,7 +12,8 @@
     <div class="container-fluid">
         <h2>List of Test Case Steps </h2>
     <p>Execution of test {{$testExecution->name}} in Campaign {{$campaign->name}}</p>
-        <button  type="submit" class="btn pull-right" style="background:#006df0;color:white; font-weight:600;"><span class="mdi mdi-content-save"></span> Save</button><br><br>
+    <a href="{{url('campaignListTest')}}/{{$testExecution->campaign_id}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;" data-toggle="tooltip" data-placement="top" title="back to campaign tests"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
+        <button  type="submit" class="btn pull-right" style="background:#006df0;color:white; font-weight:600;" data-toggle="tooltip" data-placement="top" title="save test case"><span class="mdi mdi-content-save"></span> Save</button><br><br>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -22,7 +23,7 @@
                     <th>Expected Result</th>
                     <th style="123px;">Execution Date</th>
                     <th>Status</th>
-                    <th>Actual Resultt</th>
+                    <th>Actual Result</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,10 +34,13 @@
                     </td>
                     <td>{{$value->name}}</td>
                     <td>{{$value->action}} </td>
-                    <td>{{$value->expected_result}}</td>
+                    <td> <textarea id="area1" cols="40">{{$value->expected_result}}</textarea></td>
                     <td>
                     <input type="hidden" name="id[]" value="{{$value->id}}">
-                        <input class="datepicker" style="width:105px;" autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]">
+                        <input id="flatpickr_range" class="flatpickr form-control" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" required>
+                        <a class="input-button" title="toggle" data-toggle>
+                            <i class="icon-calendar"></i>   
+                        </a>
                     </td>
                     <td>
                         <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" name="status[]">
@@ -56,12 +60,12 @@
                             @endif
                         </select>
                     </td>
-                    <td> <input width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control" name="actual_result[]"></td>
+                    <td><textarea id="area2" name="actual_result[]"  cols="40">{{$value->actual_result}}</textarea> </td>
                 </tr>                 
                 @endforeach
             </tfoot>
         </table>
-        <a href="{{url('campaignListTest')}}/{{$testExecution->campaign_id}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
+        
     </div>
     </form>
     @endsection
@@ -90,14 +94,18 @@
     <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>
    
     <script>
+D
         $(document).ready(function () {
+            flatpickr("#flatpickr_range", {
+                dateFormat: "d/m/Y",
+            });
+
             $('#example').DataTable({
                 colReorder: true
             });
-            $('.datepicker').datepicker({
-            uiLibrary: 'bootstrap',
-            format: 'dd/mm/yyyy'
-        });
     });
+    $(function(){
+    $("textarea").htmlarea();
+});
     </script>
 </body>

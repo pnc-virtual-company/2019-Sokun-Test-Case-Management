@@ -42,6 +42,31 @@ class CampaignListTestController extends Controller
     public function store(Request $request)
     {
         $testCase = TestCase::create($request->all());
+        $cam_id = $request->campaign_id;
+
+        $testCases = TestCase::where("campaign_id", $cam_id)->get();
+        $arr = collect([]);
+        foreach($testCases as $testCase) {
+            
+            $arr->push($testCase->status);
+        }
+        
+        
+        if(!$arr->contains(0) && !$arr->contains(2) && !$arr->contains(3)){
+            Campaign::where('id', $cam_id)->update(['status'=> 1]);
+        }
+        elseif(!$arr->contains(1) && !$arr->contains(2) && !$arr->contains(3)) {
+            Campaign::where('id', $cam_id)->update(['status'=> 0]); 
+        }
+        elseif($arr->contains(0) || $arr->contains(3)) {
+            Campaign::where('id', $cam_id)->update(['status'=> 3]);
+        }
+        elseif($arr->contains(2)) {
+            Campaign::where('id', $cam_id)->update(['status'=> 2]);
+        }
+
+
+
         alert()->success('Create Success','Test Case has been created!');
         return redirect('campaignListTest/'.$request->campaign_id);
     }
@@ -77,7 +102,7 @@ class CampaignListTestController extends Controller
         * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    { 
         $testCase = TestCase::findOrFail($id);
         $testCase->update($request->all());
         alert()->success('Update Success','Test Case has been updated!');
@@ -93,7 +118,32 @@ class CampaignListTestController extends Controller
     public function  destroy(Request $request, $id)
     {
         $testcase = TestCase::findOrFail($id);
+        $cam_id = $testcase->campaign_id;
         $testcase->delete();
+
+
+        $testCases = TestCase::where("campaign_id", $cam_id)->get();
+        $arr2 = collect([]);
+        foreach($testCases as $testCase) {
+            
+            $arr2->push($testCase->status);
+        }
+
+
+        if(!$arr2->contains(0) && !$arr2->contains(2) && !$arr2->contains(3)){
+            Campaign::where('id', $cam_id)->update(['status'=> 1]);
+        }
+        elseif(!$arr2->contains(1) && !$arr2->contains(2) && !$arr2->contains(3)) {
+            Campaign::where('id', $cam_id)->update(['status'=> 0]); 
+        }
+        elseif($arr2->contains(0) || $arr2->contains(3)) {
+            Campaign::where('id', $cam_id)->update(['status'=> 3]);
+        }
+        elseif($arr2->contains(2)) {
+            Campaign::where('id', $cam_id)->update(['status'=> 2]);
+        }
+
+
         alert()->success('Delete Success','Test Case has been deleted!');
         return redirect('campaignListTest/'.$request->campaign_id);
     }

@@ -7,8 +7,12 @@
     @include('sweetalert::alert')
 <body>
     <div class="container-fluid">
-        <h2>List of Campaigns </h2>
-        <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" data-toggle="modal" data-target="#createModal"><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a> Create Campaign</button>
+        <h2>List of Campaign </h2>
+        <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" data-toggle="modal" data-target="#createModal" ><i class="mdi mdi-plus-circle"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="create campaign"></i></a> Create Campaign</button>
+        @if (Session::has('message'))
+
+            <div class="alert alert-info">{{ Session::get('message') }}</div>
+        @endif
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -26,9 +30,9 @@
             <tbody>
                 <tr>
                     <td>
-                        <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$item->id}}" data-name="{{$item->name}}" data-startdate="{{$item->start_date}}" data-enddate="{{$item->end_date}}" data-description="{{$item->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                    <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
-                        <a href="{{route('campaignListTest.show',$item->id)}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
+                        <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$item->id}}" data-name="{{$item->name}}" data-startdate="{{$item->start_date}}" data-enddate="{{$item->end_date}}" data-description="{{$item->description}}" ><i class="mdi mdi-pencil text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit campaign"></i></a>
+                    <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info" style="color:red;" data-toggle="tooltip" data-placement="top" title="delete campaign"></i></a>
+                        <a href="{{route('campaignListTest.show',$item->id)}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"  data-toggle="tooltip" data-placement="top" title="list tests"></i></a> 
                         <span>{{$item->id}}</span>
                     </td>
                 <td>{{$item->name}}</td>
@@ -66,26 +70,26 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;" >Name:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control"  name="name" autofocus>
+                                    <input type="text" class="form-control"  name="name" autofocus required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 "  style="margin-top: 10px;" >Start Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" id="datepicker" name="start_date" class="form-control">
+                                        <input type="text" id="datepicker" name="start_date" class="form-control" required>
                                     </div>
                             </div>
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 " style="margin-top: 10px;" >End Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" id="datepicker2" name="end_date" class="form-control">
+                                        <input type="text" id="datepicker2" name="end_date" class="form-control" required>
                                     </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="description" class="form-control">
+                                    <input type="text" name="description" class="form-control" required>
                                 </div>
                             </div>
                     </div>
@@ -113,26 +117,26 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" value="" class="form-control"  name="name" id="name" autofocus>
+                                    <input type="text" value="" class="form-control"  name="name" id="name" autofocus required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 "  style="margin-top: 10px;" >Start Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="" id="start_date" name="start_date" class="form-control">
+                                        <input class="form-control" type="text" value="" id="start_date" name="start_date"  required>
                                     </div>
                             </div>
                             <div class="form-group row">
                                     <label for="#" class="col-sm-3 " style="margin-top: 10px;" >End Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="" id="end_date" name="end_date" class="form-control">
+                                        <input type="date" value="" id="end_date" name="end_date" class="form-control" required>
                                     </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px; ">Description:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" value="" name="description" id="description" class="form-control">
+                                    <input type="text" value="" name="description" id="description" class="form-control" required>
                                 </div>
                             </div>
                     </div>
@@ -181,6 +185,12 @@
     <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>
     <script>
         $(document).ready(function () {
+            flatpickr("#start_date", {
+                dateFormat: "d/m/Y",
+            });
+            flatpickr("#end_date", {
+                dateFormat: "d/m/Y",
+            });
             $('#example').DataTable({
                 colReorder: true
             });
@@ -190,12 +200,7 @@
             $('#datepicker2').datepicker({
             uiLibrary: 'bootstrap'
         });
-            $('.start_date').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-            $('.end_date').datepicker({
-            uiLibrary: 'bootstrap'
-        });
+            
         });
 
         $('#updateModal').on('show.bs.modal', function (event) {
@@ -207,6 +212,7 @@
         var description = button.data('description')
         var modal = $(this)
         modal.find('#name').attr('value',name)
+       
         modal.find('#start_date').attr('value',startdate)
         modal.find('#end_date').attr('value',enddate)
         modal.find('#description').attr('value',description)
@@ -225,5 +231,10 @@
         var url = "{{url('campaign/')}}/"+id;
         $("#fDelete").attr('action',url);
   });
+
+ 
+document.getElementById('start_date').value = moment().format('YYYY-MM-DD');
+document.getElementById('end_date').value = moment().format('YYYY-MM-DD');
+
     </script>
 </body>
