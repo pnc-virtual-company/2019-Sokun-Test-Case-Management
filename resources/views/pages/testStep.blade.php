@@ -6,12 +6,16 @@
     @section('content')
 <body>
     <div class="container-fluid">
-        @if(!empty($testCase->name)) <h2>List of test step in {{ $testCase->name }} </h2>@endif
-        <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" data-toggle="modal" data-target="#createModal"><a href="#createModal"></a><i class="mdi mdi-plus-circle"  aria-hidden="true"></i>Create Test Step</button>
+        @if(!empty($testCase->name)) <h2>List of test step in <span style="color:red;">{{ $testCase->name }}</span> </h2>@endif
+        
+        <div style="margin-bottom:15px;">
+            <a href="{{url('campaignListTest')}}/{{$testCase->campaign_id}}" class="btn" style="background:#006df0; color:white;font-weight:600;" data-toggle="tooltip" data-placement="top" title="back to campaign tests" ><span class="mdi mdi-chevron-left text-white"></span> Back to campaign tests</a>
+            <button class="btn" style="background:#006df0; color:white;font-weight:600; margin-left:5px;" data-toggle="modal" data-target="#createModal"><a href="#createModal" ></a><i class="mdi mdi-plus-circle mdi-22px"  aria-hidden="true"  data-toggle="tooltip" data-placement="top" title="Create Test Step"></i>Create Test Step</button>    
+        </div>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th width="44px">Action</th>
                     <th>Name</th>
                     <th>Action</th>
                     <th>Expected Results</th>
@@ -21,18 +25,18 @@
                     @foreach ($testCase->testSteps as $item)    
                 <tr>
                     <td>
-                    <a href="#" id="editData" data-id="{{$item->id}}" data-name="{{$item->name}}" data-action="{{$item->action}}" data-expectedresult="{{$item->expected_result}}" data-toggle="modal" data-target="#updateModal"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-id="{{$item->id}}" data-title="{{$item->name}}" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
+                    <a href="#" id="editData" data-id="{{$item->id}}" data-name="{{$item->name}}" data-action="{{$item->action}}" data-expectedresult="{{$item->expected_result}}" data-toggle="modal" data-target="#updateModal" ><i class="mdi mdi-pencil text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>
+                        <a href="" aria-hidden="true" data-id="{{$item->id}}" data-title="{{$item->name}}" data-toggle="modal" data-target="#deleteModal" ><i class="mdi mdi-delete text-info" style="color:red;"  data-toggle="tooltip" data-placement="top" title="Delete"></i></a>
                         <span>{{ $item->id }}</span>
                     </td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->action }}</td>
-                    <td>{{ $item->expected_result }}</td>
+                    <td>{{ $item->expected_result}}</td>
                 </tr>               
                 @endforeach
             </tfoot>
         </table>
-        <a href="{{url('campaignListTest')}}/{{$testCase->campaign_id}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
+        
 
     </div>
     @endsection
@@ -43,7 +47,7 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Create New Test Step</h5>
                 </div>
-                <form action="{{action('testStepController@store')}} " method="POST" autocomplete="off">
+                <form action="{{action('testStepController@store')}} " method="POST" autocomplete="off">    
                     @csrf
                     <div class="modal-body">
                             <div class="form-group row">

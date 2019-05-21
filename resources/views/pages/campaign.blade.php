@@ -7,17 +7,16 @@
     @include('sweetalert::alert')
 <body>
     <div class="container-fluid">
-        <h2>List of Campaign </h2>
-        <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" data-toggle="modal" data-target="#createModal"><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a> Create Campaign</button>
+        <h2>List of Campaigns </h2>
+        <button class="btn" style="background:#006df0; color:white;margin-bottom:15px; font-weight:600;" data-toggle="modal" data-target="#createModal" ><i class="mdi mdi-plus-circle"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="create campaign"></i></a> Create Campaign</button>
         @if (Session::has('message'))
 
             <div class="alert alert-info">{{ Session::get('message') }}</div>
-
         @endif
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th width="48px">Action</th>
                     <th>Name</th>
                     <th>Start Date</th>
                     <th>End Date</th>
@@ -27,14 +26,12 @@
             </thead>
             @foreach ($campaign as $item)
                 
-          
             <tbody>
                 <tr>
                     <td>
-                        <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$item->id}}" data-name="{{$item->name}}" data-startdate="{{$item->start_date}}" data-enddate="{{$item->end_date}}" data-description="{{$item->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
-                        <a href="{{route('campaignListTest.show',$item->id)}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
-                        <span>{{$item->id}}</span>
+                        <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$item->id}}" data-name="{{$item->name}}" data-startdate="{{$item->start_date}}" data-enddate="{{$item->end_date}}" data-description="{{$item->description}}" ><i class="mdi mdi-pencil text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>
+                    <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info" style="color:red;" data-toggle="tooltip" data-placement="top" title="Delete"></i></a>
+                        <a href="{{route('campaignListTest.show',$item->id)}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"  data-toggle="tooltip" data-placement="top" title="List of Tests"></i></a> 
                     </td>
                 <td>{{$item->name}}</td>
                     <td>{{$item->start_date}}</td>
@@ -44,11 +41,11 @@
                         @if($item->status == 0)
                             <input type="text" value="Not Run" disabled class="form-control" style="width: 130px;"> 
                         @elseif($item->status == 1)
-                            <input type="text" value="Passed" disabled class="form-control" style="width: 130px;"> 
+                            <input type="text" value="Passed" disabled class="form-control" style="width: 130px; color:green;"> 
                         @elseif($item->status == 2)
-                            <input type="text" value="Failed" disabled class="form-control" style="width: 130px;"> 
+                            <input type="text" value="Failed" disabled class="form-control" style="width: 130px; color:red;"> 
                         @elseif($item->status == 3)
-                            <input type="text" value="In Progress" disabled class="form-control" style="width: 130px;"> 
+                            <input type="text" value="In Progress" disabled class="form-control" style="width: 130px; color:orange;"> 
                         @endif
                     </td> 
                 </tr>                                

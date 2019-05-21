@@ -65,7 +65,10 @@ class CompaignExecutionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $testExecution = TestCase::find($id);
+        $cam_id = $testExecution->campaign_id;
+        $campaign = Campaign::find($cam_id);
+        return view('pages.executed',compact('testExecution','campaign'));
     }
 
     /**

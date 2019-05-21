@@ -7,15 +7,19 @@
         
 <body>
     <div class="container-fluid">
-    <h2>List of test in {{$campaign->name}}</h2>
-            <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;"
-                data-toggle="modal" 
-                data-target="#createModal"><i class="mdi mdi-plus-circle"  aria-hidden="true"></i> Add Test Case
-            </button>
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <h2>List of tests in <span style="color:red;" >{{$campaign->name}}</span></h2>
+   
+    <div style="margin-bottom:15px;">
+        <a href="{{route('campaign.index')}}" class="btn" style="background:#006df0; color:white;font-weight:600;" data-toggle="tooltip" data-placement="top" title="Back to campaign"><span style="font-weight:bold;" class="mdi mdi-chevron-left text-white"></span> Back to campaign</a>
+
+        <button class="btn" style="background:#006df0; color:white;font-weight:600; margin-left:5px;"
+        data-toggle="modal" data-target="#createModal"><i class="mdi mdi-plus-circle mdi-23px"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Add test case" ></i> Add Test Case
+        </button>
+    </div>
+        <table id="example" class="table table-striped table-bordered" style="width:100%;">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th width="74px">Action</th>
                     <th>Name</th>
                     <th>Creator</th>
                     <th>Short Description</th>
@@ -28,13 +32,12 @@
 
                 <tr>
                     <td>
-                        <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$value->id}}" data-name="{{$value->name}}" data-creator="{{$value->creator}}" data-description="{{$value->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                        <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$value->id}}" data-name="{{$value->name}}" data-creator="{{$value->creator}}" data-description="{{$value->description}}" ><i class="mdi mdi-pencil text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>
                     
-                        <a href="" aria-hidden="true" data-id="{{$value->id}}"  data-name="{{$value->name}}" data-toggle="modal" data-target="#deleteModal"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
-                        <a href="{{url('testExecution')}}/{{$value->id}}"><i class="mdi mdi-play text-info"  aria-hidden="true"></i></a>
-                        <a href=""><i class="mdi  mdi-rewind text-info"  aria-hidden="true"></i></a>
-                        <a href="{{url('testStep')}}/{{$value->id}}"><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
-                    <span>{{$value->id}}</span>
+                        <a href="" aria-hidden="true" data-id="{{$value->id}}"  data-name="{{$value->name}}" data-toggle="modal" data-target="#deleteModal" ><i class="mdi mdi-delete text-info" style="color:red;" data-toggle="tooltip" data-placement="top" title="Delete"></i></a>
+                        <a href="{{url('testExecution')}}/{{$value->id}}"><i class="mdi mdi-play text-info"  aria-hidden="true"  data-toggle="tooltip" data-placement="top" title="Exectute"></i></a>
+                        <a href="{{url('testExecution')}}/{{$value->id}}/edit"><i class="mdi  mdi-rewind text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Past Executions"></i></a>
+                        <a href="{{url('testStep')}}/{{$value->id}}" ><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Test Steps"></i></a> 
                     </td>
                     <td>{{$value->name}}</td>
                     <td>{{Auth::user()->name}}</td>
@@ -43,18 +46,18 @@
                         @if($value->status == 0)
                             <input type="text" value="Not Run" disabled class="form-control" style="width: 130px;"> 
                         @elseif($value->status == 1)
-                            <input type="text" value="Passed" disabled class="form-control" style="width: 130px;"> 
+                            <input type="text" value="Passed" disabled class="form-control" style="width: 130px; color:green;"> 
                         @elseif($value->status == 2)
-                            <input type="text" value="Failed" disabled class="form-control" style="width: 130px;"> 
+                            <input type="text" value="Failed" disabled class="form-control" style="width: 130px; color:red;"> 
                         @elseif($value->status == 3)
-                            <input type="text" value="In Progress" disabled class="form-control" style="width: 130px;"> 
+                            <input type="text" value="In Progress" disabled class="form-control" style="width: 130px; color:orange"> 
                         @endif
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-        <a href="{{route('campaign.index')}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign</h5></a>
+        
         
     </div>
     @endsection
@@ -74,8 +77,8 @@
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                         <div class="col-sm-9">
-                            <input type="hidden" value="{{$campaign->id}} " name="campaign_id" class="form-control">
-                            <input type="text" name="name" class="form-control" autofocus required>
+                            <input type="hidden" value="{{$campaign->id}} " name="campaign_id" class="form-control" >
+                            <input type="text" autofocus name="name" class="form-control"  required>
                         </div>
                     </div>
                     <div class="form-group row">

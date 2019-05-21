@@ -1,4 +1,3 @@
-
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
@@ -11,35 +10,31 @@
         @method("PATCH")
     <div class="container-fluid">
         <h2>List of Test Case Steps </h2>
-    <p>Execution of test {{$testExecution->name}} in Campaign {{$campaign->name}}</p>
+        <h4>Execution of test <span style="color:red;">{{$testExecution->name}}</span> in Campaign <span style="color:red;  ">{{$campaign->name}}</span></h4>
+    <a href="{{url('campaignListTest')}}/{{$testExecution->campaign_id}}" class="btn" style="background:#006df0; color:white;font-weight:600;" data-toggle="tooltip" data-placement="top" title="back to campaign tests"><span class="mdi mdi-chevron-left text-white" style="font-weight:600;"></span> Back to campaign tests</a>
         <button  type="submit" class="btn pull-right" style="background:#006df0;color:white; font-weight:600;"><span class="mdi mdi-content-save"></span> Save</button><br><br>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Name</th>
                     <th>Action</th>
                     <th>Expected Result</th>
                     <th style="123px;">Execution Date</th>
                     <th>Status</th>
-                    <th>Actual Result</th>
+                    <th>Actual Resultt</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($testExecution->testSteps as $value)
+                @if ($value->status != 1)
+                    
                 <tr>
-                    <td>
-                    <span> {{$value->id}}</span>
-                    </td>
                     <td>{{$value->name}}</td>
                     <td>{{$value->action}} </td>
                     <td>{{$value->expected_result}}</td>
                     <td>
                     <input type="hidden" name="id[]" value="{{$value->id}}">
-                        <input id="flatpickr_range" class="flatpickr form-control" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" required>
-                        <a class="input-button" title="toggle" data-toggle>
-                            <i class="icon-calendar"></i>   
-                        </a>
+                        <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" required>
                     </td>
                     <td>
                         <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" name="status[]">
@@ -59,12 +54,15 @@
                             @endif
                         </select>
                     </td>
-                    <td> <input width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control" name="actual_result[]" required></td>
+                    <td> 
+                        <input id="froala-editor" width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control" name="actual_result[]" required>
+
+                    </td>
                 </tr>                 
+                @endif
                 @endforeach
             </tfoot>
         </table>
-        <a href="{{url('campaignListTest')}}/{{$testExecution->campaign_id}}" class="btn" style="background:#006df0; color:white; padding:0px 3px; font-weight:600;"><h5><span class="mdi mdi-chevron-left text-info mdi-24px" style="font-weight:600;"></span> Back to campaign tests</h5></a>
     </div>
     </form>
     @endsection
@@ -93,15 +91,19 @@
     <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>
    
     <script>
-
         $(document).ready(function () {
-            flatpickr("#flatpickr_range", {
-                dateFormat: "d/m/Y",
-            });
-
             $('#example').DataTable({
                 colReorder: true
             });
+            $('.datepicker').datepicker({
+            uiLibrary: 'bootstrap',
+            format: 'dd/mm/yyyy'
+        });
+
+        new FroalaEditor('div#froala-editor', {
+            toolbarInline: true,
+            charCounterCount: false
+        })
     });
     </script>
 </body>

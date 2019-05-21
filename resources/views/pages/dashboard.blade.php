@@ -27,11 +27,11 @@
                 <!--  bar Chart-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2>Number of passed test</h2>
+                        <h2>Number of passed tests</h2>
                         
                     </div>
                     <div class="panel-body">
-                        <p>The result of number passed test of  campaign </p>
+                        <p>The number of passed test in each campaign</p>
                         <div class="flot-chart">
                             <canvas id="bar-chart"  width="516px" height="423px"></canvas>
                         </div>
@@ -47,8 +47,7 @@
     <script>
 
     $(function(){
-        
-        
+         
         function initPieChart(datas){
             //Pie Chart
             new Chart(document.getElementById("pie-chart"), {
@@ -56,7 +55,6 @@
                 data: {   
                     labels: ["Passed", "Failed", "Not Run"],
                     datasets: [{
-                    // label: "Population (millions)",
                     backgroundColor: ["#255CEF", "#E74722","#F39544"],
                     data: datas,
                     }],
@@ -73,6 +71,8 @@
 
         
         function initBarChart(barTitle, barData){
+
+            
             // Bar Chart
             new Chart(document.getElementById("bar-chart"), {
                 type: 'bar',
@@ -82,7 +82,7 @@
                     datasets: [
                     {
                         
-                        backgroundColor: ["#255CEF", "#E74722","#255CEF","#F39544","#255CEF"],
+                        backgroundColor: "#255CEF",
                         data: barData
                     }
                     ]
@@ -97,28 +97,25 @@
         });
         }
 
-
-
-
-
         $("#campaign").change(function(){
             setupPieChart();
         });
 
         function setupPieChart(){
-            var campaignId = $('#campaign option:selected').val();   
+            var id = $('#campaign option:selected').val();   
             var url = "{{ url('/campaigndata')}}";
 
             $.ajax({
                 type: "POST",
                 url: url,
-                data: {_token: "{{csrf_token()}}",id:campaignId},
+                data: {_token: "{{csrf_token()}}",id:id},
                 success: function(data) {
+                    // console.log(JSON.stringify(data))
                     initPieChart(data['pie']);
 
                 },
                 error: function(data) {
-                    alert('errors');
+                    alert('error');
                 }
                 
             });
