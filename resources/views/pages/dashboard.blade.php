@@ -27,11 +27,11 @@
                 <!--  bar Chart-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2>Number of passed test</h2>
+                        <h2>Number of passed tests</h2>
                         
                     </div>
                     <div class="panel-body">
-                        <p>The result of number passed test of  campaign </p>
+                        <p>The number of passed test in each campaign</p>
                         <div class="flot-chart">
                             <canvas id="bar-chart"  width="516px" height="423px"></canvas>
                         </div>

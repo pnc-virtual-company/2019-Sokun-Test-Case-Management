@@ -12,7 +12,6 @@
         @if (Session::has('message'))
 
             <div class="alert alert-info">{{ Session::get('message') }}</div>
-
         @endif
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>

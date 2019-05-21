@@ -7,7 +7,7 @@
         
 <body>
     <div class="container-fluid">
-    <h2>List of test in {{$campaign->name}}</h2>
+    <h2>List of tests in <span style="color:grey;" >{{$campaign->name}}</span></h2>
    
     <a href="{{route('campaign.index')}}" class="btn" style="background:#006df0; color:white;margin-bottom:10px; font-height:10;" data-toggle="tooltip" data-placement="top" title="Back to campaign"><h5><span class="mdi mdi-chevron-left text-info mdi-5px"></span> Back to campaign</h5></a>
 
