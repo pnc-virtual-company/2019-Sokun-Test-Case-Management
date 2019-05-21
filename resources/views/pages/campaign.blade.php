@@ -147,8 +147,6 @@
             </div>
           </div>
 
-
-
           <!-- Delete Modal -->
           <div  class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -172,9 +170,7 @@
             </div>
           </div>
     
-              <!-- Modal -->
-     
-
+<!-- Modal -->
 
     <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/jquery-3.3.1.min.js')}} "></script>
