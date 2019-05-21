@@ -32,7 +32,7 @@
                 <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$item->id}}" data-name="{{$item->name}}" data-startdate="{{$item->start_date}}" data-enddate="{{$item->end_date}}" data-description="{{$item->description}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                    <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
+                        <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$item->id}}" data-title="{{$item->name}}"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
                         <a href="{{route('campaignListTest.show',$item->id)}} "><i class="mdi mdi-format-list-bulleted text-info"  aria-hidden="true"></i></a> 
                         <span>{{$item->id}}</span>
                     </td>
@@ -150,8 +150,6 @@
             </div>
           </div>
 
-
-
           <!-- Delete Modal -->
           <div  class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -175,9 +173,7 @@
             </div>
           </div>
     
-              <!-- Modal -->
-     
-
+<!-- Modal -->
 
     <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/jquery-3.3.1.min.js')}} "></script>
