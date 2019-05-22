@@ -31,7 +31,7 @@
                         
                     </div>
                     <div class="panel-body">
-                        <p>The number of passed test in each campaign</p>
+                        <p>The number of passed tests in each campaign</p>
                         <div class="flot-chart">
                             <canvas id="bar-chart"  width="516px" height="423px"></canvas>
                         </div>
@@ -83,7 +83,9 @@
                     {
                         
                         backgroundColor: "#255CEF",
-                        data: barData
+
+                        data: barData,
+                       
                     }
                     ]
                 },
@@ -92,6 +94,15 @@
                     title: {
                     display: true,
                     text: 'The number of tests'
+
+                }, 
+                 scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            callback: function(value) {if (value % 1 === 0) {return value;}}
+                        }
+                    }]
                 }
             }
         });

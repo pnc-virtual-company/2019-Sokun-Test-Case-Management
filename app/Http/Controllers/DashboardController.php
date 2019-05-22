@@ -56,6 +56,7 @@ class DashboardController extends Controller
 
         foreach($campaign as $cam){
             $barData->push($cam->testCases()->where('status',1)->count());
+           
         }
         
         $barTitle = $campaign->pluck('name');
