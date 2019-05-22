@@ -28,8 +28,6 @@
             </thead>
             <tbody>
                 @foreach ($campaign->testCases as $value)
-        
-
                 <tr>
                     <td>
                         <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$value->id}}" data-name="{{$value->name}}" data-creator="{{$value->creator}}" data-description="{{$value->description}}" ><i class="mdi mdi-pencil text-info"  aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>
@@ -56,24 +54,19 @@
                 </tr>
                 @endforeach
             </tbody>
-        </table>
-        
-        
+        </table>   
     </div>
     @endsection
-
-
-
-      <!--Create Test Case Modal -->
+<!--Start create test case-->
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Create Test Case</h5>
-            </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create Test Case</h5>
+                </div>
             <form action="{{action('CampaignListTestController@store')}}" method="POST" autocomplete="off">
             @csrf
-            <div class="modal-body">
+                <div class="modal-body">
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
                         <div class="col-sm-9">
@@ -93,90 +86,83 @@
                             <input type="text" name="description" class="form-control" required>
                         </div>
                     </div>        
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
-                <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> Create</button>
-            </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
+                    <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> Create</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-
-    {{-- End Create Tests Case Modal  --}}
-
-   {{-- Update Create Tests Case Modal  --}}
-   <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- The end create test case  -->
+<!-- Update test case by use modal  -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Update Test Case</h5>
-        </div>
-        <form id="updateForm" method="POST" action="" autocomplete="off">
-            @csrf
-            @method('PATCH')
-        <div class="modal-body">
-               
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
-                        <div class="col-sm-9">
-                                <input type="hidden" value="{{$campaign->id}} " name="campaign_id" class="form-control">
-                                <input type="text" name="name" value="" id="name" class="form-control" autofocus required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Creator:</label>
-                            <div class="col-sm-9">
-                                <input type="text"  name="creator" class="form-control" value="{{Auth::user()->name}}" disabled>
-                            </div>
-                        </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Description:</label>
-                        <div class="col-sm-9">
-                        <input type="text" name="description" id="description" value="" class="form-control" required>
-                        </div>
-                    </div>
+       <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Test Case</h5>
             </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
-            <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi mdi-restore"></span> Update</button>
-        </div>
-    </form>
-      </div>
-    </div>
-  </div>
-      {{-- End Update Tests Case Modal --}}
-
-
-      {{-- Delete  Modal  --}}
-      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Remove Test</h5>
+            <form id="updateForm" method="POST" action="" autocomplete="off">
+                @csrf
+                @method('PATCH')
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Name:</label>
+                    <div class="col-sm-9">
+                            <input type="hidden" value="{{$campaign->id}} " name="campaign_id" class="form-control">
+                            <input type="text" name="name" value="" id="name" class="form-control" autofocus required>
                     </div>
-                    <div class="modal-body">
-                        <p>Are you sure you want to remove campaign ?</p>
-                        
-                        <p id="deleteTitle"></p>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Creator:</label>
+                    <div class="col-sm-9">
+                        <input type="text"  name="creator" class="form-control" value="{{Auth::user()->name}}" disabled>
                     </div>
-                    <form action="" id="deleteData" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <input type="hidden" value="{{$campaign->id}}" name="campaign_id" class="form-control">
-                    <div class="modal-footer">
-                        
-                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
-                        <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> Yes</button>
-                     
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-3 col-form-label" style="margin-top: 10px;">Description:</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="description" id="description" value="" class="form-control" required>
                     </div>
-                </form>
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
+                <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi mdi-restore"></span> Update</button>
+            </div>
+        </form>
         </div>
-
-    {{-- Delete modal --}}
+    </div>
+</div>
+<!--The end update test case by use modal   -->
+<!--Start delete test case by use modal   -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="material-icons">&#xE5CD;</i>
+                </div>	
+                <h4 class="modal-title">Are you sure?</h4>	
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                        <p>Do you really want to delete these records? This process cannot be undone.</p>
+            </div>
+            <form action="" id="deleteData" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" value="{{$campaign->id}}" name="campaign_id" class="form-control">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>     
+<!-- The end of delete test case by use modal -->
     <script src="{{asset('js/jquery-3.3.1.min.js')}} "></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}} "></script>
     <script src="{{asset('js/dataTables.bootstrap.min.js')}} "></script>
