@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
 <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
 
+
+
 @extends('layouts.app')
 @section('content')
 <body>
@@ -19,20 +21,21 @@
                 <th>Name</th>
                 <th>Action</th>
                 <th>Expected Result</th>
-                <th style="123px;">Execution Date</th>
-                <th>Status</th>
+                <th width="110px">Execution Date</th>
+                <th width="73px">Status</th>
                 <th>Actual Resultt</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($testExecution->testSteps as $value)   
+            @foreach ($testExecution->testSteps as $value)             
             <tr>
-                <td>{{$value->name}}</td>
-                <td>{{$value->action}} </td>
-                <td>{{$value->expected_result}}</td>
+                <td style="width:130px">{{$value->name}}</td>
+                <td width="145px">{{$value->action}} </td>
+                <td style="width:165px;">{{$value->expected_result}}</td>
                 <td>
                 <input type="hidden" name="id[]" value="{{$value->id}}">
-                    <input id="datepicker" width="120px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" class="form-control" disabled>
+                    {{-- <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" required> --}}
+                    <input style="width:115px;" class="form-control" type="text" value="{{$value->executed_date}}" id="datepicker" name="executed_date[]" disabled>
                 </td>
                 <td>
                     <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" name="status[]">
@@ -53,8 +56,9 @@
                     </select>
                 </td>
                 <td> 
-                    <input id="froala-editor" width="200px"/ autocomplete="off" value="{{$value->actual_result}}" class="form-control" name="actual_result[]" required>
-
+                    <textarea id="text-editor" name="actual_result[]">
+                        {{$value->actual_result}}
+                    </textarea>
                 </td>
             </tr>                 
             @endforeach
@@ -87,20 +91,16 @@
 <script src="{{asset('js/dataTables.bootstrap.min.js')}} "></script>
 <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>
 
+
 <script>
     $(document).ready(function () {
+        flatpickr("#datepicker", {
+            dateFormat: "d/m/Y",
+        });
         $('#example').DataTable({
             colReorder: true
         });
-        $('.datepicker').datepicker({
-        uiLibrary: 'bootstrap',
-        format: 'dd/mm/yyyy'
-    });
-
-    new FroalaEditor('div#froala-editor', {
-        toolbarInline: true,
-        charCounterCount: false
-    })
+        CKEDITOR.replace( 'text-editor' );
 });
 </script>
 </body>

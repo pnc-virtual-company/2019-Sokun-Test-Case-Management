@@ -5,12 +5,12 @@
 @extends('layouts.app')
     @section('content')
     @include('sweetalert::alert')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <h2>List of users</h2>
             <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" data-toggle="modal" data-target="#createModal"><i class="mdi mdi-plus-circle"  aria-hidden="true"></i></a> Add User</button>
             <a  href="{{url('users/export')}}" download>
-            <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600;" ><i class="mdi mdi-plus-circle"  aria-hidden="true"></i> @lang('Export to Excel')</button></a>
+            <button class="btn" style="background:#006df0; color:white;margin-bottom:20px; font-weight:600; margin-left:5px;" ><i class="mdi mdi-plus-circle"  aria-hidden="true"></i> @lang('Export to Excel')</button></a>
             @if (Session::has('message'))
                 <div class="alert alert-info">{{ Session::get('message') }}</div>
             @endif
@@ -29,10 +29,9 @@
                         <tr>
                             <td>
                             <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
-                            <a href="" aria-hidden="true" data-toggle="modal" data-target="#showModal" title="@lang('view')" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}"><i class="mdi mdi-eye clickable text-success"></i></a>
+                            <a href="" aria-hidden="true" data-toggle="modal" data-target="#showModal" title="@lang('view')" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-role="{{ $user->roles->pluck('name')->implode(', ') }}"><i class="mdi mdi-eye clickable text-success"></i></a>
                             
                             <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$user->id}}" data-title="{{$user->name}}"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
-                               
                                 <span>{{ $user->id }}</span>
                             </td>
                             <td>{!! $user->name !!}</td>
@@ -52,32 +51,32 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Create New User</h5>
                 </div>
-                <form action="{{route('users.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{action('UserController@store')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
                 <div class="modal-body">
                 @csrf
                    {{ csrf_field() }}
                     <div class="form-group row">
                         <label for="name" class="col-sm-3 col-form-label" style="margin-top: 10px;" >Name:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="name" value="{{ old('name') }}" name="name" autofocus required>
+                            <input type="text" class="form-control" name="name" autofocus required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-sm-3 col-form-label" style="margin-top: 10px;" >Email:</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control"  id="email"  value="{{ old('email') }}" name="email" autofocus required>
+                            <input type="email" class="form-control" name="email" required autocomplete="off">
                         </div>
                         </div>
                     <div class="form-group row">
                         <label for="email" class="col-sm-3 col-form-label" style="margin-top: 10px;" >Password:</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control"  id="password" name="password" autofocus required>
+                            <input type="password" class="form-control"  name="password" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label" style="margin-top: 10px;" >Roles:</label>
                         <div class="col-sm-9">
-                            <select class="form-control" id="roles" name="roles[]" >
+                            <select class="form-control" name="roles[]" >
                                 @foreach ($roles as $role)            
                                     <option value="{{ $role->id }}" @if (!empty(old('roles'))) @if(in_array($role->id, old('roles'))) selected @endif @endif>{!! $role->name !!}</option>
                                 @endforeach
@@ -85,6 +84,7 @@
                         </div>
                     </div>
                 </div>
+                
                 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
@@ -102,7 +102,7 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
                 </div>
-                <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data" autocomplete="off">
                     @method('PUT')
                     {{ csrf_field() }}
                 <div class="modal-body">   
@@ -143,7 +143,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Show User</h5> 
+                    <h4 class="modal-title" id="exampleModalLabel">User Information</h4> 
                     
                 </div>
                 <div class="modal-body">
@@ -154,12 +154,11 @@
                         <div class="form-group">
                         <p>@lang('User details')</p>
                             <label for="name">@lang('Name'): {{$user->name}}</label><br>
-                            <label for="email">@lang('Email') : {{$user->email}}</label>
-                            <br>
-                            <label for="roles[]">Roles :</label>
+                            <label for="email">@lang('Email') : {{$user->email}}</label><br>
+                            <label for="roles[]" id="show_role"></label>
                         </div>
                         <div class="form-group">
-                                <a class="btn btn-info text-center" href="{{url('users')}}">@lang('Back to list')</a>
+                                <button type="button" class="btn btn-sm btn-info" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-arrow-left" ></span>Back to list</button>
                         </div>
                 </div>
             </div>
@@ -197,21 +196,9 @@
     <script src="{{asset('js/dataTables.colReorder.min.js')}} "></script>
     <script>
       $(document).ready(function () {
-            flatpickr("#start_date", {
-                dateFormat: "d/m/Y",
-            });
-            flatpickr("#end_date", {
-                dateFormat: "d/m/Y",
-            });
             $('#example').DataTable({
                 colReorder: true
             });
-            $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap'
-        });
-            $('#datepicker2').datepicker({
-            uiLibrary: 'bootstrap'
-        });
             
         });
 
@@ -236,13 +223,10 @@
         $('#showModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var id = button.data('id')
-        var name = button.data('name')
-        var email = button.data('email')
-        var password = button.data('passwod')
+        var role = button.data('role')
+
         var modal = $(this)
-        modal.find('#name').attr('value',name)
-        modal.find('#email').attr('value',email)
-        modal.find('#password').attr('value',password)
+        modal.find('#show_role').text("Role : " +role)
         var url = "{{url('users')}}/"+id;
         $('#showForm').attr('action',url);
         });

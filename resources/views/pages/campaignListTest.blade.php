@@ -19,7 +19,7 @@
         <table id="example" class="table table-striped table-bordered" style="width:100%;">
             <thead>
                 <tr>
-                    <th width="74px">Action</th>
+                    <th width="80px">Action</th>
                     <th>Name</th>
                     <th>Creator</th>
                     <th>Short Description</th>
@@ -44,7 +44,7 @@
                     <td>{{$value->description}}</td>
                     <td>
                         @if($value->status == 0)
-                            <input type="text" value="Not Run" disabled class="form-control" style="width: 130px;"> 
+                            <input type="text" value="Not Run" disabled class="form-control" style="width: 130px; color:grey;"> 
                         @elseif($value->status == 1)
                             <input type="text" value="Passed" disabled class="form-control" style="width: 130px; color:green;"> 
                         @elseif($value->status == 2)

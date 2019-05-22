@@ -39,7 +39,7 @@
                     <td>{{$item->description}}</td> 
                     <td>
                         @if($item->status == 0)
-                            <input type="text" value="Not Run" disabled class="form-control" style="width: 130px;"> 
+                            <input type="text" value="Not Run" disabled class="form-control" style="width: 130px; color:grey;"> 
                         @elseif($item->status == 1)
                             <input type="text" value="Passed" disabled class="form-control" style="width: 130px; color:green;"> 
                         @elseif($item->status == 2)
