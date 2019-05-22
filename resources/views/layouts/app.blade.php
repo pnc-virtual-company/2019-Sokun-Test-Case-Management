@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}} ">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}} ">
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/modal.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/icon.css')}} ">
 
 
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>

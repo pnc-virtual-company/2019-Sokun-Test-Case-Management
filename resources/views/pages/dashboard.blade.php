@@ -83,8 +83,7 @@
                     {
                         
                         backgroundColor: "#255CEF",
-
-                        data: barData,
+                        data: barData
                        
                     }
                     ]
@@ -94,7 +93,6 @@
                     title: {
                     display: true,
                     text: 'The number of tests'
-
                 }, 
                  scales: {
                     yAxes: [{
@@ -107,11 +105,9 @@
             }
         });
         }
-
         $("#campaign").change(function(){
             setupPieChart();
         });
-
         function setupPieChart(){
             var id = $('#campaign option:selected').val();   
             var url = "{{ url('/campaigndata')}}";
@@ -131,7 +127,6 @@
                 
             });
         }
-
         setupPieChart();
         var barTitle = {!!json_encode($barTitle)!!};
         var barData = {!!json_encode($barData)!!};

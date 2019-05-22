@@ -166,27 +166,30 @@
     </div>
     <!-- the end show user by use modal -->
     <!-- start delete user by modal -->
-    <div  class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Delete User</h5>
-                </div>
-                <div class="modal-body">
-                    <h5>Are you sure you want to remove user ?</h5><p id="title" style="color:red;"></p>
-                </div>
-                <form  id="fDelete" action="" method="POST" autocomplete="off">
-                    @csrf
-                    @method('DELETE')
-                    
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
-                    <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> OK</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
+<div  class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+                <div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>	
+				<h4 class="modal-title">Are you sure?</h4>	
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<p>Do you really want to delete these records? This process cannot be undone.</p>
+			</div>
+            <form  id="fDelete" action="" method="POST" autocomplete="off">
+            @csrf
+            @method('DELETE')
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+				<button type="submit" class="btn btn-danger">Delete</button>
+			</div>
+            </form>
+		</div>
+	</div>
+</div>     
     <!-- the end of delete user by use modal -->
 
     <script src="{{asset('js/app.js')}}"></script>
