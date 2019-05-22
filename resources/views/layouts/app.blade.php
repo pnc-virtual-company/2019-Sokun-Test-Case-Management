@@ -199,7 +199,7 @@
 
     <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
     <script>tinymce.init({selector:'textarea'});</script> -->
-
+    
     <script src="{{ asset('js/flatpickr.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
@@ -225,7 +225,7 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{asset('js/gijgo.min.js')}} "></script>
-    
+    <script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}} "></script>
     
 
 </body>
