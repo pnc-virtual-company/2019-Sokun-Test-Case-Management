@@ -68,6 +68,7 @@ Route::resource('campaign', "CampaignController");
 Route::resource('campaignListTest', "CampaignListTestController");
 Route::resource('testStep',"testStepController");
 Route::resource('testExecution','CompaignExecutionController');
+Route::resource('testExecuted', 'TestExecutedController');
 Route::resource('calendar','fullcalenderController');
 Route::resource('dashboard','DashboardController');
 
