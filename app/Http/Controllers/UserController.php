@@ -14,9 +14,6 @@ use App\User;
 use App\Role;
 use \App\Post;
 use Image;
-
-
-
 class UserController extends Controller
 {
     /**
@@ -48,28 +45,14 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-       
+        $request->user()->authorizeRoles(['Administrator']);
         $users = User::with('roles')->get();
         $roles = Role::all();
         // dd($roles);
     
         return view('users.index', ['users' => $users, 'roles' => $roles]);    
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        // $request->user()->authorizeRoles(['Administrator']);
-        // $roles = Role::all();
-        //dd($roles);
-        // return view('users.create', ['roles' => $roles]);
     }
 
     /**
@@ -106,12 +89,7 @@ class UserController extends Controller
             $user->password = bcrypt(Input::get('password'));
             $user->save();
             $user->roles()->attach(Input::get('roles'));
-            
-            
-            // redirect
-            Session::flash('message.level', 'success');
-            Session::flash('message.content', __('The user was successfully created'));
-
+            alert()->success('Create Success','User has been created!');
             return redirect(route('users.index'));
         }
     }
@@ -130,23 +108,6 @@ class UserController extends Controller
         $user->roleIds = $user->roles->pluck('id')->toArray();
         $roles = Role::all();
         return view('users.show', ['user' => $user, 'roles' => $roles]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Request $request, $id)
-    {
-        $request->user()->authorizeRoles(['Administrator']);
-        
-        $user = User::find($id);
-        $user->roleIds = $user->roles->pluck('id')->toArray();
-        $roles = Role::all();
-        return view('users.edit', ['user' => $user, 'roles' => $roles]);
     }
 
     /**
@@ -178,11 +139,8 @@ class UserController extends Controller
             $user->email = Input::get('email');
             $user->save();
             $user->roles()->sync(Input::get('roles'));
-            
-            // redirect
-            Session::flash('message.level', 'success');
-            Session::flash('message.content', __('The user was successfully updated'));
-            return Redirect::to('users');
+            alert()->success('Update Success','User has been updated!');
+            return redirect(route('users.index'));
         }
     }
 
@@ -197,6 +155,7 @@ class UserController extends Controller
         $request->user()->authorizeRoles(['Administrator']);
         $user = User::find($id);
         $user->delete();
+        alert()->success('Delete Success','User has been deleted!');
         return redirect(route('users.index'));
     }
 

@@ -208,7 +208,6 @@
         modal.find('#start_date').attr('value',startdate)
         modal.find('#end_date').attr('value',enddate)
         modal.find('#description').attr('value',description)
-        
         var url = "{{url('campaign')}}/"+id;
         $('#updateForm').attr('action',url);
         });
@@ -227,6 +226,5 @@
  
 document.getElementById('start_date').value = moment().format('YYYY-MM-DD');
 document.getElementById('end_date').value = moment().format('YYYY-MM-DD');
-
     </script>
 </body>

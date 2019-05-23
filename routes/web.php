@@ -77,3 +77,5 @@ Route::POST('/profile', 'UserController@update_avatar');
 
 Route::get("/chartjs", "DashboardController@Chartjs");
 Route::post('/campaigndata', 'DashboardController@testCase');
+
+Route::get('users/index','UserController@index');

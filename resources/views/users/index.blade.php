@@ -28,7 +28,7 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>
-                            <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
+                            <a href="" data-toggle="modal" data-target="#updateModal" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}"  data-password="{{$user->password}}"><i class="mdi mdi-pencil text-info"  aria-hidden="true"></i></a>
                             <a href="" aria-hidden="true" data-toggle="modal" data-target="#showModal" title="@lang('view')" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-role="{{ $user->roles->pluck('name')->implode(', ') }}"><i class="mdi mdi-eye clickable text-success"></i></a>
                             
                             <a href="" aria-hidden="true" data-toggle="modal" data-target="#deleteModal" data-id="{{$user->id}}" data-title="{{$user->name}}"><i class="mdi mdi-delete text-info" style="color:red;"></i></a>
@@ -84,8 +84,6 @@
                         </div>
                     </div>
                 </div>
-                
-                
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
                     <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> Create</button> 
@@ -102,7 +100,7 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
                 </div>
-                <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data" autocomplete="off">
+                <form action="" id="updateForm" method="POST" enctype="multipart/form-data" autocomplete="off">
                     @method('PUT')
                     {{ csrf_field() }}
                 <div class="modal-body">   
@@ -122,8 +120,11 @@
                         <label for="roles[]" class="col-sm-3 col-form-label" style="margin-top: 10px;" >Roles:</label>
                         <div class="col-sm-9">
                             <select class="form-control" id="roles" name="roles[]" multiple size="3" >
-                                @foreach ($roles as $role)            
-                                    <option value="{{ $role->id }}" @if (!empty(old('roles'))) @if(in_array($role->id, old('roles'))) selected @endif @endif>{!! $role->name !!}</option>
+                                @foreach ($roles as $role)
+
+                                           
+                                     <option value="{{ $role->id}} selected" @if (!empty(old('roles'))) @if(in_array($role->id, old('roles'))) selected @endif @endif> {!! $role->name !!}</option>
+                                   
                                 @endforeach
                             </select>
                         </div>
