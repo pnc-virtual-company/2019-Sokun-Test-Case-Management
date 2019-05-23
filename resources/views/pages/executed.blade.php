@@ -2,16 +2,20 @@
 <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}} ">
 <link rel="stylesheet" href="{{asset('css/colReorder.bootstrap.min.css')}} ">
 
-
+<style> 
+    .inpt-no-clickable {
+        pointer-events: none;
+    }
+</style>
 
 @extends('layouts.app')
 @section('content')
 <body>
-<form action="{{route('testExecution.update',$testExecution->id)}} " method="POST">
+<form action="{{route('testExecuted.update',$testExecution->id)}} " method="POST">
     @csrf
     @method("PATCH")
 <div class="container-fluid">
-    <h2>List of Test Case Steps </h2>
+    <h2>List of Test Case Steps Executed</h2>
     <h4>Execution of test <span style="color:red;">{{$testExecution->name}}</span> in Campaign <span style="color:red;  ">{{$campaign->name}}</span></h4>
 <a href="{{url('campaignListTest')}}/{{$testExecution->campaign_id}}" class="btn" style="background:#006df0; color:white;font-weight:600;" data-toggle="tooltip" data-placement="top" title="back to campaign tests"><span class="mdi mdi-chevron-left text-white" style="font-weight:600;"></span> Back to campaign tests</a>
     <button  type="submit" class="btn pull-right" style="background:#006df0;color:white; font-weight:600;"><span class="mdi mdi-content-save"></span> Save</button><br><br>
@@ -34,8 +38,12 @@
                 <td style="width:165px;">{{$value->expected_result}}</td>
                 <td>
                 <input type="hidden" name="id[]" value="{{$value->id}}">
-                    {{-- <input id="datepicker" width="200px"/ autocomplete="off" value="{{$value->executed_date}} " name="executed_date[]" required> --}}
-                    <input style="width:115px;" class="form-control" type="text" value="{{$value->executed_date}}" id="datepicker" name="executed_date[]" disabled>
+                    @if ($value->status == 0 || $value->status == 2) 
+                        <input  id="datepicker{{$value->id}}" style="width:115px;" class="form-control" type="text" value="{{$value->executed_date}}" name="executed_date[]">
+                    @else
+                    <input  style="width:115px;" class="form-control inpt-no-clickable" type="text" value="{{$value->executed_date}}" name="executed_date[]">
+                    @endif
+
                 </td>
                 <td>
                     <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" name="status[]">
@@ -56,7 +64,7 @@
                     </select>
                 </td>
                 <td> 
-                    <textarea id="text-editor" name="actual_result[]">
+                    <textarea id="text-editor{{$value->id}}" name="actual_result[]" class="form-control">
                         {{$value->actual_result}}
                     </textarea>
                 </td>
@@ -68,24 +76,6 @@
 </form>
 @endsection
 
-<!--Delete Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Remove Test</h5>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure that you want to remove the test from compaign?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" style="font-width: 600px;"><span class="mdi mdi-close-circle" ></span> Cancel</button>
-                <button type="submit" class="btn btn-sm btn-primary" style="font-width: 600px;"><span class="mdi  mdi-checkbox-marked-circle-outline"></span> Yes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <script src="{{asset('js/jquery-3.3.1.min.js')}} "></script>
 <script src="{{asset('js/jquery.dataTables.min.js')}} "></script>
 <script src="{{asset('js/dataTables.bootstrap.min.js')}} "></script>
@@ -94,13 +84,25 @@
 
 <script>
     $(document).ready(function () {
+        var id = [{{ $testExecution->testSteps()->pluck('id')->implode(',') }}];
+        
+
         flatpickr("#datepicker", {
             dateFormat: "d/m/Y",
         });
         $('#example').DataTable({
             colReorder: true
         });
-        CKEDITOR.replace( 'text-editor' );
+
+
+        for(var i=0; i< id.length; i++){
+        CKEDITOR.replace( 'text-editor'+id[i]);
+        $('#datepicker'+id[i]).datepicker({
+            uiLibrary: 'bootstrap',
+            format: "dd/mm/yyyy"
+        });
+        }
+        
 });
 </script>
 </body>

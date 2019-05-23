@@ -202,6 +202,8 @@
             $('#example').DataTable({
                 colReorder: true
             });
+
+            
             
         });
 
