@@ -6,12 +6,8 @@ use Illuminate\Http\Request;
 use App\TestStep;
 use App\TestCase;
 use App\Campaign;
-
-class CompaignExecutionController extends Controller
+class TestExecutedController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +15,7 @@ class CompaignExecutionController extends Controller
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -53,11 +49,9 @@ class CompaignExecutionController extends Controller
     {
         $testExecution = TestCase::find($id);
         $cam_id = $testExecution->campaign_id;
-        $campaign = Campaign::find($cam_id);
-        $test = $testExecution->testSteps->whereIn('status',[0,2]);
-       
 
-        return view('pages.testExecution',compact('test','testExecution','campaign'));
+        $campaign = Campaign::find($cam_id);
+        return view('pages.executed',compact('testExecution','campaign'));
     }
 
     /**
@@ -68,11 +62,7 @@ class CompaignExecutionController extends Controller
      */
     public function edit($id)
     {
-        $testExecution = TestCase::find($id);
-        $cam_id = $testExecution->campaign_id;
         
-        $campaign = Campaign::find($cam_id);
-        return view('pages.executed',compact('testExecution','campaign'));
     }
 
     /**
@@ -132,7 +122,7 @@ class CompaignExecutionController extends Controller
         }
 
         alert()->success('Update Success','Test Step has been update!');
-        return redirect('testExecution/'.$id);
+        return redirect('testExecuted/'.$id);
     }
 
     /**
