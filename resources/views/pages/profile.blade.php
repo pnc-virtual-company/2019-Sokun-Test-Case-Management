@@ -20,3 +20,5 @@
     </div>
 </div>
 @endsection
+
+<!-- delete it after you get better with you code about user upload -->

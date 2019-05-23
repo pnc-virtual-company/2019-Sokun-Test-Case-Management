@@ -226,3 +226,4 @@ class UserController extends Controller
         return view('pages.profile',array('user'=>Auth::user()));
     }
 }
+// delete this message after you get better with your about this upload user problem
