@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}} ">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}} ">
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/modal.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/icon.css')}} ">
 
 
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
@@ -176,7 +178,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer-copy-right">
-                            <p>Copyright © 2019. All rights reserved. Sokun Test Case Management</a></p>
+                            <p style="font-weight:600">Sokun Test Case Management</p>
                         </div>
                     </div>
                 </div>
@@ -199,7 +201,7 @@
 
     <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
     <script>tinymce.init({selector:'textarea'});</script> -->
-
+    
     <script src="{{ asset('js/flatpickr.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
@@ -225,7 +227,7 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{asset('js/gijgo.min.js')}} "></script>
-    
+    <script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}} "></script>
     
 
 </body>

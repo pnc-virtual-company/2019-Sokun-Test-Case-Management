@@ -15,6 +15,8 @@ use App\Role;
 use \App\Post;
 use Image;
 
+
+
 class UserController extends Controller
 {
     /**
@@ -46,12 +48,14 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $request->user()->authorizeRoles(['Administrator']);
+       
         $users = User::with('roles')->get();
-        return view('users.index', ['users' => $users]);
-        
+        $roles = Role::all();
+        // dd($roles);
+    
+        return view('users.index', ['users' => $users, 'roles' => $roles]);    
     }
 
     /**
@@ -62,9 +66,10 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        $request->user()->authorizeRoles(['Administrator']);
-        $roles = Role::all();
-        return view('users.create', ['roles' => $roles]);
+        // $request->user()->authorizeRoles(['Administrator']);
+        // $roles = Role::all();
+        //dd($roles);
+        // return view('users.create', ['roles' => $roles]);
     }
 
     /**
@@ -89,22 +94,25 @@ class UserController extends Controller
 
         // process the validation of fields
         if ($validator->fails()) {
-            return Redirect::to('users/create')
+            return Redirect::to('users/index')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
             // store the new user and attach roles to it
             $user = new User;
+            $user->name = Input::get('id');
             $user->name = Input::get('name');
             $user->email = Input::get('email');
             $user->password = bcrypt(Input::get('password'));
             $user->save();
             $user->roles()->attach(Input::get('roles'));
             
+            
             // redirect
             Session::flash('message.level', 'success');
             Session::flash('message.content', __('The user was successfully created'));
-            return Redirect::to('users');
+
+            return redirect(route('users.index'));
         }
     }
 
@@ -134,6 +142,7 @@ class UserController extends Controller
     public function edit(Request $request, $id)
     {
         $request->user()->authorizeRoles(['Administrator']);
+        
         $user = User::find($id);
         $user->roleIds = $user->roles->pluck('id')->toArray();
         $roles = Role::all();
@@ -188,6 +197,7 @@ class UserController extends Controller
         $request->user()->authorizeRoles(['Administrator']);
         $user = User::find($id);
         $user->delete();
+        return redirect(route('users.index'));
     }
 
     /**
