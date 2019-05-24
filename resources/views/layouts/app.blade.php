@@ -111,8 +111,10 @@
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
                                             <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-													<i class="educate-icon educate-nav"></i>
-												</button>
+
+                                                <i class="mdi mdi-chevron-left" id="open" style="font-size: 1.5em;padding:15px"></i>
+                                                <i class="mdi mdi-chevron-right" id="close" style="font-size: 1.5em; display:none;padding:15px;"></i>
+												                    </button>
                                         </div>
                                     </div>
                                     
@@ -199,7 +201,26 @@
     //]]>
     </script>
 
+       <script>
+
+$(function () {
+    $('#open').click(function () {
+        $('#open').hide();
+        $('#close').show();
+    });
+    $('#close').click(function () {
+        $('#open').show();
+        $('#close').hide();
+    })
+});
+</script>
+
     <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+    
+
+
+    <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+
     <script>tinymce.init({selector:'textarea'});</script> -->
     
     <script src="{{ asset('js/flatpickr.js') }}"></script>
