@@ -58,7 +58,7 @@
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
-                        <li class="active"> 
+                        <li class="active">
                             <a class="has-arrow" href="index.html">
 								   <span class="mdi mdi-home icon-wrap"></span>
 								   <span class="mini-click-non">Test Management</span>
@@ -110,10 +110,10 @@
                                 <div class="row">
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
-                                            <button type="button" id="sidebarCollapse" class=" btn btn-sm bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
                                                 <i class="mdi mdi-chevron-left" id="open" style="font-size: 1.5em;padding:15px"></i>
                                                 <i class="mdi mdi-chevron-right" id="close" style="font-size: 1.5em; display:none;padding:15px;"></i>
-                                            </button>
+												</button>
                                         </div>
                                     </div>
                                     
@@ -199,38 +199,23 @@
         });
     //]]>
     </script>
+       <script>
+
+$(function () {
+    $('#open').click(function () {
+        $('#open').hide();
+        $('#close').show();
+    });
+    $('#close').click(function () {
+        $('#open').show();
+        $('#close').hide();
+    })
+});
+</script>
 
     <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
-    <script>tinymce.init({selector:'textarea'});</script> -->
-    <script>
-
-    $(function() {
-        $('#open').click(function() {
-            $('#open').hide();
-            $('#close').show();
-        });
-        $('#close').click(function() {
-            $('#open').show();
-            $('#close').hide();
-        })
-    });
     
-    // function hideShow(){
-    //     var i = 1;
-    //     var close = document.getElementById("close");
-    //     var open = document.getElementById("open");
-    //     if(i = 1) {
-    //         close.classList.remove("hide");
-    //         open.classList.add("hide");
-    //         i = 0;
-    //     }else{
-    //         // close.classList.add("hide");
-    //         open.classList.remove("hide");
-    //         i = 1;
-    //     }
-    // }
-        
-    </script>
+    <script>tinymce.init({selector:'textarea'});</script> -->
     
     <script src="{{ asset('js/flatpickr.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
